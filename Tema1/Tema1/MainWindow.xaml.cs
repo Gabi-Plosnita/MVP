@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Tema1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         EnglishDictionary englishDictionary { get; set; }
@@ -29,6 +26,18 @@ namespace Tema1
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
             englishDictionary.Method();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Word word = new Word();
+            word.Name = "adsa";
+            word.Description = "das";
+            word.Category = "das";
+
+
+            WordWindow secondWindow = new WordWindow(word);
+            secondWindow.Show();
         }
     }
 }
