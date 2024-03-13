@@ -39,5 +39,13 @@ namespace Tema1
             WordWindow secondWindow = new WordWindow(word);
             secondWindow.Show();
         }
+
+        private List<string> allWords = new List<string> { "Apple", "Banana", "Orange", "Car", "Dog", "Cat", "Elephant", "Giraffe", "Horse", "adsa", "affff" };
+        private void searchComboBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            string searchText = searchComboBox.Text.ToLower() + e.Text.ToLower();
+            List<string> suggestions = allWords.Where(w => w.ToLower().StartsWith(searchText)).Take(5).ToList();
+            searchComboBox.ItemsSource = suggestions;
+        }
     }
 }
