@@ -1,14 +1,56 @@
 ﻿[
   {
-    "Name": "Apple",
-    "Description": "A round fruit which can be red, green and yellow.",
+    "Name": "Banana",
+    "Description": "A yellow fruit with a peel.",
     "Category": "Fruit",
-    "Image": "apple.jpg"
+    "Image": "banana.jpg"
   },
   {
-    "Name": "Car",
-    "Description": "A vehicle with 4 wheels",
+    "Name": "Orange",
+    "Description": "A round fruit with orange color.",
+    "Category": "Fruit",
+    "Image": "orange.jpg"
+  },
+  {
+    "Name": "Grape",
+    "Description": "A small fruit usually found in bunches.",
+    "Category": "Fruit",
+    "Image": "grape.jpg"
+  },
+  {
+    "Name": "Bicycle",
+    "Description": "A two-wheeled vehicle powered by pedals.",
     "Category": "Transportation",
-    "Image": "car.jpg"
+    "Image": "bicycle.jpg"
+  },
+  {
+    "Name": "Train",
+    "Description": "A long vehicle that runs on tracks.",
+    "Category": "Transportation",
+    "Image": "train.jpg"
+  },
+  {
+    "Name": "Bus",
+    "Description": "A large vehicle used for public transportation.",
+    "Category": "Transportation",
+    "Image": "bus.jpg"
+  },
+  {
+    "Name": "Basketball",
+    "Description": "A sport played with a ball and a hoop.",
+    "Category": "Sport",
+    "Image": "basketball.jpg"
+  },
+  {
+    "Name": "Tennis",
+    "Description": "A sport played with a racket and a ball.",
+    "Category": "Sport",
+    "Image": "tennis.jpg"
+  },
+  {
+    "Name": "Swimming",
+    "Description": "A sport or activity of moving through water.",
+    "Category": "Sport",
+    "Image": "swimming.jpg"
   }
 ]
