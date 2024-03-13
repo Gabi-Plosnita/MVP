@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="WordWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="{Binding Word.Name}" Margin="10"  HorizontalAlignment="Center"/>
+        <Image Source="{Binding Word.Image}" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+        <TextBlock Text="{Binding Word.Name}" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <TextBlock Text="{Binding Word.Description}" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left" />
         <TextBlock Text="{Binding Word.Category}" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
     </Grid>

@@ -34,7 +34,7 @@ namespace Tema1
             word.Name = "ana";
             word.Description = "are";
             word.Category = "mere";
-
+            word.Image = "D:/Facultate/An_2_Semestru_2/MVP/MVP/Tema1/Tema1/Resources/Images/NoImage.jpg";
 
             WordWindow secondWindow = new WordWindow(word);
             secondWindow.Show();
