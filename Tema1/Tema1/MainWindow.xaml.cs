@@ -43,9 +43,19 @@ namespace Tema1
         private List<string> allWords = new List<string> { "Apple", "Banana", "Orange", "Car", "Dog", "Cat", "Elephant", "Giraffe", "Horse", "adsa", "affff" };
         private void searchComboBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            string searchText = searchComboBox.Text.ToLower() + e.Text.ToLower();
+            string searchText = searchComboBox.Text.ToLower();
             List<string> suggestions = allWords.Where(w => w.ToLower().StartsWith(searchText)).Take(5).ToList();
             searchComboBox.ItemsSource = suggestions;
         }
+
+        private void searchComboBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back && string.IsNullOrEmpty(searchComboBox.Text))
+            {
+                
+                Console.WriteLine("Delete key pressed!");
+            }
+        }
+
     }
 }
