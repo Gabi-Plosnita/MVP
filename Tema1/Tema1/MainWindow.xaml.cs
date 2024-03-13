@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictionar.Backend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace Tema1
     /// </summary>
     public partial class MainWindow : Window
     {
+        EnglishDictionary englishDictionary { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            englishDictionary = new EnglishDictionary();
+            englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
+
+            englishDictionary.Method();
         }
     }
 }
