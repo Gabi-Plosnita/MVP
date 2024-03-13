@@ -17,10 +17,12 @@ namespace Tema1
 {
     public partial class WordWindow : Window
     {
-        Word Word { get; set; }
+        public Word Word { get; set; }
         public WordWindow(Word word)
         {
             InitializeComponent();
+            DataContext = this;
+
             Word = word;
         }
     }

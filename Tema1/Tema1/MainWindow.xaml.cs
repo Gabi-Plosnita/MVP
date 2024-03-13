@@ -31,9 +31,9 @@ namespace Tema1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Word word = new Word();
-            word.Name = "adsa";
-            word.Description = "das";
-            word.Category = "das";
+            word.Name = "ana";
+            word.Description = "are";
+            word.Category = "mere";
 
 
             WordWindow secondWindow = new WordWindow(word);
