@@ -1,0 +1,14 @@
+﻿[
+  {
+    "Name": "Apple",
+    "Description": "A round fruit which can be red, green and yellow.",
+    "Category": "Fruit",
+    "Image": "apple.jpg"
+  },
+  {
+    "Name": "Car",
+    "Description": "A vehicle with 4 wheels",
+    "Category": "Transportation",
+    "Image": "car.jpg"
+  }
+]
