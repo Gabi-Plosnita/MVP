@@ -9,13 +9,15 @@ namespace Dictionar.Backend
 {
     public class EnglishDictionary
     {
+        public List<Word> ListOfWords {  get; set; }
+
         public Dictionary<string, List<Word>> dictionaryByCategory { get; set; }
 
         public Dictionary<char, List<Word>> dictionaryByLetter { get; set; }
 
         public EnglishDictionary()
         {
-            // Initialize dictionaries in the constructor
+            ListOfWords = new List<Word>();
             dictionaryByCategory = new Dictionary<string, List<Word>>();
             dictionaryByLetter = new Dictionary<char, List<Word>>();
         }
@@ -30,6 +32,8 @@ namespace Dictionar.Backend
 
                 foreach(Word word in  wordsList )
                 {
+                    ListOfWords.Add(word);
+
                     if (!dictionaryByCategory.ContainsKey(word.Category))
                     {
                         dictionaryByCategory[word.Category] = new List<Word>();
@@ -53,11 +57,6 @@ namespace Dictionar.Backend
             {
                 Console.WriteLine("Error deserializing JSON data.");
             }
-        }
-
-        public void Method()
-        {
-
         }
 
     }

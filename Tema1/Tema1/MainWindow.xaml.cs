@@ -25,7 +25,8 @@ namespace Tema1
             englishDictionary = new EnglishDictionary();
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
-            englishDictionary.Method();
+            string[] words = englishDictionary.ListOfWords.Select(x => x.Name).ToArray();
+            searchBarBox.ItemsSource = words;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,23 +40,5 @@ namespace Tema1
             WordWindow secondWindow = new WordWindow(word);
             secondWindow.Show();
         }
-
-        private List<string> allWords = new List<string> { "Apple", "Banana", "Orange", "Car", "Dog", "Cat", "Elephant", "Giraffe", "Horse", "adsa", "affff" };
-        private void searchComboBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-            string searchText = searchComboBox.Text.ToLower();
-            List<string> suggestions = allWords.Where(w => w.ToLower().StartsWith(searchText)).Take(5).ToList();
-            searchComboBox.ItemsSource = suggestions;
-        }
-
-        private void searchComboBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Back && string.IsNullOrEmpty(searchComboBox.Text))
-            {
-                
-                Console.WriteLine("Delete key pressed!");
-            }
-        }
-
     }
 }

@@ -3,12 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tema1"
+        xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Go to Second Window" Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <ComboBox x:Name="searchComboBox" IsEditable="True" PreviewTextInput="searchComboBox_PreviewTextInput" PreviewKeyDown="searchComboBox_PreviewKeyDown" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Stretch" MaxDropDownHeight="100"/>
+        <Frame Content="Frame"/>
+        <StackPanel Orientation="Vertical">
+            <controls:AutoCompleteBox x:Name="searchBarBox">
+
+            </controls:AutoCompleteBox>
+        </StackPanel>
 
     </Grid>
 </Window>
