@@ -10,7 +10,7 @@
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
             <ComboBox Name="categoryBox" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
             <controls:AutoCompleteBox x:Name="searchBarBox" PreviewKeyDown="SearchBarBox_PreviewKeyDown" Height="30" Width="300"/>
-            <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="70"/>
+            <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
         </StackPanel>
         
 

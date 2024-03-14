@@ -25,10 +25,15 @@ namespace Tema1
             englishDictionary = new EnglishDictionary();
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
-            string[] words = englishDictionary.ListOfWords.Select(x => x.Name).ToArray();
+            List<string> words = new List<string>();
+            foreach (Word word in englishDictionary.ListOfWords)
+            {
+                words.Add(word.Name);
+            }
             searchBarBox.ItemsSource = words;
 
             List<string> categories = new List<string>();
+            categories.Add("All");
             foreach(string category in englishDictionary.dictionaryByCategory.Keys)
             {
                 categories.Add(category);
@@ -52,7 +57,24 @@ namespace Tema1
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+           string category = categoryBox.SelectedItem as string;
+           List<string> words = new List<string>();
+
+           if(englishDictionary.dictionaryByCategory.ContainsKey(category))
+           {
+                foreach(Word word in englishDictionary.dictionaryByCategory[category])
+                {
+                    words.Add(word.Name);
+                }
+           }
+           else
+           {
+               foreach(Word word in englishDictionary.ListOfWords)
+               {
+                   words.Add(word.Name);
+               }
+           }
+            searchBarBox.ItemsSource = words;
         }
 
     }
