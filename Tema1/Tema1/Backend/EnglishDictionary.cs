@@ -95,9 +95,9 @@ namespace Dictionar.Backend
         {
             List<string> categories = new List<string>();
             categories.Add("All");
-            foreach (Word word in ListOfWords)
+            foreach (string category in dictionaryByCategory.Keys)
             {
-                categories.Add(word.Category);
+                categories.Add(category);
             }
             return categories;
         }
