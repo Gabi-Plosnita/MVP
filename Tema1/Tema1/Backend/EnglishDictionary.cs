@@ -80,6 +80,20 @@ namespace Dictionar.Backend
             return words;
         }
 
+        
+        public List<string> GetWordListFromLetter(char letter)
+        {
+            List<string> words = new List<string>();
+            if(dictionaryByLetter.ContainsKey(letter))
+            {
+                foreach(Word word in dictionaryByLetter[letter])
+                {
+                    words.Add(word.Name);
+                }
+            }
+            return words;
+        }
+
         public List<string> GetAllWords()
         {
             List<string> words = new List<string>();

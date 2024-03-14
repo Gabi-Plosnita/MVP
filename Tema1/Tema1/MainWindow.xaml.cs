@@ -30,7 +30,7 @@ namespace Tema1
         }
         private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
