@@ -27,6 +27,13 @@ namespace Tema1
 
             string[] words = englishDictionary.ListOfWords.Select(x => x.Name).ToArray();
             searchBarBox.ItemsSource = words;
+
+            List<string> categories = new List<string>();
+            foreach(string category in englishDictionary.dictionaryByCategory.Keys)
+            {
+                categories.Add(category);
+            }
+            categoryBox.ItemsSource = categories;
         }
         private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -42,5 +49,11 @@ namespace Tema1
                 wordWindow.Show();
             }    
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+        }
+
     }
 }
