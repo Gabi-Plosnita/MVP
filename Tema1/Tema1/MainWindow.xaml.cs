@@ -58,23 +58,8 @@ namespace Tema1
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            string category = categoryBox.SelectedItem as string;
-           List<string> words = new List<string>();
-
-           if(englishDictionary.dictionaryByCategory.ContainsKey(category))
-           {
-                foreach(Word word in englishDictionary.dictionaryByCategory[category])
-                {
-                    words.Add(word.Name);
-                }
-           }
-           else
-           {
-               foreach(Word word in englishDictionary.ListOfWords)
-               {
-                   words.Add(word.Name);
-               }
-           }
-            searchBarBox.ItemsSource = words;
+           List<string> words = englishDictionary.GetWordListFromCategory(category);
+           searchBarBox.ItemsSource = words;
         }
 
     }

@@ -59,5 +59,25 @@ namespace Dictionar.Backend
             }
         }
 
+        public List<string> GetWordListFromCategory(string category)
+        {
+            List<string> words = new List<string>();
+            if (dictionaryByCategory.ContainsKey(category))
+            {
+                foreach (Word word in dictionaryByCategory[category])
+                {
+                    words.Add(word.Name);
+                }
+            }
+            else
+            {
+                foreach (Word word in ListOfWords)
+                {
+                    words.Add(word.Name);
+                }
+            }
+            return words;
+        }
+
     }
 }
