@@ -44,10 +44,11 @@ namespace Tema1
         {
             
         }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchText = searchBarBox.Text;
-            Word word = englishDictionary.ListOfWords.FirstOrDefault(x => x.Name == searchText);
+            Word word = englishDictionary.GetWord(searchText);
             if (word != null)
             {
                 WordWindow wordWindow = new WordWindow(word);
