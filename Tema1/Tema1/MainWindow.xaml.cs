@@ -28,17 +28,19 @@ namespace Tema1
             string[] words = englishDictionary.ListOfWords.Select(x => x.Name).ToArray();
             searchBarBox.ItemsSource = words;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            Word word = new Word();
-            word.Name = "ana";
-            word.Description = "are";
-            word.Category = "mere";
-            word.Image = "D:/Facultate/An_2_Semestru_2/MVP/MVP/Tema1/Tema1/Resources/Images/NoImage.jpg";
-
-            WordWindow secondWindow = new WordWindow(word);
-            secondWindow.Show();
+            
+        }
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = searchBarBox.Text;
+            Word word = englishDictionary.ListOfWords.FirstOrDefault(x => x.Name == searchText);
+            if (word != null)
+            {
+                WordWindow wordWindow = new WordWindow(word);
+                wordWindow.Show();
+            }    
         }
     }
 }

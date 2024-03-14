@@ -7,13 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Go to Second Window" Click="Button_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Frame Content="Frame"/>
-        <StackPanel Orientation="Vertical">
-            <controls:AutoCompleteBox x:Name="searchBarBox">
-
-            </controls:AutoCompleteBox>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px"> 
+            <controls:AutoCompleteBox x:Name="searchBarBox" PreviewKeyDown="SearchBarBox_PreviewKeyDown" Margin="20" Width="300"/>
+            <Button Content="Search" Click="SearchButton_Click" Margin ="20" Width="50"/>
         </StackPanel>
+        
 
     </Grid>
 </Window>
