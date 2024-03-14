@@ -27,6 +27,7 @@ namespace Tema1
 
             searchBarBox.ItemsSource = englishDictionary.GetAllWords();
             categoryBox.ItemsSource = englishDictionary.GetCategories();
+            categoryBox.SelectedIndex = 0;
         }
         private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
