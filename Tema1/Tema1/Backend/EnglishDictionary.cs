@@ -80,6 +80,27 @@ namespace Dictionar.Backend
             return words;
         }
 
+        public List<string> GetAllWords()
+        {
+            List<string> words = new List<string>();
+            foreach (Word word in ListOfWords)
+            {
+                words.Add(word.Name);
+            }
+            return words;
+        }
+
+
+        public List<string> GetCategories()
+        {
+            List<string> categories = new List<string>();
+            categories.Add("All");
+            foreach (Word word in ListOfWords)
+            {
+                categories.Add(word.Category);
+            }
+            return categories;
+        }
 
         public Word GetWord(string name)
         {

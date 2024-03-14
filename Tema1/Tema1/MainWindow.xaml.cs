@@ -25,20 +25,8 @@ namespace Tema1
             englishDictionary = new EnglishDictionary();
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
-            List<string> words = new List<string>();
-            foreach (Word word in englishDictionary.ListOfWords)
-            {
-                words.Add(word.Name);
-            }
-            searchBarBox.ItemsSource = words;
-
-            List<string> categories = new List<string>();
-            categories.Add("All");
-            foreach(string category in englishDictionary.dictionaryByCategory.Keys)
-            {
-                categories.Add(category);
-            }
-            categoryBox.ItemsSource = categories;
+            searchBarBox.ItemsSource = englishDictionary.GetAllWords();
+            categoryBox.ItemsSource = englishDictionary.GetCategories();
         }
         private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
