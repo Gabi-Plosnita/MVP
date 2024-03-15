@@ -22,7 +22,6 @@ namespace Tema1
         {
             InitializeComponent();
             DataContext = this;
-
             Word = word;
         }
     }
