@@ -6,12 +6,12 @@
 
         private string Password;
 
-        public bool ValidUsername(string username)
+        public bool IsValidUsername(string username)
         {
             return string.Equals(UserName, username);
         }
 
-        public bool ValidPassword(string password)
+        public bool IsValidPassword(string password)
         {
             return string.Equals(Password, password);
         }
