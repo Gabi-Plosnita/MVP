@@ -3,10 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tema1"
+        xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="550" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="30px">
+                <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300"/>
+                <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 50 0 0">
+                    <TextBlock Text="Name:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                    <TextBlock Text="Category:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                    <TextBlock Text="Description:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                    <TextBlock Text="Image:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 50 0 0">
+                    <TextBox Name ="nameField" Margin="10 0 0 20" Height="20" Width="200"/>
+                    <TextBox Name ="categoryField" Margin="10 0 0 20" Height="20" Width="200"/>
+                    <TextBox Name ="descriptionField" Margin="10 0 0 20" Height="20" Width="200"/>
+                    <TextBox Name ="imageField" Margin="10 0 0 20" Height="20" Width="200"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

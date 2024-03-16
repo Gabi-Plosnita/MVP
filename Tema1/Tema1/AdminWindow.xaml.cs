@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictionar.Backend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +15,25 @@ using System.Windows.Shapes;
 
 namespace Tema1
 {
-    /// <summary>
-    /// Interaction logic for AdminWindow.xaml
-    /// </summary>
     public partial class AdminWindow : Window
     {
         public AdminWindow()
         {
             InitializeComponent();
+            searchBarBox.ItemsSource = MainWindow.englishDictionary.GetAllWords();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = searchBarBox.Text;
+            Word word = MainWindow.englishDictionary.GetWord(searchText);
+            if (word != null)
+            {
+                nameField.Text = word.Name;
+                categoryField.Text = word.Category;
+                descriptionField.Text = word.Description;
+                imageField.Text = word.Image;
+            }
         }
     }
 }
