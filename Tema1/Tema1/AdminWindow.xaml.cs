@@ -1,4 +1,5 @@
 ﻿using Dictionar.Backend;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,20 @@ namespace Tema1
         private void DeleteWordButton_Click(Object sender, RoutedEventArgs e)
         {
             MainWindow.englishDictionary.DeleteWord(nameField.Text, categoryField.Text, descriptionField.Text, imageField.Text);
+        }
+
+        private void imageField_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JPG files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                imageField.Text = openFileDialog.FileName;
+            }
+
+            e.Handled = true;
         }
     }
 }

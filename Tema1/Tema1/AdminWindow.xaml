@@ -25,7 +25,8 @@
                     <TextBox Name ="nameField" Margin="10 0 0 20" Height="20" Width="200"/>
                     <TextBox Name ="categoryField" Margin="10 0 0 20" Height="20" Width="200"/>
                     <TextBox Name ="descriptionField" Margin="10 0 0 20" Height="20" Width="200"/>
-                    <TextBox Name ="imageField" Margin="10 0 0 20" Height="20" Width="200"/>
+                    <TextBox Name="imageField" PreviewMouseDown="imageField_PreviewMouseDown" Margin="10 0 0 20" Height="20" Width="200"/>
+
                 </StackPanel>
             </StackPanel>
 
@@ -34,6 +35,9 @@
                 <Button Content="Update Word" Click="UpdateWordButton_Click"  Height ="30"  Width="120" Margin="10"/>
                 <Button Content="Delete Word" Click="DeleteWordButton_Click"  Height ="30"  Width="120" Margin="10"/>
             </StackPanel>
+
         </StackPanel>
+        
+        
     </Grid>
 </Window>
