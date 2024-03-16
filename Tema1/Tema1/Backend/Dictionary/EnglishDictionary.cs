@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using Tema1.Backend;
+using Tema1.Backend.Dictionary;
 
 namespace Dictionar.Backend
 {
@@ -189,39 +190,51 @@ namespace Dictionar.Backend
             for (int i = 0; i < numberOfWords; i++)
             {
                 int randomPosition = random.Next(0, positions.Count);
-                words.Add(ListOfWords[randomPosition]);
+                Word randomWord = ListOfWords[positions[randomPosition]];
+                words.Add(randomWord);
                 positions.RemoveAt(randomPosition);
             }
 
             return words;
         }
 
-        public List<(string,string)> GenerateHints(int numberOfWords)
+        public List<Hint> GenerateHints(int numberOfWords)
         {
-            List<(string,string)> hints = new List<(string,string)> ();
+            List<Hint> hints = new List<Hint> ();
             List<Word> words = GenerateWords(numberOfWords);
 
             Random random = new Random();
 
             foreach(Word word in words)
             {
+                Hint hint = new Hint
+                {
+                    WordName = word.Name,
+                };
+
                 if (word.Image.Length >= 11)
                 {
                     string lastElevenCharacters = word.Image.Substring(word.Image.Length - 11);
                     if(string.Equals(lastElevenCharacters, "NoImage.jpg"))
                     {
-                        hints.Add(("description", word.Description));
+                        hint.HintType = "description";
+                        hint.HintValue = word.Description;
+                        hints.Add(hint);
                         continue;
                     }
                 }
                 int randomPosition = random.Next(0, 2);
                 if (randomPosition == 0)
                 {
-                    hints.Add(("description", word.Description));
+                    hint.HintType = "description";
+                    hint.HintValue = word.Description;
+                    hints.Add(hint);
                 }
                 else
                 {
-                    hints.Add(("image", word.Image));
+                    hint.HintType = "image";
+                    hint.HintValue = word.Image;
+                    hints.Add(hint);
                 }
             }
 
