@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace Tema1
 {
-    /// <summary>
-    /// Interaction logic for LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

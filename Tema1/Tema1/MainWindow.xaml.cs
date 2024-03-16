@@ -58,7 +58,8 @@ namespace Tema1
 
         private void LoginButton_Click(Object sender, RoutedEventArgs e)
         {
-
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
         }
 
     }

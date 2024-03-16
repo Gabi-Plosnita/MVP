@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema1"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="550" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
-            <TextBlock Text="Login Page" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="30"/>
-            <TextBox Text="Username" Margin="5"/>
-            <TextBox Text="Password" Margin="5"/>
+            <TextBlock Text="Login Page" Margin="0 0 0 50" HorizontalAlignment="Center" FontSize="30"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Username:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                <TextBox Margin="10 0 0 20" Height="20" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Password: " Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
+                <TextBox Margin="10 0 0 20" Height="20" Width="200"/>
+            </StackPanel>
+            
             <Button Content="Login" Click="LoginButton_Clicked"  Height ="30"  Width="120" Margin="20"/>
         </StackPanel>
     </Grid>
