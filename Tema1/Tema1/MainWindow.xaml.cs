@@ -33,10 +33,6 @@ namespace Tema1
             categoryBox.ItemsSource = englishDictionary.GetCategories();
             categoryBox.SelectedIndex = 0;
         }
-        private void SearchBarBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
