@@ -7,13 +7,22 @@
         mc:Ignorable="d"
         Title="WordWindow" Height="450" Width="800">
     <Grid>
-        <Image Source="{Binding Word.Image}" Width="300" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" />
 
         <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
 
-            <TextBlock Text="{Binding Word.Name}" Margin="20" HorizontalAlignment="Left"/>
-            <TextBlock Text="{Binding Word.Description}" Margin="20" HorizontalAlignment="Left" />
-            <TextBlock Text="{Binding Word.Category}" Margin="20" HorizontalAlignment="Left" />
+            <TextBlock Text="{Binding Word.Name}" Margin="0 30 0 50" HorizontalAlignment="Center" FontSize="30"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Category: " Margin="20 20 0 0" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBlock Text="{Binding Word.Category}" Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="20"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Description: " Margin="20 20 0 0" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBlock Text="{Binding Word.Description}" Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="20"/>
+            </StackPanel>
+
+            <Image Source="{Binding Word.Image}" Width="300" Margin="30" HorizontalAlignment="Center" />
         </StackPanel>
+        
     </Grid>
 </Window>
