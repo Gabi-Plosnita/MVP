@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema1" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
             <ComboBox Name="categoryBox" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
