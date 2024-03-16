@@ -173,5 +173,28 @@ namespace Dictionar.Backend
             dictionaryByCategory[category].Remove(word);
             dictionaryByLetter[name[0]].Remove(word);
         }
+
+        public List<Word> GenerateWords(int numberOfWords)
+        {
+            List<Word> words = new List<Word>();
+            List<Word> ListOfWordsCopy = ListOfWords;
+            List<int> positions = new List<int>();
+
+            for (int i = 0; i < numberOfWords; i++)
+            {
+                positions.Add(i);
+            }
+
+            Random random = new Random();
+
+            for (int i = 0; i < numberOfWords; i++)
+            {
+                int randomPosition = random.Next(0, positions.Count);
+                words.Add(ListOfWordsCopy[randomPosition]);
+                ListOfWordsCopy.RemoveAt(randomPosition);
+            }
+
+            return words;
+        }
     }
 }
