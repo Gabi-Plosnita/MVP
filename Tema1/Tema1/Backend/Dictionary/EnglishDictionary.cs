@@ -223,7 +223,6 @@ namespace Dictionar.Backend
                 {
                     hints.Add(("image", word.Image));
                 }
-
             }
 
             return hints;
