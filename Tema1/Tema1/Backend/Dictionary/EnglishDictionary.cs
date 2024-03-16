@@ -152,46 +152,13 @@ namespace Dictionar.Backend
 
         public void UpdateWord(string name, string category, string description, string image)
         {
-            Word updatedWord = new Word(name, category, description, image);
-
-            bool wordFound = false;
-            foreach (Word word in ListOfWords)
-            {
-                if (word.IsEqual(updatedWord))
-                {
-                    wordFound = true;
-                    break;
-                }
-            }
-
-            if (!wordFound)
+            Word word = ListOfWords.FirstOrDefault(x =>x.Name == name);
+            if (word == null)
             {
                 return;
             }
-
-            foreach (Word word in ListOfWords)
-            {
-                if (word.IsEqual(updatedWord)) 
-                {
-                    word.Copy(updatedWord);
-                }
-            }
-            
-            foreach(Word word in dictionaryByCategory[category])
-            {
-                if (word.IsEqual(updatedWord))
-                {
-                    word.Copy(updatedWord);
-                }
-            }
-
-            foreach(Word word in dictionaryByLetter[name[0]])
-            {
-                if (word.IsEqual(updatedWord))
-                {
-                    word.Copy(updatedWord);
-                }
-            }
+            Word updatedWord = new Word(name, category, description, image);
+            word.Copy(updatedWord);
         }
 
         public void DeleteWord(string name, string category, string description, string image)
