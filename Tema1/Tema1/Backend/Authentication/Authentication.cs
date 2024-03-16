@@ -48,5 +48,10 @@ namespace Tema1.Backend
                 }
             }
         }
+
+        public void Logout()
+        {
+            isAuthenticated = false;
+        }
     }
 }
