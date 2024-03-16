@@ -35,5 +35,30 @@ namespace Tema1
                 imageField.Text = word.Image;
             }
         }
+
+        private void searchBarBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            searchBarBox.ItemsSource = MainWindow.englishDictionary.GetAllWords();
+        }
+
+        private void AddWordButton_Click(Object sender, RoutedEventArgs e)
+        {
+            if(string.Equals(nameField.Text,"") && string.Equals(descriptionField.Text, "") 
+                && string.Equals(categoryField.Text, ""))
+            {
+                return;
+            }
+            MainWindow.englishDictionary.AddWord(nameField.Text, descriptionField.Text, categoryField.Text, imageField.Text);
+        }
+
+        private void UpdateWordButton_Click(Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteWordButton_Click(Object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

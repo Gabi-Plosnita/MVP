@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="30px">
-                <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300"/>
+                <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300" GotFocus="searchBarBox_GotFocus"/>
                 <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
             </StackPanel>
 
@@ -27,6 +27,12 @@
                     <TextBox Name ="descriptionField" Margin="10 0 0 20" Height="20" Width="200"/>
                     <TextBox Name ="imageField" Margin="10 0 0 20" Height="20" Width="200"/>
                 </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
+                <Button Content="Add Word" Click="AddWordButton_Click"  Height ="30"  Width="120" Margin="10"/>
+                <Button Content="Update Word" Click="UpdateWordButton_Click"  Height ="30"  Width="120" Margin="10"/>
+                <Button Content="Delete Word" Click="DeleteWordButton_Click"  Height ="30"  Width="120" Margin="10"/>
             </StackPanel>
         </StackPanel>
     </Grid>

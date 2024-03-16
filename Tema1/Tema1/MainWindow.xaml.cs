@@ -35,6 +35,10 @@ namespace Tema1
             categoryBox.SelectedIndex = 0;
         }
 
+        private void searchBarBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            searchBarBox.ItemsSource = englishDictionary.GetAllWords();
+        }
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchText = searchBarBox.Text;

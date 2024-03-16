@@ -31,7 +31,15 @@
             Name = name;
             Category = category;
             Description = description;
-            Image = image;
+            
+            if(image == "")
+            {
+                Image = "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\NoImage.jpg";
+            }
+            else
+            {
+                Image = image;
+            }   
         }
     }
 }
