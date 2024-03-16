@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using Newtonsoft.Json;
+using Tema1.Backend;
 
 namespace Dictionar.Backend
 {
@@ -16,11 +17,14 @@ namespace Dictionar.Backend
 
         public Dictionary<char, List<Word>> dictionaryByLetter { get; set; }
 
-        public EnglishDictionary()
+        private Authentication Authentication;
+
+        public EnglishDictionary(Authentication authentication)
         {
             ListOfWords = new List<Word>();
             dictionaryByCategory = new Dictionary<string, List<Word>>();
             dictionaryByLetter = new Dictionary<char, List<Word>>();
+            Authentication = authentication;
         }
 
         public void LoadFromFile(string filePath)
