@@ -127,6 +127,14 @@ namespace Dictionar.Backend
         {
             Word newWord = new Word(name, category, description, image);
 
+            foreach(Word word in ListOfWords)
+            {
+                if(word.IsEqual(newWord))
+                {
+                    return;
+                }
+            }
+
             ListOfWords.Add(newWord);
 
             if (!dictionaryByLetter.ContainsKey(name[0]))

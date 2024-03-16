@@ -41,5 +41,10 @@
                 Image = image;
             }   
         }
+
+        public bool IsEqual(Word other)
+        {
+            return Name == other.Name && Category == other.Category && Description == other.Description && Image == other.Image;
+        }
     }
 }
