@@ -3,54 +3,54 @@
     "Name": "Banana",
     "Description": "A yellow fruit with a peel.",
     "Category": "Fruit",
-    "Image": "banana.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\banana.jpg"
   },
   {
     "Name": "Orange",
     "Description": "A round fruit with orange color.",
     "Category": "Fruit",
-    "Image": "orange.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\orange.jpg"
   },
   {
     "Name": "Grape",
     "Description": "A small fruit usually found in bunches.",
     "Category": "Fruit",
-    "Image": "grape.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\grape.jpg"
   },
   {
     "Name": "Bicycle",
     "Description": "A two-wheeled vehicle powered by pedals.",
     "Category": "Transportation",
-    "Image": "bicycle.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\bike.jpg"
   },
   {
     "Name": "Train",
     "Description": "A long vehicle that runs on tracks.",
     "Category": "Transportation",
-    "Image": "train.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\NoImage.jpg"
   },
   {
     "Name": "Bus",
     "Description": "A large vehicle used for public transportation.",
     "Category": "Transportation",
-    "Image": "bus.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\bus.jpg"
   },
   {
     "Name": "Basketball",
     "Description": "A sport played with a ball and a hoop.",
     "Category": "Sport",
-    "Image": "basketball.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\basketball.jpg"
   },
   {
     "Name": "Tennis",
     "Description": "A sport played with a racket and a ball.",
     "Category": "Sport",
-    "Image": "tennis.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\NoImage.jpg"
   },
   {
     "Name": "Swimming",
     "Description": "A sport or activity of moving through water.",
     "Category": "Sport",
-    "Image": "swimming.jpg"
+    "Image": "C:\\Gabi\\Mvp\\MVP\\Tema1\\Tema1\\Resources\\Images\\swimming.jpg"
   }
 ]
