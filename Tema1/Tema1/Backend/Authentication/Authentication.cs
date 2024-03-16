@@ -7,9 +7,15 @@ namespace Tema1.Backend
 {
     public class Authentication
     {
-        public List<Admin> Admins { get; private set; }
+        private List<Admin> Admins;
 
-        public bool isAuthenticated = false;
+        public bool isAuthenticated { get; private set; }
+
+        public Authentication() 
+        {
+            Admins = new List<Admin>();
+            isAuthenticated = false;
+        }
 
         public void LoadFromFile(string filePath)
         {
