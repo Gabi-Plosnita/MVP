@@ -37,8 +37,14 @@ namespace Tema1
 
         private void searchBarBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            searchBarBox.ItemsSource = englishDictionary.GetAllWords();
+            searchBarBox.ItemsSource = englishDictionary.GetWordListFromCategory(categoryBox.Text);
         }
+
+        private void categoryBox_DropDownOpened(object sender, EventArgs e)
+        {
+            categoryBox.ItemsSource = englishDictionary.GetCategories();
+        }
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchText = searchBarBox.Text;

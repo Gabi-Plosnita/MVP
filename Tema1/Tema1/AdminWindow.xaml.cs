@@ -48,7 +48,7 @@ namespace Tema1
             {
                 return;
             }
-            MainWindow.englishDictionary.AddWord(nameField.Text, descriptionField.Text, categoryField.Text, imageField.Text);
+            MainWindow.englishDictionary.AddWord(nameField.Text, categoryField.Text, descriptionField.Text, imageField.Text);
         }
 
         private void UpdateWordButton_Click(Object sender, RoutedEventArgs e)
