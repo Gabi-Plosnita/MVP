@@ -46,5 +46,13 @@
         {
             return Name == other.Name && Category == other.Category && Description == other.Description && Image == other.Image;
         }
+
+        public void Copy(Word other)
+        {
+            Name = other.Name;
+            Category = other.Category;
+            Description = other.Description;
+            Image = other.Image;
+        }
     }
 }

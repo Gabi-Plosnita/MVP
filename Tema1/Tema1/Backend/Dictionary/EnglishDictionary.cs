@@ -150,5 +150,74 @@ namespace Dictionar.Backend
             dictionaryByCategory[category].Add(newWord);
         }
 
+        public void UpdateWord(string name, string category, string description, string image)
+        {
+            Word updatedWord = new Word(name, category, description, image);
+
+            bool wordFound = false;
+            foreach (Word word in ListOfWords)
+            {
+                if (word.IsEqual(updatedWord))
+                {
+                    wordFound = true;
+                    break;
+                }
+            }
+
+            if (!wordFound)
+            {
+                return;
+            }
+
+            foreach (Word word in ListOfWords)
+            {
+                if (word.IsEqual(updatedWord)) 
+                {
+                    word.Copy(updatedWord);
+                }
+            }
+            
+            foreach(Word word in dictionaryByCategory[category])
+            {
+                if (word.IsEqual(updatedWord))
+                {
+                    word.Copy(updatedWord);
+                }
+            }
+
+            foreach(Word word in dictionaryByLetter[name[0]])
+            {
+                if (word.IsEqual(updatedWord))
+                {
+                    word.Copy(updatedWord);
+                }
+            }
+        }
+
+        public void DeleteWord(string name, string category, string description, string image)
+        {
+            Word toDeleteWord = new Word(name, category, description, image);
+
+            bool wordFound = false;
+            foreach (Word word in ListOfWords)
+            {
+                if (word.IsEqual(toDeleteWord))
+                {
+                    wordFound = true;
+                    break;
+                }
+            }
+
+            if (!wordFound)
+            {
+                return;
+            }
+
+            ListOfWords.Remove(toDeleteWord);
+
+            dictionaryByCategory[category].Remove(toDeleteWord);
+
+            dictionaryByLetter[name[0]].Remove(toDeleteWord);
+        }
     }
 }

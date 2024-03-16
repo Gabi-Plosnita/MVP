@@ -43,8 +43,8 @@ namespace Tema1
 
         private void AddWordButton_Click(Object sender, RoutedEventArgs e)
         {
-            if(string.Equals(nameField.Text,"") && string.Equals(descriptionField.Text, "") 
-                && string.Equals(categoryField.Text, ""))
+            if(string.Equals(nameField.Text,"") || string.Equals(descriptionField.Text, "") 
+                || string.Equals(categoryField.Text, ""))
             {
                 return;
             }
