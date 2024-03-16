@@ -53,12 +53,12 @@ namespace Tema1
 
         private void UpdateWordButton_Click(Object sender, RoutedEventArgs e)
         {
-
+            MainWindow.englishDictionary.UpdateWord(nameField.Text, categoryField.Text, descriptionField.Text, imageField.Text);
         }
 
         private void DeleteWordButton_Click(Object sender, RoutedEventArgs e)
         {
-
+            MainWindow.englishDictionary.DeleteWord(nameField.Text, categoryField.Text, descriptionField.Text, imageField.Text);
         }
     }
 }
