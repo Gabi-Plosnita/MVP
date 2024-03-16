@@ -71,7 +71,8 @@ namespace Tema1
 
         private void GameButton_Click(Object sender, RoutedEventArgs e)
         {
-
+            GameWindow gameWindow = new GameWindow();
+            gameWindow.Show();
         }
 
     }
