@@ -2,8 +2,18 @@
 {
     public class Admin
     {
-        public string Name { get; private set; }
+        private string UserName;
 
-        public string Password { get; private set; }
+        private string Password;
+
+        public bool ValidUsername(string username)
+        {
+            return string.Equals(UserName, username);
+        }
+
+        public bool ValidPassword(string password)
+        {
+            return string.Equals(Password, password);
+        }
     }
 }
