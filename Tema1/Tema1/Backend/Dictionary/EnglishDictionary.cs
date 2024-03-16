@@ -163,28 +163,15 @@ namespace Dictionar.Backend
 
         public void DeleteWord(string name, string category, string description, string image)
         {
-            Word toDeleteWord = new Word(name, category, description, image);
-
-            bool wordFound = false;
-            foreach (Word word in ListOfWords)
-            {
-                if (word.IsEqual(toDeleteWord))
-                {
-                    wordFound = true;
-                    break;
-                }
-            }
-
-            if (!wordFound)
+            Word word = ListOfWords.FirstOrDefault(x => x.Name == name);
+            if (word == null)
             {
                 return;
             }
-
-            ListOfWords.Remove(toDeleteWord);
-
-            dictionaryByCategory[category].Remove(toDeleteWord);
-
-            dictionaryByLetter[name[0]].Remove(toDeleteWord);
+            
+            ListOfWords.Remove(word);
+            dictionaryByCategory[category].Remove(word);
+            dictionaryByLetter[name[0]].Remove(word);
         }
     }
 }
