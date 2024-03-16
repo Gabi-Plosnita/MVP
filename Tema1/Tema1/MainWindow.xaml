@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800">
     <Grid>
-        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
-            <Button Content="Login" Click="LoginButton_Click"  Height ="30"  Width="120"/>
-        </StackPanel>
 
-        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
-            <ComboBox Name="categoryBox" DropDownOpened="categoryBox_DropDownOpened" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
-            <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300" GotFocus="searchBarBox_GotFocus"/>
-            <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
+                <ComboBox Name="categoryBox" DropDownOpened="categoryBox_DropDownOpened" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
+                <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300" GotFocus="searchBarBox_GotFocus"/>
+                <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="30px">
+                <Button Content="Login" Click="LoginButton_Click"  Height ="30"  Width="120"/>
+                <Button Content="Game" Click="GameButton_Click"  Margin="30 0 0 0" Height ="30"  Width="120"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

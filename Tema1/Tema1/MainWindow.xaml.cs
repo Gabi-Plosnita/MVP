@@ -69,5 +69,10 @@ namespace Tema1
             loginWindow.Show();
         }
 
+        private void GameButton_Click(Object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
