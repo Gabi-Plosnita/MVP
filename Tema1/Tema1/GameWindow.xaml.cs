@@ -11,16 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tema1.Backend.Dictionary;
 
 namespace Tema1
 {
     public partial class GameWindow : Window
     {
-        private List<(string, string)> hints;
+        private List<Hint> Hints;
         public GameWindow()
         {
             InitializeComponent();
-            hints = MainWindow.englishDictionary.GenerateHints(5);
+            Hints = MainWindow.englishDictionary.GenerateHints(5);
         }
     }
 }

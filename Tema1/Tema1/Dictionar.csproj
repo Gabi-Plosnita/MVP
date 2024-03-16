@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Backend\Authentication\Admin.cs" />
     <Compile Include="Backend\Authentication\Authentication.cs" />
+    <Compile Include="Backend\Dictionary\Hint.cs" />
     <Compile Include="GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
