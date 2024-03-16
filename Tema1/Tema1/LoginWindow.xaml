@@ -1,0 +1,17 @@
+﻿<Window x:Class="Tema1.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema1"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
+            <TextBlock Text="Login Page" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="30"/>
+            <TextBox Text="Username" Margin="5"/>
+            <TextBox Text="Password" Margin="5"/>
+            <Button Content="Login" Click="LoginButton_Clicked"  Height ="30"  Width="120" Margin="20"/>
+        </StackPanel>
+    </Grid>
+</Window>
