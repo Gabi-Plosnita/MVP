@@ -12,12 +12,12 @@
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Username:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
-                <TextBox Margin="10 0 0 20" Height="20" Width="200"/>
+                <TextBox Name ="usernameField" Margin="10 0 0 20" Height="20" Width="200"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Password: " Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
-                <TextBox Margin="10 0 0 20" Height="20" Width="200"/>
+                <TextBox Name ="passwordField" Margin="10 0 0 20" Height="20" Width="200"/>
             </StackPanel>
             
             <Button Content="Login" Click="LoginButton_Clicked"  Height ="30"  Width="120" Margin="20"/>

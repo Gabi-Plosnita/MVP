@@ -17,14 +17,11 @@ namespace Dictionar.Backend
 
         public Dictionary<char, List<Word>> dictionaryByLetter { get; set; }
 
-        private Authentication Authentication;
-
-        public EnglishDictionary(Authentication authentication)
+        public EnglishDictionary()
         {
             ListOfWords = new List<Word>();
             dictionaryByCategory = new Dictionary<string, List<Word>>();
             dictionaryByLetter = new Dictionary<char, List<Word>>();
-            Authentication = authentication;
         }
 
         public void LoadFromFile(string filePath)
@@ -128,11 +125,6 @@ namespace Dictionar.Backend
         
         public void AddWord(string name, string category, string description, string image)
         {
-            if(!Authentication.isAuthenticated)
-            {
-                return;
-            }
-
             Word newWord = new Word(name, category, description, image);
 
             ListOfWords.Add(newWord);

@@ -19,14 +19,15 @@ namespace Tema1
 {
     public partial class MainWindow : Window
     {
-        EnglishDictionary englishDictionary { get; set; }
+        static public EnglishDictionary englishDictionary { get; private set; }
+        static public Authentication Authentication { get; private set; }
         public MainWindow()
         {
             InitializeComponent();
-            Authentication authentication = new Authentication();
-            authentication.LoadFromFile("../../Resources/Files/admins.json");
+            Authentication = new Authentication();
+            Authentication.LoadFromFile("../../Resources/Files/admins.json");
 
-            englishDictionary = new EnglishDictionary(authentication);
+            englishDictionary = new EnglishDictionary();
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
             searchBarBox.ItemsSource = englishDictionary.GetAllWords();

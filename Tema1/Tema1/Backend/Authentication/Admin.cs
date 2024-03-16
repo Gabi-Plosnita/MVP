@@ -2,9 +2,9 @@
 {
     public class Admin
     {
-        private string UserName;
+        public string UserName { get; set; }
 
-        private string Password;
+        public string Password { get; set; }
 
         public bool IsValidUsername(string username)
         {

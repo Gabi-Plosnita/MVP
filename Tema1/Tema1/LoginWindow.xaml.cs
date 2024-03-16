@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictionar.Backend;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,14 @@ namespace Tema1
 
         private void LoginButton_Clicked(object sender, RoutedEventArgs e)
         {
-
+            string userName = usernameField.Text;
+            string password = passwordField.Text;
+            MainWindow.Authentication.Login(userName, password);
+            if(MainWindow.Authentication.isAuthenticated)
+            {
+                AdminWindow adminWindow = new AdminWindow();
+                adminWindow.Show();
+            }
         }
     }
 }
