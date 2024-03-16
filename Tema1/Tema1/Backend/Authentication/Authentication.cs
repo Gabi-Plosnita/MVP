@@ -9,6 +9,8 @@ namespace Tema1.Backend
     {
         public List<Admin> Admins { get; private set; }
 
+        public bool isAuthenticated = false;
+
         public void LoadFromFile(string filePath)
         {
             try
@@ -26,6 +28,18 @@ namespace Tema1.Backend
             catch (JsonException)
             {
                 Console.WriteLine("Error deserializing JSON data.");
+            }
+        }
+
+        public void Login(string username, string password)
+        {
+            foreach(Admin admin in Admins)
+            {
+                if(admin.IsValidUsername(username) && admin.IsValidPassword(password))
+                {
+                    isAuthenticated = true;
+                    return;
+                }
             }
         }
     }
