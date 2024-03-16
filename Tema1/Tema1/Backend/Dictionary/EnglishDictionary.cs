@@ -195,5 +195,38 @@ namespace Dictionar.Backend
 
             return words;
         }
+
+        public List<(string,string)> GenerateHints(int numberOfWords)
+        {
+            List<(string,string)> hints = new List<(string,string)> ();
+            List<Word> words = GenerateWords(numberOfWords);
+
+            Random random = new Random();
+
+            foreach(Word word in words)
+            {
+                if (word.Image.Length >= 11)
+                {
+                    string lastElevenCharacters = word.Image.Substring(word.Image.Length - 11);
+                    if(string.Equals(lastElevenCharacters, "NoImage.jpg"))
+                    {
+                        hints.Add(("description", word.Description));
+                        continue;
+                    }
+                }
+                int randomPosition = random.Next(0, 2);
+                if (randomPosition == 0)
+                {
+                    hints.Add(("description", word.Description));
+                }
+                else
+                {
+                    hints.Add(("image", word.Image));
+                }
+
+            }
+
+            return hints;
+        }
     }
 }
