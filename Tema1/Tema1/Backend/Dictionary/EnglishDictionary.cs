@@ -177,7 +177,6 @@ namespace Dictionar.Backend
         public List<Word> GenerateWords(int numberOfWords)
         {
             List<Word> words = new List<Word>();
-            List<Word> ListOfWordsCopy = ListOfWords;
             List<int> positions = new List<int>();
 
             for (int i = 0; i < numberOfWords; i++)
@@ -190,8 +189,8 @@ namespace Dictionar.Backend
             for (int i = 0; i < numberOfWords; i++)
             {
                 int randomPosition = random.Next(0, positions.Count);
-                words.Add(ListOfWordsCopy[randomPosition]);
-                ListOfWordsCopy.RemoveAt(randomPosition);
+                words.Add(ListOfWords[randomPosition]);
+                positions.RemoveAt(randomPosition);
             }
 
             return words;
