@@ -125,5 +125,30 @@ namespace Dictionar.Backend
             return ListOfWords.FirstOrDefault(x => x.Name == name);
         }
 
+        
+        public void AddWord(string name, string category, string description, string image)
+        {
+            if(!Authentication.isAuthenticated)
+            {
+                return;
+            }
+
+            Word newWord = new Word(name, category, description, image);
+
+            ListOfWords.Add(newWord);
+
+            if (!dictionaryByLetter.ContainsKey(name[0]))
+            {
+                dictionaryByLetter[name[0]] = new List<Word>();
+            }
+            dictionaryByLetter[name[0]].Add(newWord);
+
+            if(!dictionaryByCategory.ContainsKey(category))
+            {
+                dictionaryByCategory[category] = new List<Word>();
+            }
+            dictionaryByCategory[category].Add(newWord);
+        }
+
     }
 }
