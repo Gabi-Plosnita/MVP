@@ -29,6 +29,7 @@ namespace Tema1
             MainWindow.Authentication.Login(userName, password);
             if(MainWindow.Authentication.isAuthenticated)
             {
+                MainWindow.Authentication.Logout();
                 AdminWindow adminWindow = new AdminWindow();
                 adminWindow.Show();
             }
