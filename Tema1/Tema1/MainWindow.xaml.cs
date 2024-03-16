@@ -56,5 +56,10 @@ namespace Tema1
            searchBarBox.ItemsSource = words;
         }
 
+        private void LoginButton_Click(Object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
