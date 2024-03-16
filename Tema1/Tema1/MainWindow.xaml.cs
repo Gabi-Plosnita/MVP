@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tema1.Backend;
 
 namespace Tema1
 {
@@ -22,7 +23,10 @@ namespace Tema1
         public MainWindow()
         {
             InitializeComponent();
-            englishDictionary = new EnglishDictionary();
+            Authentication authentication = new Authentication();
+            authentication.LoadFromFile("../../Resources/Files/admins.json");
+
+            englishDictionary = new EnglishDictionary(authentication);
             englishDictionary.LoadFromFile("../../Resources/Files/dictionary.json");
 
             searchBarBox.ItemsSource = englishDictionary.GetAllWords();
