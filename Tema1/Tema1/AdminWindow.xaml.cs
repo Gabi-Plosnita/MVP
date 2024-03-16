@@ -22,6 +22,19 @@ namespace Tema1
         {
             InitializeComponent();
             searchBarBox.ItemsSource = MainWindow.englishDictionary.GetAllWords();
+            categoryBox.ItemsSource = MainWindow.englishDictionary.GetCategories();
+        }
+
+        private void categoryBox_DropDownOpened(object sender, EventArgs e)
+        {
+            categoryBox.ItemsSource = MainWindow.englishDictionary.GetCategories();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string category = categoryBox.SelectedItem as string;
+            List<string> words = MainWindow.englishDictionary.GetWordListFromCategory(category);
+            searchBarBox.ItemsSource = words;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -39,7 +52,7 @@ namespace Tema1
 
         private void searchBarBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            searchBarBox.ItemsSource = MainWindow.englishDictionary.GetAllWords();
+            searchBarBox.ItemsSource = MainWindow.englishDictionary.GetWordListFromCategory(categoryBox.Text);
         }
 
         private void AddWordButton_Click(Object sender, RoutedEventArgs e)

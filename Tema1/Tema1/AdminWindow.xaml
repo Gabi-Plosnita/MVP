@@ -8,20 +8,23 @@
         Title="AdminWindow" Height="550" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
+            <TextBlock Text="Admin" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="30"/>
+            
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Margin="30px">
+                <ComboBox Name="categoryBox" DropDownOpened="categoryBox_DropDownOpened" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
                 <controls:AutoCompleteBox x:Name="searchBarBox" Height="30" Width="300" GotFocus="searchBarBox_GotFocus"/>
                 <Button Content="Search" Click="SearchButton_Click"  Height ="30"  Width="120"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 50 0 0">
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10px">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 20 0 0">
                     <TextBlock Text="Name:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBlock Text="Category:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBlock Text="Description:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
                     <TextBlock Text="Image:" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="15"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 50 0 0">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0 20 0 0">
                     <TextBox Name ="nameField" Margin="10 0 0 20" Height="20" Width="200"/>
                     <TextBox Name ="categoryField" Margin="10 0 0 20" Height="20" Width="200"/>
                     <TextBox Name ="descriptionField" Margin="10 0 0 20" Height="20" Width="200"/>
