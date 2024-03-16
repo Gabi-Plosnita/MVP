@@ -61,6 +61,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Backend\Authentication\Admin.cs" />
+    <Compile Include="Backend\Authentication\Authentication.cs" />
     <Compile Include="WordWindow.xaml.cs">
       <DependentUpon>WordWindow.xaml</DependentUpon>
     </Compile>
@@ -72,8 +74,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Backend\EnglishDictionary.cs" />
-    <Compile Include="Backend\Word.cs" />
+    <Compile Include="Backend\Dictionary\EnglishDictionary.cs" />
+    <Compile Include="Backend\Dictionary\Word.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -106,6 +108,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\Files\admins.json" />
     <None Include="Resources\Files\dictionary.json" />
   </ItemGroup>
   <ItemGroup>
