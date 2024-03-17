@@ -21,11 +21,14 @@ namespace Tema1
 
         private int WordCount;
 
-        private int WordsGuessed;
+        public int WordsGuessed { get; set; }
+
+        public string Message { get; set; }
 
         public string HintDescription { get; set; }
 
         public string HintImage { get; set; }
+
         public GameWindow()
         {
             InitializeComponent();
@@ -34,21 +37,43 @@ namespace Tema1
             WordCount = 0;
             WordsGuessed = 0;
 
-            if (Hints[0].HintType == "description")
+            if (Hints[WordCount].HintType == "description")
             {
-                HintDescription = Hints[0].HintValue;
+                HintDescription = Hints[WordCount].HintValue;
                 HintImage = "";
             }
             else
             {
-                HintImage = Hints[0].HintValue;
+                HintImage = Hints[WordCount].HintValue;
                 HintDescription = "";
             }
+            Message = "";
         }
 
         public void VerifyButton_Clicked(object sender, RoutedEventArgs e)
         {
+            if (string.Equals(answerField, Hints[WordCount].WordName))
+            {
+                WordsGuessed++;
+                Message = "Correct answer";
+            }
+            else
+            {
+                Message = $"Incorrect answer. The correct answer was: {Hints[WordCount].WordName}.";
+            }
 
+            WordCount++;
+
+            if (Hints[WordCount].HintType == "description")
+            {
+                HintDescription = Hints[WordCount].HintValue;
+                HintImage = "";
+            }
+            else
+            {
+                HintImage = Hints[WordCount].HintValue;
+                HintDescription = "";
+            }
         }
     }
 }
