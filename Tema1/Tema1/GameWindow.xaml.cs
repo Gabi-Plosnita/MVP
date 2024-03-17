@@ -18,10 +18,32 @@ namespace Tema1
     public partial class GameWindow : Window
     {
         private List<Hint> Hints;
+
+        private int WordCount;
+
+        private int WordsGuessed;
+
+        public string HintDescription { get; set; }
+
+        public string HintImage { get; set; }
         public GameWindow()
         {
             InitializeComponent();
+            DataContext = this;
             Hints = MainWindow.englishDictionary.GenerateHints(5);
+            WordCount = 0;
+            WordsGuessed = 0;
+
+            if (Hints[0].HintType == "description")
+            {
+                HintDescription = Hints[0].HintValue;
+                HintImage = "";
+            }
+            else
+            {
+                HintImage = Hints[0].HintValue;
+                HintDescription = "";
+            }
         }
     }
 }

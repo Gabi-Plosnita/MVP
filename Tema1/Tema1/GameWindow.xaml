@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="GameWindow" Height="550" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
+            <TextBlock Text="Word Game" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="30"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 40 0 0">
+                <TextBlock Text="Hint: " VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBlock Text="{Binding HintDescription}" VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="20"/>
+            </StackPanel>
+            <Image Source="{Binding HintImage}" Margin="0 30 0 0" Width="200" HorizontalAlignment="Center" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 30 0 0">
+                <TextBlock Text="Answer: " Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBox Name ="answerField" Margin="10 0 0 20" Height="20" Width="200"/>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Window>
