@@ -24,10 +24,12 @@
 
             <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" FontSize="15" Margin="10"/>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 30 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 20 0 0">
                 <TextBlock Text="Words guessed: " HorizontalAlignment="Center" FontSize="15"/>
                 <TextBlock Text="{Binding WordsGuessed}" HorizontalAlignment="Center" FontSize="15"/>
             </StackPanel>
+
+            <Button Content="Restart Game" Click="RestartButton_Clicked"  Height ="25"  Width="120" Margin="0 30 0 0"/>
         </StackPanel>
     </Grid>
 </Window>

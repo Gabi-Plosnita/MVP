@@ -35,6 +35,10 @@ namespace Tema1
         {
             InitializeComponent();
             DataContext = this;
+            InitializeWindow();
+        }
+        private void InitializeWindow()
+        {
             Hints = MainWindow.englishDictionary.GenerateHints(5);
             WordCount = 0;
             WordsGuessed = 0;
@@ -52,7 +56,7 @@ namespace Tema1
             Message = "";
         }
 
-        public void VerifyButton_Clicked(object sender, RoutedEventArgs e)
+        private void VerifyButton_Clicked(object sender, RoutedEventArgs e)
         {
             if (string.Equals(answerField.Text.ToLower(), Hints[WordCount].WordName.ToLower()))
             {
@@ -63,6 +67,8 @@ namespace Tema1
             {
                 Message = $"Incorrect answer. The correct answer was: {Hints[WordCount].WordName}.";
             }
+
+            answerField.Text = "";
 
             WordCount++;
             if (WordCount == Hints.Count)
@@ -83,6 +89,14 @@ namespace Tema1
                 HintImage = Hints[WordCount].HintValue;
                 HintDescription = "";
             }
+        }
+
+        private void RestartButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            InitializeWindow();
+            Button verifyButton = (Button)sender;
+            verifyButton.IsEnabled = true;
+            answerField.Text = "";
         }
     }
 }
