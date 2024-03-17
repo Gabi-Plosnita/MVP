@@ -65,6 +65,13 @@ namespace Tema1
             }
 
             WordCount++;
+            if (WordCount == Hints.Count)
+            {
+                Button verifyButton = (Button)sender;
+                verifyButton.IsEnabled = false;
+                Message = "Game Over! Restart the game to play again!";
+                return;
+            }
 
             if (Hints[WordCount].HintType == "description")
             {
