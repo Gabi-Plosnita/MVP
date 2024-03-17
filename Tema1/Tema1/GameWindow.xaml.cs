@@ -45,5 +45,10 @@ namespace Tema1
                 HintDescription = "";
             }
         }
+
+        public void VerifyButton_Clicked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
