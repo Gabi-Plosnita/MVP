@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema1"
         mc:Ignorable="d"
-        Title="GameWindow" Height="550" Width="800">
+        Title="GameWindow" Height="650" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30px">
             <TextBlock Text="Word Game" Margin="0 0 0 20" HorizontalAlignment="Center" FontSize="30"/>

@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Tema1.Backend.Dictionary;
+using PropertyChanged;
 
 namespace Tema1
 {
+    [AddINotifyPropertyChangedInterface]
     public partial class GameWindow : Window
     {
         private List<Hint> Hints;
@@ -52,7 +54,7 @@ namespace Tema1
 
         public void VerifyButton_Clicked(object sender, RoutedEventArgs e)
         {
-            if (string.Equals(answerField, Hints[WordCount].WordName))
+            if (string.Equals(answerField.Text.ToLower(), Hints[WordCount].WordName.ToLower()))
             {
                 WordsGuessed++;
                 Message = "Correct answer";
