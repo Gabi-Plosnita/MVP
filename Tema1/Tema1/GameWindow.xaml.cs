@@ -73,8 +73,7 @@ namespace Tema1
             WordCount++;
             if (WordCount == Hints.Count)
             {
-                Button verifyButton = (Button)sender;
-                verifyButton.IsEnabled = false;
+                VerifyButton.IsEnabled = false;
                 Message = "Game Over! Restart the game to play again!";
                 return;
             }
@@ -94,8 +93,7 @@ namespace Tema1
         private void RestartButton_Clicked(object sender, RoutedEventArgs e)
         {
             InitializeWindow();
-            Button verifyButton = (Button)sender;
-            verifyButton.IsEnabled = true;
+            VerifyButton.IsEnabled = true;
             answerField.Text = "";
         }
     }

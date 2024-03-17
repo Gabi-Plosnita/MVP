@@ -19,7 +19,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin=" 0 30 0 0">
                 <TextBlock Text="Answer: "  Margin="40 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
                 <TextBox Name ="answerField" Margin="10 0 0 0" Height="25" Width="150"/>
-                <Button Content="Verify Answer" Click="VerifyButton_Clicked"  Height ="25"  Width="120" Margin="20"/>
+                <Button Name ="VerifyButton" Content="Verify Answer" Click="VerifyButton_Clicked"  Height ="25"  Width="120" Margin="20"/>
             </StackPanel>
 
             <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" FontSize="15" Margin="10"/>
