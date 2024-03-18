@@ -10,7 +10,7 @@
 
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
 
-            <Image Source="C:\Gabi\Mvp\MVP\Tema1\Tema1\Resources\Images\logo.png" Height="200" Margin="30" HorizontalAlignment="Center" />
+            <Image Source="D:\Facultate\An_2_Semestru_2\MVP\MVP\Tema1\Tema1\Resources\Images\logo.png" Height="200" Margin="30" HorizontalAlignment="Center" />
 
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30px">
                 <ComboBox Name="categoryBox" DropDownOpened="categoryBox_DropDownOpened" SelectionChanged="ComboBox_SelectionChanged" Height ="30"  Width="120"/>
