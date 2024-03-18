@@ -180,7 +180,7 @@ namespace Dictionar.Backend
             List<Word> words = new List<Word>();
             List<int> positions = new List<int>();
 
-            for (int i = 0; i < numberOfWords; i++)
+            for (int i = 0; i < ListOfWords.Count-1; i++)
             {
                 positions.Add(i);
             }
@@ -188,7 +188,7 @@ namespace Dictionar.Backend
             Random random = new Random();
 
             for (int i = 0; i < numberOfWords; i++)
-            {
+           {
                 int randomPosition = random.Next(0, positions.Count);
                 Word randomWord = ListOfWords[positions[randomPosition]];
                 words.Add(randomWord);
