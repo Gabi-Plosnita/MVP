@@ -33,6 +33,8 @@ namespace Tema1
             searchBarBox.ItemsSource = englishDictionary.GetAllWords();
             categoryBox.ItemsSource = englishDictionary.GetCategories();
             categoryBox.SelectedIndex = 0;
+
+            Closing += MainWindow_Closing;
         }
 
         private void searchBarBox_GotFocus(object sender, RoutedEventArgs e)
@@ -75,5 +77,9 @@ namespace Tema1
             gameWindow.Show();
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindow.englishDictionary.SaveToFile("../../Resources/Files/dictionary.json");
+        }
     }
 }

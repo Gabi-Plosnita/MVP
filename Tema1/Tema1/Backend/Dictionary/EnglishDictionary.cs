@@ -240,5 +240,11 @@ namespace Dictionar.Backend
 
             return hints;
         }
+
+        public void SaveToFile(string filePath)
+        {
+            string jsonData = JsonConvert.SerializeObject(ListOfWords);
+            File.WriteAllText(filePath, jsonData);
+        }
     }
 }
