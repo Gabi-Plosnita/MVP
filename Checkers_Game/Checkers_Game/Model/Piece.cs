@@ -5,7 +5,7 @@
 
         private EType pieceType;
 
-        private EColor pieceColor;
+        public EColor PieceColor { get; };
 
         public Piece(EType type, EColor color)
         {
@@ -16,19 +16,10 @@
         public EType PieceType
         {
             get { return piceType; }
-            set
+            protected set
             {
                 piceType = value;
                 NotifyPropertyChanged();
-            }
-        }
-
-        public EColor PieceColor
-        {
-            get { return pieceColor; }
-            set
-            {
-                pieceColor = value;
             }
         }
     }
