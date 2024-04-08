@@ -8,6 +8,10 @@ namespace Checkers_Game.BusinessLogic
 
         public EColor turn { get; private set;}
 
+        public int RedPiecesCount { get; private set; }
+
+        public int BlackPiecesCount { get; private set; }
+
         public GameBoard()
         {
             board = new Piece[8, 8];
