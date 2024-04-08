@@ -1,6 +1,6 @@
 ﻿namespace Checkers_Game.Model
 {
-    public enum EPiece
+    public enum EType
     {
         NormalPiece,
         QueenPiece,
