@@ -4,11 +4,14 @@ namespace Checkers_Game.BusinessLogic
 {
     public class GameBoard : BaseNotification
     {
-        private Piece[,] board;
+        public Piece[,] board { get; private set; }
+
+        public EColor turn { get; private set;}
 
         public GameBoard()
         {
             board = new Piece[8, 8];
+            turn = EColor.Red;
             InitializeBoard();
         }
 
@@ -47,5 +50,18 @@ namespace Checkers_Game.BusinessLogic
                 }
             }
         }
+
+        public Piece GetPiece(int row, int col)
+        {
+            return board[row, col];
+        }
+
+        public void SwitchTurn()
+        {
+            turn = EColor.Red == turn ? EColor.Black : EColor.Red;
+        }
+
+
+
     }
 }
