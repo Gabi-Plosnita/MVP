@@ -3,7 +3,7 @@
     public class Piece : BaseNotification
     {
 
-        private EType piceType;
+        private EType pieceType;
 
         private EColor pieceColor;
 
@@ -29,7 +29,6 @@
             set
             {
                 pieceColor = value;
-                NotifyPropertyChanged();
             }
         }
     }
