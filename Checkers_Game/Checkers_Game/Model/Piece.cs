@@ -22,5 +22,8 @@
                 NotifyPropertyChanged();
             }
         }
+
+
+        public abstract List<Position> GetPossibleMoves(Piece[,] board); 
     }
 }
