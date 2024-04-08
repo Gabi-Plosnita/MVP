@@ -2,10 +2,8 @@
 {
     public enum EPiece
     {
-        RedPiece,
-        RedQueen,
-        BlackPiece,
-        BlackQueen,
+        NormalPiece,
+        QueenPiece,
         None
     }
 }
