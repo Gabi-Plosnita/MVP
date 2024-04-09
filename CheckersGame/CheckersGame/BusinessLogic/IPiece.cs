@@ -1,4 +1,5 @@
 ﻿using CheckersGame.DataAccess;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace CheckersGame.BusinessLogic
@@ -10,6 +11,8 @@ namespace CheckersGame.BusinessLogic
         EColor GetColor();
 
         void SetType(EType type);
+
+        List<Position> GetPossibleMoves(Piece[,] board);
 
         void SubscribeToPropertyChanged(PropertyChangedEventHandler handler);
 
