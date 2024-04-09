@@ -1,16 +1,17 @@
 ﻿using CheckersGame.DataAccess;
+using CheckersGame.Exceptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace CheckersGame.BusinessLogic
 {
-    public abstract class Piece : BaseNotification
+    public class Piece : BaseNotification
     {
 
-        protected EType pieceType;
+        private EType pieceType;
 
-        protected EColor pieceColor;
+        private EColor pieceColor;
 
         protected Piece(EType type, EColor color)
         {
@@ -38,8 +39,66 @@ namespace CheckersGame.BusinessLogic
             PropertyChanged += handler;
         }
 
-        public abstract List<Position> GetPossibleMoves(Position piecePosition, 
-            ObservableCollection<ObservableCollection<Piece>> board);
+        public List<Position> GetPossibleMoves(Position piecePosition, 
+            ObservableCollection<ObservableCollection<Piece>> board)
+        {
+            int row = piecePosition.Row;
+            int col = piecePosition.Col;
+
+            if (!UtilityBoard.IsPositionInBoard(piecePosition, board.Count, board[0].Count))
+            {
+                throw new InvalidPositionException($"Position({row},{col}) is not in board!");
+            }
+
+            List<Position> possibleMoves = new List<Position>();
+
+            int[] possibleCols = { -1, 1, -2, 2 };
+            int[] possibleRows;
+
+            if(pieceType == EType.NormalPiece)
+            {
+                if (pieceColor == EColor.Black)
+                {
+                    possibleRows = new int[] { 1, 2 };
+                }
+                else
+                {
+                    possibleRows = new int[] { -1, -2 };
+                }
+            }
+            else
+            {
+                possibleRows = new int[] { -1, 1, -2, 2 };
+            }
+            
+            foreach (int possibleCol in possibleCols)
+            {
+                foreach (int possibleRow in possibleRows)
+                {
+                    Position possiblePosition = new Position(row + possibleRow, col + possibleCol);
+                    if (UtilityBoard.IsPositionInBoard(possiblePosition, board.Count, board[0].Count))
+                    {
+                        if (possibleCol % 2 == 1 && possibleRow % 2 == 1) // Simple Move
+                        {
+                            if (board[row + possibleRow][col + possibleCol].PieceType == EType.None)
+                            {
+                                possibleMoves.Add(possiblePosition);
+                            }
+                        }
+                        else if (possibleCol % 2 == 0 && possibleRow % 2 == 0) // Jump Move
+                        {
+                            if (board[row + possibleRow / 2][col + possibleCol / 2].PieceColor != pieceColor
+                                && board[row + possibleRow][col + possibleCol].PieceType == EType.None)
+                            {
+                                possibleMoves.Add(possiblePosition);
+                            }
+                        }
+                    }
+                }
+            }
+            return possibleMoves;
+        }
+    }
 
     }
 }
