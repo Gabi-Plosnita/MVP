@@ -1,5 +1,6 @@
 ﻿using CheckersGame.DataAccess;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace CheckersGame.BusinessLogic
@@ -37,7 +38,8 @@ namespace CheckersGame.BusinessLogic
             PropertyChanged += handler;
         }
 
-        public abstract List<Position> GetPossibleMoves(Position piecePosition, Piece[,] board);
+        public abstract List<Position> GetPossibleMoves(Position piecePosition, 
+            ObservableCollection<ObservableCollection<Piece>> board);
 
     }
 }
