@@ -37,7 +37,7 @@ namespace CheckersGame.BusinessLogic
             PropertyChanged += handler;
         }
 
-        public abstract List<Position> GetPossibleMoves(Piece[,] board);
+        public abstract List<Position> GetPattern(Position piecePosition);
 
     }
 }
