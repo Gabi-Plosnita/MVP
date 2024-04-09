@@ -99,6 +99,4 @@ namespace CheckersGame.BusinessLogic
             return possibleMoves;
         }
     }
-
-    }
 }
