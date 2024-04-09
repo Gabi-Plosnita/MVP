@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-
 namespace CheckersGame.BusinessLogic
 {
     public abstract class Piece : BaseNotification
