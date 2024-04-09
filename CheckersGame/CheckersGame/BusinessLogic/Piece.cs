@@ -7,9 +7,9 @@ namespace CheckersGame.BusinessLogic
     public abstract class Piece : BaseNotification
     {
 
-        private EType pieceType;
+        protected EType pieceType;
 
-        private EColor pieceColor;
+        protected EColor pieceColor;
 
         protected Piece(EType type, EColor color)
         {
@@ -37,7 +37,7 @@ namespace CheckersGame.BusinessLogic
             PropertyChanged += handler;
         }
 
-        public abstract List<Position> GetPattern(Position piecePosition);
+        public abstract List<Position> GetPossibleMoves(Position piecePosition, Piece[,] board);
 
     }
 }
