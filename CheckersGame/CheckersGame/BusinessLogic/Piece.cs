@@ -13,6 +13,17 @@ namespace CheckersGame.BusinessLogic
 
         private EColor pieceColor;
 
+        private string imagePath;
+        public string ImagePath
+        {
+            get { return imagePath; }
+            set
+            {
+                imagePath = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         protected Piece(EType type, EColor color)
         {
             pieceType = type;
