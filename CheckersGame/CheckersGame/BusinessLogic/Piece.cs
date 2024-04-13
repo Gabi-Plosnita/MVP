@@ -35,7 +35,7 @@ namespace CheckersGame.BusinessLogic
             }
         }
 
-        protected Piece(EType type, EColor color)
+        public Piece(EType type, EColor color)
         {
             pieceType = type;
             pieceColor = color;
