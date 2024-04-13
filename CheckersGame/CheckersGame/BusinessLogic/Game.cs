@@ -63,5 +63,10 @@ namespace CheckersGame.BusinessLogic
             turn = turn == EColor.Black ? EColor.Red : EColor.Black;
         }
 
+        public bool IsGameOver()
+        {
+            return RedPiecesNr == 0 || BlackPiecesNr == 0;
+        }
+
     }
 }
