@@ -21,5 +21,10 @@
             Position other = (Position)obj;
             return Row == other.Row && Col == other.Col;
         }
+
+        public override string ToString()
+        {
+            return $"({Row}, {Col})";
+        }
     }
 }
