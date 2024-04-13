@@ -2,13 +2,14 @@
 using CheckersGame.Exceptions;
 using System.Collections.Generic;
 using System;
+using System.Collections.ObjectModel;
 
 namespace CheckersGame.BusinessLogic
 {
     public class Game
     {
-        private List<List<Piece>> board;
-        public List<List<Piece>> Board
+        private ObservableCollection<ObservableCollection<Piece>> board;
+        public ObservableCollection<ObservableCollection<Piece>> Board
         {
             get { return board; }
         }
@@ -34,10 +35,10 @@ namespace CheckersGame.BusinessLogic
 
         private void InitializeBoard()
         {
-            board = new List<List<Piece>>();
+            board = new ObservableCollection<ObservableCollection<Piece>>();
             for (int i = 0; i < 8; i++)
             {
-                board.Add(new List<Piece>());
+                board.Add(new ObservableCollection<Piece>());
                 for (int j = 0; j < 8; j++)
                 {
                     if (i < 3 && (i + j) % 2 != 0)

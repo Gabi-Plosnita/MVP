@@ -1,6 +1,7 @@
 ﻿using CheckersGame.DataAccess;
 using CheckersGame.Exceptions;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -70,7 +71,7 @@ namespace CheckersGame.BusinessLogic
         }
 
         public List<Position> GetPossibleMoves(Position piecePosition, 
-            List<List<Piece>> board)
+            ObservableCollection<ObservableCollection<Piece>> board)
         {
             int row = piecePosition.Row;
             int col = piecePosition.Col;
