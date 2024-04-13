@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +64,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BusinessLogic\Game.cs" />
     <Compile Include="BusinessLogic\Piece.cs" />
     <Compile Include="BusinessLogic\UtilityBoard.cs" />
     <Compile Include="DataAccess\Position.cs" />
     <Compile Include="DataAccess\BaseNotification.cs" />
     <Compile Include="DataAccess\EColor.cs" />
     <Compile Include="DataAccess\EType.cs" />
+    <Compile Include="Exceptions\InvalidMoveException.cs" />
+    <Compile Include="Exceptions\InvalidPieceColorException.cs" />
     <Compile Include="Exceptions\InvalidPositionException.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -102,9 +106,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="ViewModel\" />
     <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BlackPiece.png" />
+    <Resource Include="Resources\BlackQueen.png" />
+    <Resource Include="Resources\RedPiece.png" />
+    <Resource Include="Resources\RedQueen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
