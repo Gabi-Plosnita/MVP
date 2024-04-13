@@ -14,6 +14,7 @@ namespace CheckersGame.BusinessLogic
             set
             {
                 pieceType = value;
+                SetImagePath();
                 NotifyPropertyChanged();
             }
         }
@@ -48,22 +49,22 @@ namespace CheckersGame.BusinessLogic
             {
                 if (pieceColor == EColor.Black)
                 {
-                    imagePath = ".\\..\\..\\Resources\\BlackPiece.png";
+                    ImagePath = ".\\..\\..\\Resources\\BlackPiece.png";
                 }
                 else
                 {
-                    imagePath = ".\\..\\..\\Resources\\RedPiece.png";
+                    ImagePath = ".\\..\\..\\Resources\\RedPiece.png";
                 }
             }
             else
             {
                 if (pieceColor == EColor.Black)
                 {
-                    imagePath = ".\\..\\..\\Resources\\BlackQueen.png";
+                    ImagePath = ".\\..\\..\\Resources\\BlackQueen.png";
                 }
                 else
                 {
-                    imagePath = ".\\..\\..\\Resources\\RedQueen.png";
+                    ImagePath = ".\\..\\..\\Resources\\RedQueen.png";
                 }
             }
         }
@@ -76,7 +77,7 @@ namespace CheckersGame.BusinessLogic
 
             if (!UtilityBoard.IsPositionInBoard(piecePosition, board.Count, board[0].Count))
             {
-                throw new InvalidPositionException($"Position({row},{col}) is not in board!");
+                throw new InvalidPositionException($"Position {piecePosition.ToString()} is not in board!");
             }
 
             List<Position> possibleMoves = new List<Position>();
