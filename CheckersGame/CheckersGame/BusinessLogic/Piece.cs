@@ -2,7 +2,6 @@
 using CheckersGame.Exceptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -45,13 +44,8 @@ namespace CheckersGame.BusinessLogic
             get { return pieceColor; }
         }
 
-        public void SubscribeToPropertyChanged(PropertyChangedEventHandler handler)
-        {
-            PropertyChanged += handler;
-        }
-
         public List<Position> GetPossibleMoves(Position piecePosition, 
-            ObservableCollection<ObservableCollection<Piece>> board)
+            List<List<Piece>> board)
         {
             int row = piecePosition.Row;
             int col = piecePosition.Col;
