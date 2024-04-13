@@ -1,7 +1,6 @@
 ﻿using CheckersGame.DataAccess;
 using CheckersGame.Exceptions;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -9,8 +8,21 @@ namespace CheckersGame.BusinessLogic
     {
 
         private EType pieceType;
+        public EType PieceType
+        {
+            get { return pieceType; }
+            set
+            {
+                pieceType = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         private EColor pieceColor;
+        public EColor PieceColor
+        {
+            get { return pieceColor; }
+        }
 
         private string imagePath;
         public string ImagePath
@@ -27,21 +39,33 @@ namespace CheckersGame.BusinessLogic
         {
             pieceType = type;
             pieceColor = color;
+            SetImagePath();
         }
 
-        public EType PieceType
+        private void SetImagePath()
         {
-            get { return pieceType; }
-            set
+            if (pieceType == EType.NormalPiece)
             {
-                pieceType = value;
-                NotifyPropertyChanged();
+                if (pieceColor == EColor.Black)
+                {
+                    imagePath = ".\\..\\..\\Resources\\BlackPiece.png";
+                }
+                else
+                {
+                    imagePath = ".\\..\\..\\Resources\\RedPiece.png";
+                }
             }
-        }
-
-        public EColor PieceColor
-        {
-            get { return pieceColor; }
+            else
+            {
+                if (pieceColor == EColor.Black)
+                {
+                    imagePath = ".\\..\\..\\Resources\\BlackQueen.png";
+                }
+                else
+                {
+                    imagePath = ".\\..\\..\\Resources\\RedQueen.png";
+                }
+            }
         }
 
         public List<Position> GetPossibleMoves(Position piecePosition, 
