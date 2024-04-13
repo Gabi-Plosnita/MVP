@@ -57,7 +57,7 @@ namespace CheckersGame.BusinessLogic
                     ImagePath = ".\\..\\..\\Resources\\RedPiece.png";
                 }
             }
-            else
+            else if (pieceType == EType.QueenPiece)
             {
                 if (pieceColor == EColor.Black)
                 {
@@ -67,6 +67,10 @@ namespace CheckersGame.BusinessLogic
                 {
                     ImagePath = ".\\..\\..\\Resources\\RedQueen.png";
                 }
+            }
+            else
+            {
+                ImagePath = "";
             }
         }
 
