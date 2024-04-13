@@ -17,10 +17,13 @@ namespace CheckersGame.BusinessLogic
             get { return turn; }
         }
 
+        public int RedPiecesNr;
+
+        public int BlackPiecesNr;
+
         public Game()
         {
-            InitializeBoard();
-            turn = EColor.Red;
+            InitializeGame();
         }
 
         private void InitializeBoard()
@@ -45,6 +48,14 @@ namespace CheckersGame.BusinessLogic
                     }
                 }
             }
+        }
+
+        public void InitializeGame()
+        {
+            RedPiecesNr = 12;
+            BlackPiecesNr = 12;
+            InitializeBoard();
+            turn = EColor.Red;
         }
 
         public void SwitchTurn()
