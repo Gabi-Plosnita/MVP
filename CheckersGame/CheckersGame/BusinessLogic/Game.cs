@@ -1,7 +1,7 @@
 ﻿using CheckersGame.DataAccess;
 using CheckersGame.Exceptions;
-using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -22,6 +22,10 @@ namespace CheckersGame.BusinessLogic
         public int RedPiecesNr;
 
         public int BlackPiecesNr;
+
+        private bool pieceMoved;
+
+        private bool pieceJumped;
 
         public Game()
         {
@@ -56,6 +60,8 @@ namespace CheckersGame.BusinessLogic
         {
             RedPiecesNr = 12;
             BlackPiecesNr = 12;
+            pieceMoved = false;
+            pieceJumped = false;
             InitializeBoard();
             turn = EColor.Red;
         }
@@ -63,6 +69,8 @@ namespace CheckersGame.BusinessLogic
         public void SwitchTurn()
         {
             turn = turn == EColor.Black ? EColor.Red : EColor.Black;
+            pieceMoved = false;
+            pieceJumped = false;
         }
 
         public bool IsGameOver()
@@ -72,6 +80,11 @@ namespace CheckersGame.BusinessLogic
 
         public void MakeMove(Position startPos, Position endPos)
         {
+            if(pieceMoved && !pieceJumped)
+            {
+                throw new InvalidMoveException("You already moved. Please switch turn.!");
+            }
+
             if (!UtilityBoard.IsPositionInBoard(startPos, board.Count, board[0].Count))
             {
                 throw new InvalidPositionException($"Position {startPos.ToString()} is invalid!");
@@ -88,6 +101,19 @@ namespace CheckersGame.BusinessLogic
             }
 
             List<Position> possibleMoves = piece.GetPossibleMoves(startPos, board);
+
+            if (pieceJumped)
+            {
+                List<Position> possibleMovesCopy = new List<Position>(possibleMoves);
+                foreach(Position move in possibleMovesCopy)
+                {
+                    if (Math.Abs(move.Row - startPos.Row) == 1)
+                    {
+                        possibleMoves.Remove(move);
+                    }
+                }
+            }
+
             if (!possibleMoves.Contains(endPos))
             {
                 throw new InvalidMoveException($"Invalid move from {startPos.ToString()} to {endPos.ToString()}");
@@ -95,11 +121,14 @@ namespace CheckersGame.BusinessLogic
 
             board[endPos.Row][endPos.Col] = board[startPos.Row][startPos.Col];
             board[startPos.Row][startPos.Col] = new Piece(EType.None, EColor.None);
+            pieceMoved = true;
 
-            if (System.Math.Abs(startPos.Row - endPos.Row) == 2)
+            if (Math.Abs(startPos.Row - endPos.Row) == 2)
             {
                 Position jumpedPiece = new Position((startPos.Row + endPos.Row) / 2, (startPos.Col + endPos.Col) / 2);
                 board[jumpedPiece.Row][jumpedPiece.Col] = new Piece(EType.None, EColor.None);
+                pieceJumped = true;
+
                 if (turn == EColor.Black)
                 {
                     RedPiecesNr--;
