@@ -47,6 +47,10 @@ namespace CheckersGame.BusinessLogic
             }
         }
 
+        public void SwitchTurn()
+        {
+            turn = turn == EColor.Black ? EColor.Red : EColor.Black;
+        }
 
     }
 }
