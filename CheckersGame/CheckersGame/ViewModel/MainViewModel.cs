@@ -1,8 +1,8 @@
 ﻿using CheckersGame.BusinessLogic;
 using CheckersGame.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace CheckersGame.ViewModel
@@ -14,6 +14,8 @@ namespace CheckersGame.ViewModel
         public ObservableCollection<Square> Board { get; private set; }
 
         private Square selectedSquare = null;
+
+        private List<Position> highlightedMoves = new List<Position>();
 
         public MainViewModel()
         {
@@ -47,12 +49,29 @@ namespace CheckersGame.ViewModel
 
         private void HighlightMoves(Position position)
         {
-            List<Position> moves = Game.GetMoves(position);
-            foreach(Position move in moves)
+            highlightedMoves = Game.GetMoves(position);
+            foreach(Position move in highlightedMoves)
             {
                 Board[move.Row * 8 + move.Col].BackgroundImagePath = ".\\..\\..\\Resources\\highlight.png";
             }
 
+        }
+
+        private void UnHighlightMoves()
+        {
+            foreach(Position move in highlightedMoves)
+            {
+                string backgroundPath;
+                if((move.Row + move.Col) % 2 != 0)
+                {
+                    backgroundPath = ".\\..\\..\\Resources\\bg1.png";
+                }
+                else
+                {
+                    backgroundPath = ".\\..\\..\\Resources\\bg2.jpg";
+                }
+                Board[move.Row * 8 + move.Col].BackgroundImagePath = backgroundPath;
+            }
         }
 
         public ICommand SquareClickCommand { get; private set; }
@@ -75,10 +94,17 @@ namespace CheckersGame.ViewModel
                 }
                 else
                 {
-                    Game.MakeMove(selectedSquare.Position, square.Position);
+                    try
+                    {
+                        Game.MakeMove(selectedSquare.Position, square.Position);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                     selectedSquare = null;
                 }
-                // unhighlight moves
+                UnHighlightMoves();
             }
         }
     }
