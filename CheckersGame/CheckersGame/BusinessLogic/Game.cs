@@ -79,6 +79,32 @@ namespace CheckersGame.BusinessLogic
             return RedPiecesNr == 0 || BlackPiecesNr == 0;
         }
 
+        public List<Position> GetMoves(Position position)
+        {
+            if (!UtilityBoard.IsPositionInBoard(position, board.Count, board[0].Count))
+            {
+                throw new InvalidPositionException($"Position {position.ToString()} is invalid!");
+            }
+
+            Piece piece = board[position.Row][position.Col];
+
+            List<Position> possibleMoves = piece.GetPossibleMoves(position, board);
+
+            if (pieceJumped)
+            {
+                List<Position> possibleMovesCopy = new List<Position>(possibleMoves);
+                foreach (Position move in possibleMovesCopy)
+                {
+                    if (Math.Abs(move.Row - position.Row) == 1)
+                    {
+                        possibleMoves.Remove(move);
+                    }
+                }
+            }
+
+            return possibleMoves;
+        }
+
         public void MakeMove(Position startPos, Position endPos)
         {
             if(pieceMoved && !pieceJumped)
