@@ -121,11 +121,6 @@ namespace CheckersGame.BusinessLogic
 
         public void MakeMove(Position startPos, Position endPos)
         {
-            if(pieceMoved && !pieceJumped)
-            {
-                throw new InvalidMoveException("You already moved. Make jump moves if possible or switch turn!");
-            }
-
             if (!UtilityBoard.IsPositionInBoard(startPos, board.Count, board[0].Count))
             {
                 throw new InvalidPositionException($"Position {startPos.ToString()} is invalid!");
@@ -136,12 +131,13 @@ namespace CheckersGame.BusinessLogic
             }
 
             Piece piece = board[startPos.Row][startPos.Col];
+
             if (piece.PieceColor != turn)
             {
                 throw new InvalidPieceColorException("This is not your piece!");
             }
 
-            List<Position> possibleMoves = piece.GetPossibleMoves(startPos, board);
+            List<Position> possibleMoves = GetMoves(startPos);
 
             if (pieceJumped)
             {
