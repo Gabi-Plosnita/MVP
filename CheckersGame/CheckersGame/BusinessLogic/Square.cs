@@ -6,6 +6,8 @@ namespace CheckersGame.BusinessLogic
     {
         public string BackgroundImagePath { get; set; }
 
+        public Position Position { get; set; }
+
         public string ImagePath
         {
             get
