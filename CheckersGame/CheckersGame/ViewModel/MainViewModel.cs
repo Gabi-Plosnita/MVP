@@ -47,6 +47,23 @@ namespace CheckersGame.ViewModel
             }
         }
 
+        private void UpdateBoard()
+        {
+            for (int i = 0; i < Game.Board.Count; i++)
+            {
+                for (int j = 0; j < Game.Board[i].Count; j++)
+                {
+                    //Board[i * 8 + j].Piece = Game.Board[i][j];
+                    Board[i * 8 + j] = new Square
+                    {
+                        Piece = Game.Board[i][j],
+                        Position = new Position(i, j),
+                        BackgroundImagePath = Board[i * 8 + j].BackgroundImagePath
+                    };
+                }
+            }
+        }
+
         private void HighlightMoves(Position position)
         {
             highlightedMoves = Game.GetMoves(position);
@@ -97,6 +114,7 @@ namespace CheckersGame.ViewModel
                     try
                     {
                         Game.MakeMove(selectedSquare.Position, square.Position);
+                        UpdateBoard();
                     }
                     catch (Exception ex)
                     {
