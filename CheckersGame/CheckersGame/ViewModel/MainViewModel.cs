@@ -21,6 +21,7 @@ namespace CheckersGame.ViewModel
         {
             InitializeBoard();
             SquareClickCommand = new RelayCommand<Square>(SquareClick);
+            SwitchTurnCommand = new RelayCommand<Object>(SwitchTurnClick);
         }
 
         private void InitializeBoard()
@@ -124,6 +125,13 @@ namespace CheckersGame.ViewModel
                 }
                 UnHighlightMoves();
             }
+        }
+
+        public ICommand SwitchTurnCommand { get; private set; }
+
+        private void SwitchTurnClick(Object param)
+        {
+            Game.SwitchTurn();
         }
     }
 }
