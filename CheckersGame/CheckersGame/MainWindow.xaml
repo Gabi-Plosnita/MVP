@@ -13,27 +13,39 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="Gray">
+            
         </Grid>
 
-        <ItemsControl Grid.Column="1" ItemsSource="{Binding Board}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Rows="8" Columns="8"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Margin="1" Command="{Binding DataContext.SquareClickCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
-                CommandParameter="{Binding}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="{Binding BackgroundImagePath}"/>
-                        </Button.Background>
-                        <Image Source="{Binding ImagePath}" HorizontalAlignment="Stretch" 
-                   VerticalAlignment="Stretch" Margin="10"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="9*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="LightGray">
+                
+            </Grid>
+            
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Board}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="8" Columns="8"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Margin="1" Command="{Binding DataContext.SquareClickCommand, 
+                            RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="{Binding BackgroundImagePath}"/>
+                            </Button.Background>
+                            <Image Source="{Binding ImagePath}" HorizontalAlignment="Stretch" 
+                                    VerticalAlignment="Stretch" Margin="10"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
 
     </Grid>
 </Window>
