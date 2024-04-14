@@ -1,5 +1,6 @@
 ﻿using CheckersGame.BusinessLogic;
 using CheckersGame.Commands;
+using CheckersGame.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,19 +8,42 @@ using System.Windows.Input;
 
 namespace CheckersGame.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : BaseNotification
     {
         private Game Game = new Game();
-
         public ObservableCollection<Square> Board { get; private set; }
 
         private Square selectedSquare = null;
 
         private List<Position> highlightedMoves = new List<Position>();
 
+        private string turnMessage;
+        public string TurnMessage
+        {
+            get { return turnMessage; }
+            set
+            {
+                turnMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string statusMessage;
+
+        public string StatusMessage
+        {
+            get { return statusMessage; }
+            set
+            {
+                statusMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             InitializeBoard();
+            TurnMessage = $"Turn: {Game.Turn.ToString()}";
             SquareClickCommand = new RelayCommand<Square>(SquareClick);
             SwitchTurnCommand = new RelayCommand<Object>(SwitchTurnClick);
         }
@@ -96,7 +120,8 @@ namespace CheckersGame.ViewModel
 
         private void SquareClick(Square square)
         {
-            if(selectedSquare == null)
+            StatusMessage = "";
+            if (selectedSquare == null)
             {
                 if(square.Piece.PieceColor == Game.Turn)
                 {
@@ -119,7 +144,7 @@ namespace CheckersGame.ViewModel
                     }
                     catch (Exception ex)
                     {
-
+                        StatusMessage = ex.Message;
                     }
                     selectedSquare = null;
                 }
@@ -131,7 +156,15 @@ namespace CheckersGame.ViewModel
 
         private void SwitchTurnClick(Object param)
         {
-            Game.SwitchTurn();
+            try
+            {
+                Game.SwitchTurn();
+                TurnMessage = $"Turn: {Game.Turn.ToString()}";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = ex.Message;
+            }
         }
     }
 }
