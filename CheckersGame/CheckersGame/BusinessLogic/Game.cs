@@ -69,6 +69,10 @@ namespace CheckersGame.BusinessLogic
 
         public void SwitchTurn()
         {
+            if(!pieceMoved)
+            {
+                throw new SwitchTurnException("You must move a piece before switching turn!");
+            }
             turn = turn == EColor.Black ? EColor.Red : EColor.Black;
             pieceMoved = false;
             pieceJumped = false;
