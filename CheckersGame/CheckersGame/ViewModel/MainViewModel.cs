@@ -153,6 +153,7 @@ namespace CheckersGame.ViewModel
                     try
                     {
                         Game.MakeMove(selectedSquare.Position, square.Position);
+                        selectedSquare = null;
                         UnHighlightMoves();
                         UpdateBoard();
                     }
