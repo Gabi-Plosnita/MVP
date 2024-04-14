@@ -91,12 +91,18 @@ namespace CheckersGame.ViewModel
 
         private void HighlightMoves(Position position)
         {
-            highlightedMoves = Game.GetMoves(position);
-            foreach(Position move in highlightedMoves)
+            try
             {
-                Board[move.Row * 8 + move.Col].BackgroundImagePath = ".\\..\\..\\Resources\\highlight.png";
+                highlightedMoves = Game.GetMoves(position);
+                foreach (Position move in highlightedMoves)
+                {
+                    Board[move.Row * 8 + move.Col].BackgroundImagePath = ".\\..\\..\\Resources\\highlight.png";
+                }
             }
-
+            catch (Exception e)
+            {
+                StatusMessage = e.Message;
+            }
         }
 
         private void UnHighlightMoves()
