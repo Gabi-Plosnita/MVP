@@ -29,8 +29,8 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
-                    <TextBlock Text="Turn:" Margin="5" />
-                    <TextBlock x:Name="ErrorMessageTextBlock" Text="Error messages will appear here" Margin="5" />
+                    <TextBlock Text="{Binding TurnMessage}" Margin="5" />
+                    <TextBlock x:Name="ErrorMessageTextBlock" Text="{Binding StatusMessage}" Margin="5" />
                 </StackPanel>
 
                 <Button Grid.Column="1" Content="Switch Turn" Command="{Binding SwitchTurnCommand}" HorizontalAlignment="Right" Margin="5" />
