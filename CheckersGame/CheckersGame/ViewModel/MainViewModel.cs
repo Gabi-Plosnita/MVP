@@ -101,6 +101,7 @@ namespace CheckersGame.ViewModel
             }
             catch (Exception e)
             {
+                selectedSquare = null;
                 StatusMessage = e.Message;
             }
         }
@@ -127,6 +128,7 @@ namespace CheckersGame.ViewModel
         private void SquareClick(Square square)
         {
             StatusMessage = "";
+
             if (selectedSquare == null)
             {
                 if(square.Piece.PieceColor == Game.Turn)
