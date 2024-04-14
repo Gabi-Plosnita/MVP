@@ -113,7 +113,7 @@ namespace CheckersGame.BusinessLogic
         {
             if(pieceMoved && !pieceJumped)
             {
-                throw new InvalidMoveException("You already moved. Please switch turn.!");
+                throw new InvalidMoveException("You already moved. Make jump moves if possible or switch turn!");
             }
 
             if (!UtilityBoard.IsPositionInBoard(startPos, board.Count, board[0].Count))

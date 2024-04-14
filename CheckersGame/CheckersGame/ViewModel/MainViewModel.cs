@@ -175,6 +175,7 @@ namespace CheckersGame.ViewModel
             {
                 Game.SwitchTurn();
                 TurnMessage = $"Turn: {Game.Turn.ToString()}";
+                StatusMessage = "";
             }
             catch (Exception ex)
             {
