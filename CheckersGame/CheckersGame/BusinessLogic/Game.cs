@@ -85,6 +85,11 @@ namespace CheckersGame.BusinessLogic
 
         public List<Position> GetMoves(Position position)
         {
+            if(pieceMoved && !pieceJumped)
+            {
+                throw new NoMovesException("You can't move this piece anymore!");
+            }
+
             if (!UtilityBoard.IsPositionInBoard(position, board.Count, board[0].Count))
             {
                 throw new InvalidPositionException($"Position {position.ToString()} is invalid!");
@@ -104,6 +109,11 @@ namespace CheckersGame.BusinessLogic
                         possibleMoves.Remove(move);
                     }
                 }
+            }
+
+            if(possibleMoves.Count == 0)
+            {
+                throw new NoMovesException("You can't move this piece anymore!");
             }
 
             return possibleMoves;
