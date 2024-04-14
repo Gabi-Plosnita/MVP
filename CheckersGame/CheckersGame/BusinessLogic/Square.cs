@@ -4,7 +4,16 @@ namespace CheckersGame.BusinessLogic
 {
     public class Square : BaseNotification
     {
-        public string BackgroundImagePath { get; set; }
+        private string backgroundImagePath;
+        public string BackgroundImagePath
+        {
+            get { return backgroundImagePath; }
+            set
+            {
+                backgroundImagePath = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public Position Position { get; set; }
 
