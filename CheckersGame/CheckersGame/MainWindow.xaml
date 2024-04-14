@@ -23,9 +23,20 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Background="LightGray">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Left">
+                    <TextBlock Text="Turn:" Margin="5" />
+                    <TextBlock x:Name="ErrorMessageTextBlock" Text="Error messages will appear here" Margin="5" />
+                </StackPanel>
+
+                <Button Grid.Column="1" Content="Switch Turn" Command="{Binding SwitchTurnCommand}" HorizontalAlignment="Right" Margin="5" />
             </Grid>
-            
+
+
             <ItemsControl Grid.Row="1" ItemsSource="{Binding Board}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
