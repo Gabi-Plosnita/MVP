@@ -128,27 +128,42 @@ namespace CheckersGame.ViewModel
                     selectedSquare = square;
                     HighlightMoves(square.Position);
                 }
+                else
+                {
+                    StatusMessage = "Invalid square!";
+                }
             }
             else
             {
                 if(selectedSquare == square)
                 {
                     selectedSquare = null;
+                    UnHighlightMoves();
                 }
                 else
                 {
                     try
                     {
                         Game.MakeMove(selectedSquare.Position, square.Position);
+                        UnHighlightMoves();
                         UpdateBoard();
                     }
                     catch (Exception ex)
                     {
-                        StatusMessage = ex.Message;
+                        if (square.Piece.PieceColor == Game.Turn)
+                        {
+                            selectedSquare = square;
+                            UnHighlightMoves();
+                            HighlightMoves(square.Position);
+                        }
+                        else
+                        {
+                            UnHighlightMoves();
+                            selectedSquare = null;
+                            StatusMessage = ex.Message;
+                        }                    
                     }
-                    selectedSquare = null;
                 }
-                UnHighlightMoves();
             }
         }
 
