@@ -14,7 +14,7 @@ namespace CheckersGame.ViewModel
         public MainViewModel()
         {
             InitializeBoard();
-            SqaureClickCommand = new RelayCommand<Square>(SqaureClick);
+            SquareClickCommand = new RelayCommand<Square>(SquareClick);
         }
 
         private void InitializeBoard()
@@ -40,9 +40,9 @@ namespace CheckersGame.ViewModel
             }
         }
 
-        public ICommand SqaureClickCommand { get; private set; }
+        public ICommand SquareClickCommand { get; private set; }
 
-        private void SqaureClick(Square square)
+        private void SquareClick(Square square)
         {
             square.ImagePath = ".\\..\\..\\Resources\\bg1.png";
         }
