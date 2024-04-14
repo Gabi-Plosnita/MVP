@@ -9,7 +9,7 @@ namespace CheckersGame.ViewModel
     {
         private Game Game = new Game();
 
-        public ObservableCollection<Square> Board;
+        public ObservableCollection<Square> Board { get; private set; }
 
         public MainViewModel()
         {
@@ -26,13 +26,13 @@ namespace CheckersGame.ViewModel
                 for (int j = 0; j < Game.Board[i].Count; j++)
                 {
                     Square square = new Square();
-                    if(i + j % 2 != 0)
+                    if( (i + j) % 2 != 0)
                     {
                         square.BackgroundImagePath = ".\\..\\..\\Resources\\bg1.png";
                     }
                     else
                     {
-                        square.BackgroundImagePath = ".\\..\\..\\Resources\\bg2.png";
+                        square.BackgroundImagePath = ".\\..\\..\\Resources\\bg2.jpg";
                     }
                     square.Piece = Game.Board[i][j];
                     Board.Add(square);
