@@ -113,7 +113,7 @@ namespace CheckersGame.BusinessLogic
                     Position possiblePosition = new Position(row + possibleRow, col + possibleCol);
                     if (UtilityBoard.IsPositionInBoard(possiblePosition, board.Count, board[0].Count))
                     {
-                        if (possibleCol % 2 == 1 && possibleRow % 2 == 1) // Simple Move
+                        if (possibleCol % 2 != 0 && possibleRow % 2 != 0) // Simple Move
                         {
                             if (board[row + possibleRow][col + possibleCol].PieceType == EType.None)
                             {
@@ -123,6 +123,7 @@ namespace CheckersGame.BusinessLogic
                         else if (possibleCol % 2 == 0 && possibleRow % 2 == 0) // Jump Move
                         {
                             if (board[row + possibleRow / 2][col + possibleCol / 2].PieceColor != pieceColor
+                                && board[row + possibleRow / 2][col + possibleCol / 2].PieceColor != EColor.None
                                 && board[row + possibleRow][col + possibleCol].PieceType == EType.None)
                             {
                                 possibleMoves.Add(possiblePosition);
