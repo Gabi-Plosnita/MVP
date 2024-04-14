@@ -4,7 +4,7 @@
     {
         static public bool IsPositionInBoard(Position position, int nrRows, int nrCols)
         {
-            return position.Row >= nrRows && position.Row < nrRows && position.Col >= nrCols && position.Col < nrCols;
+            return position.Row >= 0 && position.Row < nrRows && position.Col >= 0 && position.Col < nrCols;
         }
     }
 }
