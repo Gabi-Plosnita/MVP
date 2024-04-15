@@ -64,6 +64,10 @@
     <Compile Include="Exceptions\NoMovesException.cs" />
     <Compile Include="Exceptions\SwitchTurnException.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\StatisticsViewModel.cs" />
+    <Compile Include="View\StatisticsWindow.xaml.cs">
+      <DependentUpon>StatisticsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +90,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\StatisticsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -116,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\GameFiles\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\BlackPiece.png" />
