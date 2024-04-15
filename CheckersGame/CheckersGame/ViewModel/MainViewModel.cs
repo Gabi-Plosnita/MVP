@@ -270,6 +270,7 @@ namespace CheckersGame.ViewModel
                 Game.SwitchTurn();
                 TurnMessage = $"Turn: {Game.Turn.ToString()}";
                 StatusMessage = "";
+                UnHighlightMoves();
             }
             catch (Exception ex)
             {
