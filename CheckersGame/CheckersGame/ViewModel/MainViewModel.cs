@@ -253,6 +253,8 @@ namespace CheckersGame.ViewModel
         {
             Game.InitializeGame();
             UpdateBoard();
+            selectedSquare = null;
+            UnHighlightMoves();
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
             StatusMessage = "";
             GameJustStarted = true;
@@ -323,6 +325,8 @@ namespace CheckersGame.ViewModel
 
                 // Update UI or perform necessary actions
                 UpdateBoard();
+                selectedSquare = null;
+                UnHighlightMoves();
                 TurnMessage = $"Turn: {Game.Turn.ToString()}";
                 StatusMessage = "";
                 GameJustStarted = false;
