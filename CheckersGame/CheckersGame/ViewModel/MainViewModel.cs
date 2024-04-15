@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows.Input;
 
 namespace CheckersGame.ViewModel
@@ -275,6 +276,10 @@ namespace CheckersGame.ViewModel
             saveFileDialog.DefaultExt = ".json";
             saveFileDialog.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*";
 
+            // Set the initial directory to the desired path
+            string initialDirectory = Path.GetFullPath(".\\..\\..\\Resources\\GameFiles");
+            saveFileDialog.InitialDirectory = initialDirectory;
+
             // Display the SaveFileDialog by calling ShowDialog method
             bool? result = saveFileDialog.ShowDialog();
 
@@ -299,6 +304,10 @@ namespace CheckersGame.ViewModel
             // Set default file extension and filter
             openFileDialog.DefaultExt = ".json";
             openFileDialog.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*";
+
+            // Set the initial directory to the desired path
+            string initialDirectory = Path.GetFullPath(".\\..\\..\\Resources\\GameFiles");
+            openFileDialog.InitialDirectory = initialDirectory;
 
             // Display the OpenFileDialog by calling ShowDialog method
             bool? result = openFileDialog.ShowDialog();
