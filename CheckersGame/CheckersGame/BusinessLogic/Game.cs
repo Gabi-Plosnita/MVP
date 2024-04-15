@@ -28,12 +28,9 @@ namespace CheckersGame.BusinessLogic
         public int RedPiecesNr;
 
         public int BlackPiecesNr;
-
-        private bool pieceMoved;
-
-        private bool pieceJumped;
-
-        private Position positionJumped;
+        public bool pieceMoved { get; private set; }
+        public bool pieceJumped { get; private set; }
+        public Position positionJumped { get; set; }
 
         public bool AllowMultipleJumps { get; set; }
 

@@ -1,0 +1,350 @@
+{
+  "RedPiecesNr": 8,
+  "BlackPiecesNr": 1,
+  "Board": [
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 1,
+        "ImagePath": ".\\..\\..\\Resources\\BlackPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 1,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedQueen.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      }
+    ],
+    [
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ],
+    [
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 0,
+        "PieceColor": 0,
+        "ImagePath": ".\\..\\..\\Resources\\RedPiece.png"
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      },
+      {
+        "PieceType": 2,
+        "PieceColor": 2,
+        "ImagePath": ""
+      }
+    ]
+  ],
+  "Turn": 1,
+  "pieceMoved": true,
+  "pieceJumped": true,
+  "positionJumped": {
+    "Row": 3,
+    "Col": 4
+  },
+  "AllowMultipleJumps": true
+}
