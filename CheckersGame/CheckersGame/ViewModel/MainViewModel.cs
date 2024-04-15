@@ -19,6 +19,65 @@ namespace CheckersGame.ViewModel
 
         private List<Position> highlightedMoves = new List<Position>();
 
+
+        private int redWinsNr;
+    
+        public int RedWinsNumber
+        {
+            get { return redWinsNr; }
+            private set
+            {
+                redWinsNr = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private int blackWinsNr;
+
+        public int BlackWinsNumber
+        {
+            get { return blackWinsNr; }
+            private set
+            {
+                blackWinsNr = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private int redMaxPiecesNr;
+
+        public int RedMaxPiecesNr
+        {
+            get
+            {
+                return redMaxPiecesNr;
+            }
+            private set
+            {
+                redMaxPiecesNr = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        private int blackMaxPiecesNr;
+
+        public int BlackMaxPiecesNr
+        {
+            get
+            {
+                return blackMaxPiecesNr;
+            }
+            private set
+            {
+                blackMaxPiecesNr = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         private string turnMessage;
         public string TurnMessage
         {
