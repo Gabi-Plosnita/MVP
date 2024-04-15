@@ -358,6 +358,7 @@ namespace CheckersGame.ViewModel
                 UpdateBoard();
                 selectedSquare = null;
                 UnHighlightMoves();
+                AllowMultipleJumps = Game.AllowMultipleJumps;
                 TurnMessage = $"Turn: {Game.Turn.ToString()}";
                 StatusMessage = "";
                 if (Game.IsGameOver())
