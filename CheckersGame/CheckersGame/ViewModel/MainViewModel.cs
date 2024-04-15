@@ -40,13 +40,47 @@ namespace CheckersGame.ViewModel
             }
         }
 
+        private string allowJumpsMessage;
+
+        public string AllowJumpsMessage
+        {
+            get { return allowJumpsMessage; }
+            set
+            {
+                allowJumpsMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public bool AllowMultipleJumps
+        {
+            get
+            {
+                return Game.AllowMultipleJumps;
+            }
+            set
+            {
+                Game.AllowMultipleJumps = value;
+                if (value)
+                {
+                    AllowJumpsMessage = "Disable multiple jumps";
+                }
+                else
+                {
+                    AllowJumpsMessage = "Allow multiple jumps";
+                }
+                NotifyPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             InitializeBoard();
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
+            AllowJumpsMessage = "Disable multiple jumps";
             SquareClickCommand = new RelayCommand<Square>(SquareClick);
             SwitchTurnCommand = new RelayCommand<Object>(SwitchTurnClick);
             RestartGameCommand = new RelayCommand<Object>(RestartGameClick);
+            ManageJumpsCommnd = new RelayCommand<Object>(ManageJumpsClick);
         }
 
         private void InitializeBoard()
@@ -201,6 +235,13 @@ namespace CheckersGame.ViewModel
             UpdateBoard();
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
             StatusMessage = "";
+        }
+
+        public ICommand ManageJumpsCommnd { get; private set; }
+
+        public void ManageJumpsClick(Object param)
+        {
+            AllowMultipleJumps = !AllowMultipleJumps;
         }
     }
 }

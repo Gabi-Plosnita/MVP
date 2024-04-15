@@ -28,9 +28,12 @@ namespace CheckersGame.BusinessLogic
 
         private bool pieceJumped;
 
+        public bool AllowMultipleJumps { get; set; }
+
         public Game()
         {
             InitializeGame();
+            AllowMultipleJumps = true;
         }
 
         private void InitializeBoard()
@@ -182,6 +185,11 @@ namespace CheckersGame.BusinessLogic
                 {
                     board[endPos.Row][endPos.Col].PieceType = EType.QueenPiece;
                 }
+            }
+
+            if (!AllowMultipleJumps)
+            {
+                SwitchTurn();
             }
         }
 

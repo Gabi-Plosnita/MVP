@@ -28,7 +28,7 @@
             <Button Grid.Row="1" Content="New Game" Margin="5" Command="{Binding RestartGameCommand}"/>
             <Button Grid.Row="2" Content="Save Game" Margin="5"/>
             <Button Grid.Row="3" Content="Open Game" Margin="5"/>
-            <Button Grid.Row="4" Content="Allow multiple jumps" Margin="5"/>
+            <Button Grid.Row="4" Content="{Binding AllowJumpsMessage}" Margin="5" Command="{Binding ManageJumpsCommnd}"/>
             <Button Grid.Row="5" Content="Statistics" Margin="5"/>
             <Button Grid.Row="6" Content="About" Margin="5"/>
         </Grid>
@@ -51,7 +51,21 @@
                     <TextBlock x:Name="ErrorMessageTextBlock" Text="{Binding StatusMessage}" Margin="5" />
                 </StackPanel>
 
-                <Button Grid.Column="1" Content="Switch Turn" Command="{Binding SwitchTurnCommand}" HorizontalAlignment="Right" Margin="5" />
+                <Button Grid.Column="1" Content="Switch Turn"
+                        Command="{Binding SwitchTurnCommand}" 
+                        HorizontalAlignment="Right" Margin="5">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding AllowMultipleJumps}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
             </Grid>
 
 
