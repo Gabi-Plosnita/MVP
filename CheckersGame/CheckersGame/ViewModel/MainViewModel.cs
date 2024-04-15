@@ -1,6 +1,7 @@
 ﻿using CheckersGame.BusinessLogic;
 using CheckersGame.Commands;
 using CheckersGame.DataAccess;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -97,6 +98,8 @@ namespace CheckersGame.ViewModel
             SwitchTurnCommand = new RelayCommand<Object>(SwitchTurnClick);
             RestartGameCommand = new RelayCommand<Object>(RestartGameClick);
             ManageJumpsCommnd = new RelayCommand<Object>(ManageJumpsClick);
+            SaveGameCommand = new RelayCommand<Object>(SaveGameClick);
+            LoadGameCommand = new RelayCommand<Object>(LoadGameClick);
         }
 
         private void InitializeBoard()
@@ -245,7 +248,7 @@ namespace CheckersGame.ViewModel
 
         public ICommand RestartGameCommand { get; private set; }
 
-        public void RestartGameClick(Object param)
+        private void RestartGameClick(Object param)
         {
             Game.InitializeGame();
             UpdateBoard();
@@ -256,9 +259,65 @@ namespace CheckersGame.ViewModel
 
         public ICommand ManageJumpsCommnd { get; private set; }
 
-        public void ManageJumpsClick(Object param)
+        private void ManageJumpsClick(Object param)
         {
             AllowMultipleJumps = !AllowMultipleJumps;
+        }
+
+        public ICommand SaveGameCommand { get; private set; }
+
+        private void SaveGameClick(Object param)
+        {
+            // Create a SaveFileDialog
+            var saveFileDialog = new SaveFileDialog();
+
+            // Set default file extension and filter
+            saveFileDialog.DefaultExt = ".json";
+            saveFileDialog.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*";
+
+            // Display the SaveFileDialog by calling ShowDialog method
+            bool? result = saveFileDialog.ShowDialog();
+
+            // Check if the user selected a file
+            if (result == true)
+            {
+                // Get the selected file name
+                string fileName = saveFileDialog.FileName;
+
+                // Call the SaveToFile method of your Game object
+                Game.SaveToFile(fileName);
+            }
+        }
+
+        public ICommand LoadGameCommand { get; private set; }
+
+        private void LoadGameClick(Object param)
+        {
+            // Create an OpenFileDialog
+            var openFileDialog = new OpenFileDialog();
+
+            // Set default file extension and filter
+            openFileDialog.DefaultExt = ".json";
+            openFileDialog.Filter = "JSON Files (*.json)|*.json|All files (*.*)|*.*";
+
+            // Display the OpenFileDialog by calling ShowDialog method
+            bool? result = openFileDialog.ShowDialog();
+
+            // Check if the user selected a file
+            if (result == true)
+            {
+                // Get the selected file name
+                string fileName = openFileDialog.FileName;
+
+                // Call the LoadFromFile method of your Game object
+                Game.LoadFromFile(fileName);
+
+                // Update UI or perform necessary actions
+                UpdateBoard();
+                TurnMessage = $"Turn: {Game.Turn.ToString()}";
+                StatusMessage = "";
+                GameJustStarted = false;
+            }
         }
     }
 }

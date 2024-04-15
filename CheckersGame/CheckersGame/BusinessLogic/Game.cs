@@ -3,6 +3,8 @@ using CheckersGame.Exceptions;
 using System.Collections.Generic;
 using System;
 using System.Collections.ObjectModel;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -203,5 +205,22 @@ namespace CheckersGame.BusinessLogic
             }
         }
 
+        public void SaveToFile(string filePath)
+        {
+            // Serialize the Game object to JSON
+            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
+
+            // Write the JSON to the file
+            File.WriteAllText(filePath, json);
+        }
+
+        public static Game LoadFromFile(string filePath)
+        {
+            // Read the JSON from the file
+            string json = File.ReadAllText(filePath);
+
+            // Deserialize the JSON back to a Game object
+            return JsonConvert.DeserializeObject<Game>(json);
+        }
     }
 }
