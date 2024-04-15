@@ -1,0 +1,25 @@
+﻿<Window x:Class="CheckersGame.View.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckersGame.View"
+        mc:Ignorable="d"
+        Title="AboutWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="About me" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Text="Creator: Plosnita Valentin Gabriel" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Text="Institutional Email: valentin.plosnita@student.unitbv.ro" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Text="Group: LF322" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Text="Description: Checkers is a classic two-player board game where each player aims to capture or block their opponent's pieces. Players strategically move their pieces diagonally across the board, aiming to crown them to gain more movement options. It's a game of tactics and foresight, offering simple rules with complex strategies." 
+                   FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Margin="35"/>
+    </Grid>
+</Window>

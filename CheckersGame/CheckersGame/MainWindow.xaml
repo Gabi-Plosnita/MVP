@@ -43,7 +43,7 @@
             </Button>
 
             <Button Grid.Row="5" Content="Statistics" Margin="5" Click="StatisticsButton_Click"/>
-            <Button Grid.Row="6" Content="About" Margin="5"/>
+            <Button Grid.Row="6" Content="About" Margin="5" Click="AboutButton_Click"/>
 
             <TextBlock Grid.Row="7" Text="{Binding GameOverMessage}" Margin="40" HorizontalAlignment="Center" FontSize="30"/>
         </Grid>
