@@ -244,6 +244,9 @@ namespace CheckersGame.BusinessLogic
             this.BlackPiecesNr = (int)jsonObject["BlackPiecesNr"];
             this.Turn = (EColor)(int)jsonObject["Turn"];
             this.AllowMultipleJumps = (bool)jsonObject["AllowMultipleJumps"];
+            this.pieceMoved = (bool)jsonObject["pieceMoved"];
+            this.pieceJumped = (bool)jsonObject["pieceJumped"];
+            this.positionJumped = new Position((int)jsonObject["positionJumped"]["Row"], (int)jsonObject["positionJumped"]["Col"]);
 
             // Initialize the Board property
             this.Board = new ObservableCollection<ObservableCollection<Piece>>();
