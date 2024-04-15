@@ -46,6 +46,7 @@ namespace CheckersGame.ViewModel
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
             SquareClickCommand = new RelayCommand<Square>(SquareClick);
             SwitchTurnCommand = new RelayCommand<Object>(SwitchTurnClick);
+            RestartGameCommand = new RelayCommand<Object>(RestartGameClick);
         }
 
         private void InitializeBoard()
@@ -190,6 +191,16 @@ namespace CheckersGame.ViewModel
             {
                 StatusMessage = ex.Message;
             }
+        }
+
+        public ICommand RestartGameCommand { get; private set; }
+
+        public void RestartGameClick(Object param)
+        {
+            Game.InitializeGame();
+            UpdateBoard();
+            TurnMessage = $"Turn: {Game.Turn.ToString()}";
+            StatusMessage = "";
         }
     }
 }
