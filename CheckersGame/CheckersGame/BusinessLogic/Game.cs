@@ -5,6 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace CheckersGame.BusinessLogic
 {
@@ -14,12 +15,14 @@ namespace CheckersGame.BusinessLogic
         public ObservableCollection<ObservableCollection<Piece>> Board
         {
             get { return board; }
+            private set { board = value; }
         }
 
         private EColor turn;
         public EColor Turn
         {
             get { return turn; }
+            private set { turn = value; }
         }
 
         public int RedPiecesNr;
@@ -214,13 +217,35 @@ namespace CheckersGame.BusinessLogic
             File.WriteAllText(filePath, json);
         }
 
-        public static Game LoadFromFile(string filePath)
+        public void LoadFromFile(string filePath)
         {
             // Read the JSON from the file
             string json = File.ReadAllText(filePath);
 
-            // Deserialize the JSON back to a Game object
-            return JsonConvert.DeserializeObject<Game>(json);
+            // Deserialize the JSON to a JObject
+            JObject jsonObject = JObject.Parse(json);
+
+            // Initialize properties based on the JSON data
+            this.RedPiecesNr = (int)jsonObject["RedPiecesNr"];
+            this.BlackPiecesNr = (int)jsonObject["BlackPiecesNr"];
+            this.Turn = (EColor)(int)jsonObject["Turn"];
+            this.AllowMultipleJumps = (bool)jsonObject["AllowMultipleJumps"];
+
+            // Initialize the Board property
+            this.Board = new ObservableCollection<ObservableCollection<Piece>>();
+            JArray boardArray = (JArray)jsonObject["Board"];
+            foreach (JArray rowArray in boardArray)
+            {
+                ObservableCollection<Piece> row = new ObservableCollection<Piece>();
+                foreach (JObject pieceObject in rowArray)
+                {
+                    var pieceType = (EType)(int)pieceObject["PieceType"];
+                    var pieceColor = (EColor)(int)pieceObject["PieceColor"];
+                    Piece piece = new Piece(pieceType, pieceColor);
+                    row.Add(piece);
+                }
+                this.Board.Add(row);
+            }
         }
     }
 }
