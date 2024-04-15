@@ -160,6 +160,7 @@ namespace CheckersGame.ViewModel
         }
         public MainViewModel()
         {
+            LoadStatistics();
             InitializeBoard();
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
             AllowJumpsMessage = "Disable multiple jumps";
@@ -280,6 +281,17 @@ namespace CheckersGame.ViewModel
                         if(Game.IsGameOver())
                         {
                             GameOverMessage = $"{Game.Turn.ToString()} wins!";
+                            if(Game.Turn == EColor.Red)
+                            {
+                                RedWinsNumber++;
+                                RedMaxPiecesNr = Math.Max(RedMaxPiecesNr, Game.RedPiecesNr);
+                            }
+                            else
+                            {
+                                BlackWinsNumber++;
+                                BlackMaxPiecesNr = Math.Max(BlackMaxPiecesNr, Game.BlackPiecesNr);
+                            }
+                            SaveStatistics();
                         }
                         TurnMessage = $"Turn: {Game.Turn.ToString()}";
                         GameJustStarted = false;
@@ -414,6 +426,53 @@ namespace CheckersGame.ViewModel
                     GameOverMessage = "";
                 }
                 GameJustStarted = false;
+            }
+        }
+        private void SaveStatistics()
+        {
+            string statisticsFilePath = ".\\..\\..\\Resources\\Statistics\\Statistics.txt";
+            using (StreamWriter writer = new StreamWriter(statisticsFilePath))
+            {
+                writer.WriteLine(RedWinsNumber);
+                writer.WriteLine(BlackWinsNumber);
+                writer.WriteLine(RedMaxPiecesNr);
+                writer.WriteLine(RedMaxPiecesNr);
+            }
+        }
+
+        private void LoadStatistics()
+        {
+            string statisticsFilePath = ".\\..\\..\\Resources\\Statistics\\Statistics.txt";
+
+            if (!File.Exists(statisticsFilePath))
+            {
+                throw new FileNotFoundException("Statistics file not found.", statisticsFilePath);
+            }
+
+            using (StreamReader reader = new StreamReader(statisticsFilePath))
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    string line = reader.ReadLine();
+                    if (line != null)
+                    {
+                        switch (i)
+                        {
+                            case 0:
+                                RedWinsNumber = int.Parse(line);
+                                break;
+                            case 1:
+                                BlackWinsNumber = int.Parse(line);
+                                break;
+                            case 2:
+                                RedMaxPiecesNr = int.Parse(line);
+                                break;
+                            case 3:
+                                BlackMaxPiecesNr = int.Parse(line);
+                                break;
+                        }
+                    }
+                }
             }
         }
     }
