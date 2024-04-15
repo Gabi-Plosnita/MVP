@@ -75,7 +75,7 @@ namespace CheckersGame.ViewModel
                 writer.WriteLine(RedWinsNumber);
                 writer.WriteLine(BlackWinsNumber);
                 writer.WriteLine(RedMaxPiecesNr);
-                writer.WriteLine(RedMaxPiecesNr);
+                writer.WriteLine(BlackMaxPiecesNr);
             }
         }
 

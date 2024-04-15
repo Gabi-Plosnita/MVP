@@ -39,7 +39,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Maximum number of pieces when Black won: " FontSize="15"/>
-                <TextBlock Text="{Binding BlackWinsNumber}" FontSize="15"/>
+                <TextBlock Text="{Binding BlackMaxPiecesNr}" FontSize="15"/>
             </StackPanel>
         </StackPanel>
     </Grid>
