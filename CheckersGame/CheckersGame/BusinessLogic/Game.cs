@@ -82,6 +82,7 @@ namespace CheckersGame.BusinessLogic
             turn = turn == EColor.Black ? EColor.Red : EColor.Black;
             pieceMoved = false;
             pieceJumped = false;
+            positionJumped = new Position(-1, -1);
         }
 
         public bool IsGameOver()
