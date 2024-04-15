@@ -22,24 +22,24 @@
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,0" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Red number of wins: "/>
-                <TextBlock Text="{Binding RedWinsNumber}"/>
+                <TextBlock Text="Red number of wins: " FontSize="15"/>
+                <TextBlock Text="{Binding RedWinsNumber}" FontSize="15"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Maximum number of pieces when Red won: "/>
-                <TextBlock Text="{Binding RedMaxPiecesNr}"/>
+                <TextBlock Text="Maximum number of pieces when Red won: " FontSize="15"/>
+                <TextBlock Text="{Binding RedMaxPiecesNr}" FontSize="15"/>
             </StackPanel>
         </StackPanel>
 
 
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,20,0" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Black number of wins: "/>
-                <TextBlock Text="{Binding  BlackWinsNumber}"/>
+                <TextBlock Text="Black number of wins: " FontSize="15"/>
+                <TextBlock Text="{Binding  BlackWinsNumber}" FontSize="15"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Maximum number of pieces when Black won: "/>
-                <TextBlock Text="{Binding BlackWinsNumber}"/>
+                <TextBlock Text="Maximum number of pieces when Black won: " FontSize="15"/>
+                <TextBlock Text="{Binding BlackWinsNumber}" FontSize="15"/>
             </StackPanel>
         </StackPanel>
     </Grid>
