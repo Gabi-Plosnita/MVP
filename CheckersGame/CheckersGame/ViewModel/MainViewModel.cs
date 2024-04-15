@@ -207,6 +207,7 @@ namespace CheckersGame.ViewModel
                     try
                     {
                         Game.MakeMove(selectedSquare.Position, square.Position);
+                        TurnMessage = $"Turn: {Game.Turn.ToString()}";
                         GameJustStarted = false;
                         selectedSquare = null;
                         UnHighlightMoves();
