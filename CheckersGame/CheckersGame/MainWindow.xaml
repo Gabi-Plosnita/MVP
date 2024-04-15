@@ -13,8 +13,26 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Background="Gray">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Checkers" Margin="40" HorizontalAlignment="Center" FontSize="30"/>
+
+            <Button Grid.Row="1" Content="New Game" Margin="5"/>
+            <Button Grid.Row="2" Content="Save Game" Margin="5"/>
+            <Button Grid.Row="3" Content="Open Game" Margin="5"/>
+            <Button Grid.Row="4" Content="Allow multiple jumps" Margin="5"/>
+            <Button Grid.Row="5" Content="Statistics" Margin="5"/>
+            <Button Grid.Row="6" Content="About" Margin="5"/>
         </Grid>
+
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
