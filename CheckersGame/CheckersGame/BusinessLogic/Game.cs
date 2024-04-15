@@ -28,6 +28,8 @@ namespace CheckersGame.BusinessLogic
 
         private bool pieceJumped;
 
+        private Position positionJumped;
+
         public bool AllowMultipleJumps { get; set; }
 
         public Game()
@@ -66,8 +68,9 @@ namespace CheckersGame.BusinessLogic
             BlackPiecesNr = 12;
             pieceMoved = false;
             pieceJumped = false;
-            InitializeBoard();
             turn = EColor.Red;
+            positionJumped = new Position(-1, -1);
+            InitializeBoard();
         }
 
         public void SwitchTurn()
@@ -90,7 +93,12 @@ namespace CheckersGame.BusinessLogic
         {
             if(pieceMoved && !pieceJumped)
             {
-                throw new NoMovesException("You can't move this piece anymore!");
+                throw new NoMovesException("You can't move this piece!");
+            }
+
+            if(pieceJumped && position != positionJumped)
+            {
+                throw new NoMovesException("You can't move this piece!");
             }
 
             if (!UtilityBoard.IsPositionInBoard(position, board.Count, board[0].Count))
@@ -116,7 +124,7 @@ namespace CheckersGame.BusinessLogic
 
             if(possibleMoves.Count == 0)
             {
-                throw new NoMovesException("You can't move this piece anymore!");
+                throw new NoMovesException("You can't move this piece!");
             }
 
             return possibleMoves;
@@ -168,6 +176,7 @@ namespace CheckersGame.BusinessLogic
                 Position jumpedPiece = new Position((startPos.Row + endPos.Row) / 2, (startPos.Col + endPos.Col) / 2);
                 board[jumpedPiece.Row][jumpedPiece.Col] = new Piece(EType.None, EColor.None);
                 pieceJumped = true;
+                positionJumped = endPos;
 
                 if (turn == EColor.Black)
                 {
