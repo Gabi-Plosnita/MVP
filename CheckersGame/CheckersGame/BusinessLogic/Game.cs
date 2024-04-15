@@ -80,6 +80,10 @@ namespace CheckersGame.BusinessLogic
 
         public void SwitchTurn()
         {
+            if(IsGameOver())
+            {
+                throw new GameOverException("The game is over!");
+            }
             if(!pieceMoved)
             {
                 throw new SwitchTurnException("You must move a piece before switching turn!");
@@ -97,6 +101,11 @@ namespace CheckersGame.BusinessLogic
 
         public List<Position> GetMoves(Position position)
         {
+            if (IsGameOver())
+            {
+                throw new GameOverException("The game is over!");
+            }
+
             if(pieceMoved && !pieceJumped)
             {
                 throw new NoMovesException("You can't move this piece!");
@@ -138,6 +147,11 @@ namespace CheckersGame.BusinessLogic
 
         public void MakeMove(Position startPos, Position endPos)
         {
+            if (IsGameOver())
+            {
+                throw new GameOverException("The game is over!");
+            }
+
             if (!UtilityBoard.IsPositionInBoard(startPos, board.Count, board[0].Count))
             {
                 throw new InvalidPositionException($"Position {startPos.ToString()} is invalid!");
@@ -202,7 +216,7 @@ namespace CheckersGame.BusinessLogic
                 }
             }
 
-            if (!AllowMultipleJumps)
+            if (!AllowMultipleJumps && !IsGameOver())
             {
                 SwitchTurn();
             }

@@ -88,6 +88,17 @@ namespace CheckersGame.ViewModel
             }
         }
 
+        private string gameOverMessage;
+
+        public string GameOverMessage
+        {
+            get { return gameOverMessage; }
+            set
+            {
+                gameOverMessage = value;
+                NotifyPropertyChanged();
+            }
+        }
         public MainViewModel()
         {
             InitializeBoard();
@@ -207,6 +218,10 @@ namespace CheckersGame.ViewModel
                     try
                     {
                         Game.MakeMove(selectedSquare.Position, square.Position);
+                        if(Game.IsGameOver())
+                        {
+                            GameOverMessage = $"{Game.Turn.ToString()} wins!";
+                        }
                         TurnMessage = $"Turn: {Game.Turn.ToString()}";
                         GameJustStarted = false;
                         selectedSquare = null;
@@ -258,6 +273,7 @@ namespace CheckersGame.ViewModel
             UnHighlightMoves();
             TurnMessage = $"Turn: {Game.Turn.ToString()}";
             StatusMessage = "";
+            GameOverMessage = "";
             GameJustStarted = true;
         }
 
@@ -330,6 +346,14 @@ namespace CheckersGame.ViewModel
                 UnHighlightMoves();
                 TurnMessage = $"Turn: {Game.Turn.ToString()}";
                 StatusMessage = "";
+                if (Game.IsGameOver())
+                {
+                    GameOverMessage = $"{Game.Turn.ToString()} wins!";
+                }
+                else
+                {
+                    GameOverMessage = "";
+                }
                 GameJustStarted = false;
             }
         }
