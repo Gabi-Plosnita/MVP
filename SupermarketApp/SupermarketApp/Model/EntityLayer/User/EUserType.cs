@@ -1,6 +1,6 @@
 ﻿namespace SupermarketApp.Model.EntityLayer
 {
-    public enum EUser
+    public enum EUserType
     {
         Admin,
         Cashier,

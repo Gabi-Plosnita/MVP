@@ -1,6 +1,6 @@
 ﻿namespace SupermarketApp.Model.EntityLayer
 {
-    public enum ECategory
+    public enum ECategoryType
     {
         Food,
         Clothing,

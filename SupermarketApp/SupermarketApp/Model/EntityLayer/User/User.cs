@@ -8,7 +8,7 @@
 
         public string Password { get; set; }
 
-        public EUser UserType { get; set; }
+        public EUserType UserType { get; set; }
 
         public bool IsActive { get; set; }
 

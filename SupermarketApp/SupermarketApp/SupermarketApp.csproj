@@ -12,6 +12,7 @@
     <Folder Include="Model\BusinessLogicLayer\" />
     <Folder Include="Model\DataAccessLayer\" />
     <Folder Include="Model\EntityLayer\Category\" />
+    <Folder Include="Model\EntityLayer\Offers\" />
     <Folder Include="Model\EntityLayer\Stock\" />
     <Folder Include="Model\EntityLayer\User\" />
     <Folder Include="Model\EntityLayer\Supplier\" />

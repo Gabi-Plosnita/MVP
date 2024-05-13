@@ -10,7 +10,7 @@
 
         public int Quantity { get; set; }
 
-        public EMesureUnit MesureUnit { get; set; }
+        public EUnitType UnitType { get; set; }
 
         public double Subtotal { get; set; }
 

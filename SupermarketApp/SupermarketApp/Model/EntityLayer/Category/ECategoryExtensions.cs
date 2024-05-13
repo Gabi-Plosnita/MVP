@@ -2,19 +2,19 @@
 {
     public static class ECategoryExtensions
     {
-        public static string ToString(this ECategory category)
+        public static string ToString(this ECategoryType category)
         {
             switch (category)
             {
-                case ECategory.Food:
+                case ECategoryType.Food:
                     return "Food";
-                case ECategory.Clothing:
+                case ECategoryType.Clothing:
                     return "Clothing";
-                case ECategory.Electronics:
+                case ECategoryType.Electronics:
                     return "Electronics";
-                case ECategory.Hygiene:
+                case ECategoryType.Hygiene:
                     return "Hygiene";
-                case ECategory.Cleaning:
+                case ECategoryType.Cleaning:
                     return "Cleaning";
                 default:
                     return "Unknown";

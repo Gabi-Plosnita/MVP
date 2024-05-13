@@ -1,6 +1,6 @@
 ﻿namespace SupermarketApp.Model.EntityLayer
 {
-    public enum EMesureUnit
+    public enum EUnitType
     {
         Piece,
         Kilogram,

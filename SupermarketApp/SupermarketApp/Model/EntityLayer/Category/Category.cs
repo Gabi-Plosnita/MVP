@@ -4,7 +4,7 @@
     {
         public int CategoryId { get; set; }
 
-        public ECategory ECategory { get; set; }
+        public ECategoryType CategoryType { get; set; }
 
         public bool IsActive { get; set; }
     }
