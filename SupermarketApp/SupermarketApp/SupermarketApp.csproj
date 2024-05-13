@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\DataContext\" />
+    <Folder Include="Model\BusinessLogicLayer\" />
+    <Folder Include="Model\DataAccessLayer\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>

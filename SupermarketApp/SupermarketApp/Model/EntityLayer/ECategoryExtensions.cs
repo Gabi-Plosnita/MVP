@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.Entities
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public static class ECategoryExtensions
     {

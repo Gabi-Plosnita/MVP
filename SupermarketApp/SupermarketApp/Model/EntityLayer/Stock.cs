@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.Entities
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public class Stock
     {
@@ -10,15 +10,17 @@
 
         public int Quantity { get; set; }
 
-        // unitate de masura
+        public EMesureUnit MesureUnit { get; set; }
 
-        DateOnly SupplyDate { get; set; }
+        public DateOnly SupplyDate { get; set; }
 
-        DateOnly ExpirationDate { get; set; }
+        public DateOnly ExpirationDate { get; set; }
 
         public double PurchasePrice { get; set; }
 
         public double SalePrice { get; set; }
-  
+
+        public bool IsActive { get; set; }
+
     }
 }

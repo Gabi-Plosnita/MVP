@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.Entities
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public class Product
     {
@@ -15,5 +15,7 @@
         public int SupplierId { get; set; }
 
         public virtual Supplier Supplier { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

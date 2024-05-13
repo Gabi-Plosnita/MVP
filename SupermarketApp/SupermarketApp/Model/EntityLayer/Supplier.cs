@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.Entities
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public class Supplier
     {
@@ -7,6 +7,8 @@
         public string Name { get; set; }
 
         public string Country { get; set; }
+
+        public bool IsActive { get; set; }
 
     }
 }
