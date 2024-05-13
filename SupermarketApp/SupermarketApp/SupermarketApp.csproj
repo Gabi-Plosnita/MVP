@@ -11,6 +11,11 @@
   <ItemGroup>
     <Folder Include="Model\BusinessLogicLayer\" />
     <Folder Include="Model\DataAccessLayer\" />
+    <Folder Include="Model\EntityLayer\Category\" />
+    <Folder Include="Model\EntityLayer\Stock\" />
+    <Folder Include="Model\EntityLayer\User\" />
+    <Folder Include="Model\EntityLayer\Supplier\" />
+    <Folder Include="Model\EntityLayer\Product\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
