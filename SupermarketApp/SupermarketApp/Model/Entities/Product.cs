@@ -2,14 +2,18 @@
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
 
         public string Name { get; set; }
 
         public string Barcode { get; set; }
 
-        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
-        public Supplier Supplier { get; set; }
+        public virtual Category Category { get; set; }
+
+        public int SupplierId { get; set; }
+
+        public virtual Supplier Supplier { get; set; }
     }
 }
