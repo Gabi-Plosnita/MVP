@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Entities\" />
     <Folder Include="Model\DataContext\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
