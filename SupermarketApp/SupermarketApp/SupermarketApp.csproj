@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Model\BusinessLogicLayer\" />
-    <Folder Include="Model\DataAccessLayer\" />
+    <Folder Include="Model\DataAccessLayer\DataContext\" />
     <Folder Include="Model\EntityLayer\Category\" />
     <Folder Include="Model\EntityLayer\Offers\" />
     <Folder Include="Model\EntityLayer\Stock\" />
@@ -19,6 +19,19 @@
     <Folder Include="Model\EntityLayer\Product\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.18">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.18">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
