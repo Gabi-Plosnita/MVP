@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.EntityLayer.Offers
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public enum EOfferType
     {

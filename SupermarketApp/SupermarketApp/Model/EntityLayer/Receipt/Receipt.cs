@@ -1,4 +1,4 @@
-﻿namespace SupermarketApp.Model.EntityLayer.Receipt
+﻿namespace SupermarketApp.Model.EntityLayer
 {
     public class Receipt
     {
