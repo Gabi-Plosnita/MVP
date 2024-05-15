@@ -4,7 +4,7 @@
     {
         public int ReceiptId { get; set; }
 
-        public DateOnly DateOfIssue { get; set; }
+        public DateTime DateOfIssue { get; set; }
 
         public int CashierId { get; set; }
 

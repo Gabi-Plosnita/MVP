@@ -12,9 +12,9 @@
 
         public EUnitType UnitType { get; set; }
 
-        public DateOnly SupplyDate { get; set; }
+        public DateTime SupplyDate { get; set; }
 
-        public DateOnly ExpirationDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
 
         public double PurchasePrice { get; set; }
 
