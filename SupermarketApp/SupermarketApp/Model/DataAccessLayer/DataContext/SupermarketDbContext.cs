@@ -39,13 +39,34 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                .WithMany()
                .HasForeignKey(p => p.SupplierId);
 
+            modelBuilder.Entity<Product>()
+               .Property(p => p.IsActive)
+               .HasDefaultValue(true);
+
+            modelBuilder.Entity<Product>()
+                .HasQueryFilter(p => p.IsActive);
+
             // Supplier Configuration //
             modelBuilder.Entity<Supplier>()
                 .HasKey(s => s.SupplierId);
 
+            modelBuilder.Entity<Supplier>()
+                .Property(s => s.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Supplier>()
+                .HasQueryFilter(s => s.IsActive);
+
             // Category Configuration //
             modelBuilder.Entity<Category>()
                 .HasKey(c => c.CategoryId);
+
+            modelBuilder.Entity<Category>()
+                .Property(c => c.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Category>()
+                .HasQueryFilter(c => c.IsActive);
 
             // Stock Configuration //
             modelBuilder.Entity<Stock>()
@@ -56,9 +77,23 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .WithMany()
                 .HasForeignKey(s => s.ProductId);
 
+            modelBuilder.Entity<Stock>()
+                .Property(s => s.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Stock>()
+                .HasQueryFilter(s => s.IsActive);
+
             // User Configuration //
             modelBuilder.Entity<User>()
                 .HasKey(u => u.UserId);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<User>()
+                .HasQueryFilter(u => u.IsActive);
 
             // ProductReceipt Configuration //
             modelBuilder.Entity<ProductReceipt>()
@@ -68,6 +103,13 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasOne(pr => pr.Product)
                 .WithMany()
                 .HasForeignKey(pr => pr.ProductId);
+
+            modelBuilder.Entity<ProductReceipt>()
+                .Property(pr => pr.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<ProductReceipt>()
+                .HasQueryFilter(pr => pr.IsActive);
 
             // Receipt Configuration //
             modelBuilder.Entity<Receipt>()
@@ -83,6 +125,13 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .WithOne()
                 .HasForeignKey(pr => pr.ReceiptId);
 
+            modelBuilder.Entity<Receipt>()
+                .Property(r => r.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Receipt>()
+                .HasQueryFilter(r => r.IsActive);
+
             // Offer Configuration //
             modelBuilder.Entity<Offer>()
                 .HasKey(o => o.OfferId);
@@ -91,6 +140,13 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasOne(o => o.Product)
                 .WithMany()
                 .HasForeignKey(o => o.ProductId);
+
+            modelBuilder.Entity<Offer>()
+                .Property(o => o.IsActive)
+                .HasDefaultValue(true);
+
+            modelBuilder.Entity<Offer>()
+                .HasQueryFilter(o => o.IsActive);
 
         }
 
