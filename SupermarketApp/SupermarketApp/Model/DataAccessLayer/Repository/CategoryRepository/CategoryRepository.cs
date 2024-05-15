@@ -38,7 +38,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Category with id {id} not found");
             }
 
-            _context.Entry(category).CurrentValues.SetValues(updatedCategory);
+            _context.Entry(category).CurrentValues.SetValues(updatedCategory); // set properties by hand if this line make trouble
             category.CategoryId = id;
 
             _context.SaveChanges();

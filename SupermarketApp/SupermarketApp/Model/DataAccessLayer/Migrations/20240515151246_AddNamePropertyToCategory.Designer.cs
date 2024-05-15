@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SupermarketApp.Model.DataAccessLayer.DataContext;
 
@@ -11,9 +12,11 @@ using SupermarketApp.Model.DataAccessLayer.DataContext;
 namespace SupermarketApp.Model.DataAccessLayer.Migrations
 {
     [DbContext(typeof(SupermarketDbContext))]
-    partial class SupermarketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240515151246_AddNamePropertyToCategory")]
+    partial class AddNamePropertyToCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
