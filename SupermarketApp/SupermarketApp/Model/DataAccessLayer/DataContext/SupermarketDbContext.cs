@@ -148,6 +148,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
             modelBuilder.Entity<Offer>()
                 .HasQueryFilter(o => o.IsActive == true);
 
+            base.OnModelCreating(modelBuilder);
         }
 
     }
