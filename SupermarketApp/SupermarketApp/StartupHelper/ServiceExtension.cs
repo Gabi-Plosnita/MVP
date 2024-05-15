@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.DataAccessLayer.Repository;
 
 namespace SupermarketApp.StartupHelper
@@ -16,6 +18,12 @@ namespace SupermarketApp.StartupHelper
         public static void AddBusinessServices(this IServiceCollection services)
         {
             services.AddTransient<IRepository, Repository>();
+        }
+
+        public static void AddDatabaseServices(this IServiceCollection services, string connectionString)
+        {
+            services.AddDbContext<SupermarketDbContext>(options =>
+                options.UseSqlServer(connectionString));
         }
 
     }

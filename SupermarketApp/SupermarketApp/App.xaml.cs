@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using System.Windows;
 using SupermarketApp.StartupHelper;
+using System.Configuration;
 
 namespace SupermarketApp
 {
@@ -15,9 +16,16 @@ namespace SupermarketApp
             AppHost = Host.CreateDefaultBuilder()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddSingleton<MainWindow>();
-                    services.AddFormFactory<ChildWindow>();
+                    // Configure database context //
+                    string connectionString = ConfigurationManager.ConnectionStrings["SupermarketDbContext"].ConnectionString;
+                    services.AddDatabaseServices(connectionString);
+
+                    // Configure services //
                     services.AddBusinessServices();
+
+                    // Configure forms //
+                    services.AddSingleton<MainWindow>();
+                    services.AddFormFactory<ChildWindow>(); // need to delete this 
                 })
                 .Build();
         }
