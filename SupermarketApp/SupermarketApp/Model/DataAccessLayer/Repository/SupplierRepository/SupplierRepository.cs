@@ -11,32 +11,61 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Supplier> GetSuppliers()
         {
-            throw new NotImplementedException();
+            return _context.Suppliers.ToList();
         }
 
         public Supplier GetSupplier(int id)
         {
-            throw new NotImplementedException();
+            var supplier = _context.Suppliers.Find(id);
+            if (supplier == null)
+            {
+                throw new Exception($"Supplier with id {id} not found");
+            }
+
+            return supplier;
         }
 
         public void AddSupplier(Supplier supplier)
         {
-            throw new NotImplementedException();
+            _context.Suppliers.Add(supplier);
+            _context.SaveChanges();
         }
 
         public void UpdateSupplier(int id, Supplier updatedSupplier)
         {
-            throw new NotImplementedException();
+            var supplier = _context.Suppliers.Find(id);
+            if (supplier == null)
+            {
+                throw new Exception($"Supplier with id {id} not found");
+            }
+
+            _context.Entry(supplier).CurrentValues.SetValues(updatedSupplier);
+            supplier.SupplierId = id;
+
+            _context.SaveChanges();
         }
 
         public void DeleteSupplier(int id)
         {
-            throw new NotImplementedException();
+            var supplier = _context.Suppliers.Find(id);
+            if (supplier == null)
+            {
+                throw new Exception($"Supplier with id {id} not found");
+            }
+
+            supplier.IsActive = false;
+            _context.SaveChanges();
         }  
 
         public List<Product> GetProductsFromSupplier(int id)
         {
-            throw new NotImplementedException();
+            var supplier = _context.Suppliers.Find(id);
+            if (supplier == null)
+            {
+                throw new Exception($"Supplier with id {id} not found");
+            }
+
+            return supplier.Products;
         }
     }
 }
