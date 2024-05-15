@@ -10,6 +10,8 @@
 
         public EUserType UserType { get; set; }
 
+        public virtual List<Receipt> Receipts { get; set; }
+
         public bool? IsActive { get; set; }
 
     }

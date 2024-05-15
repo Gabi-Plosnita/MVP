@@ -31,12 +31,12 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
 
             modelBuilder.Entity<Product>()
                .HasOne(p => p.Category)
-               .WithMany()
+               .WithMany(c => c.Products)
                .HasForeignKey(p => p.CategoryId);
 
             modelBuilder.Entity<Product>()
                .HasOne(p => p.Supplier)
-               .WithMany()
+               .WithMany(s => s.Products)
                .HasForeignKey(p => p.SupplierId);
 
             modelBuilder.Entity<Product>()
@@ -74,7 +74,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
 
             modelBuilder.Entity<Stock>()
                 .HasOne(s => s.Product)
-                .WithMany()
+                .WithMany(p => p.Stocks)
                 .HasForeignKey(s => s.ProductId);
 
             modelBuilder.Entity<Stock>()
@@ -117,7 +117,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
 
             modelBuilder.Entity<Receipt>()
                 .HasOne(r => r.Cashier)
-                .WithMany()
+                .WithMany(c => c.Receipts)
                 .HasForeignKey(r => r.CashierId);
 
             modelBuilder.Entity<Receipt>()

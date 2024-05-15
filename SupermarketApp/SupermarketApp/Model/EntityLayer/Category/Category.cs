@@ -6,6 +6,8 @@
 
         public ECategoryType CategoryType { get; set; }
 
+        public virtual List<Product> Products { get; set; }
+
         public bool? IsActive { get; set; }
     }
 }

@@ -16,6 +16,8 @@
 
         public virtual Supplier Supplier { get; set; }
 
+        public virtual List<Stock> Stocks { get; set; }
+
         public bool? IsActive { get; set; }
     }
 }
