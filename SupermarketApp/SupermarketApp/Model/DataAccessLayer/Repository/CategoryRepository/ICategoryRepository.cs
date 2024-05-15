@@ -13,5 +13,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         void UpdateCategory(int id, Category updatedCategory);
 
         void DeleteCategory(int id);
+
+        double GetTotalCategoryValue(int id);
     }
 }

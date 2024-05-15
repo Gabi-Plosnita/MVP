@@ -56,5 +56,27 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             _context.SaveChanges();
         }
 
+        public double GetTotalCategoryValue(int id)
+        {
+            var category = _context.Categories.Find(id);
+            if(category == null)
+            {
+                throw new Exception($"Category with id {id} not found");
+            }
+
+            double totalValue = 0;
+            var products = category.Products;
+            foreach(var product in products)
+            {
+                var stocks = product.Stocks;
+                foreach(var stock in stocks)
+                {
+                    totalValue += stock.SalePrice * stock.Quantity; 
+                }
+            }
+
+            return totalValue;
+        }
+
     }
 }
