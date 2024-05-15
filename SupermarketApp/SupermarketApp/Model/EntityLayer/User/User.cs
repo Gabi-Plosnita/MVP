@@ -10,7 +10,7 @@
 
         public EUserType UserType { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }

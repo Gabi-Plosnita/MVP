@@ -44,7 +44,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                .HasDefaultValue(true);
 
             modelBuilder.Entity<Product>()
-                .HasQueryFilter(p => p.IsActive);
+                .HasQueryFilter(p => p.IsActive == true);
 
             // Supplier Configuration //
             modelBuilder.Entity<Supplier>()
@@ -55,7 +55,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Supplier>()
-                .HasQueryFilter(s => s.IsActive);
+                .HasQueryFilter(s => s.IsActive == true);
 
             // Category Configuration //
             modelBuilder.Entity<Category>()
@@ -66,7 +66,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Category>()
-                .HasQueryFilter(c => c.IsActive);
+                .HasQueryFilter(c => c.IsActive == true);
 
             // Stock Configuration //
             modelBuilder.Entity<Stock>()
@@ -82,7 +82,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Stock>()
-                .HasQueryFilter(s => s.IsActive);
+                .HasQueryFilter(s => s.IsActive == true);
 
             // User Configuration //
             modelBuilder.Entity<User>()
@@ -93,7 +93,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<User>()
-                .HasQueryFilter(u => u.IsActive);
+                .HasQueryFilter(u => u.IsActive == true);
 
             // ProductReceipt Configuration //
             modelBuilder.Entity<ProductReceipt>()
@@ -109,7 +109,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<ProductReceipt>()
-                .HasQueryFilter(pr => pr.IsActive);
+                .HasQueryFilter(pr => pr.IsActive == true);
 
             // Receipt Configuration //
             modelBuilder.Entity<Receipt>()
@@ -130,7 +130,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Receipt>()
-                .HasQueryFilter(r => r.IsActive);
+                .HasQueryFilter(r => r.IsActive == true);
 
             // Offer Configuration //
             modelBuilder.Entity<Offer>()
@@ -146,7 +146,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Offer>()
-                .HasQueryFilter(o => o.IsActive);
+                .HasQueryFilter(o => o.IsActive == true);
 
         }
 

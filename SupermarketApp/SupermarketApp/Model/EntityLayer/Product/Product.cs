@@ -16,6 +16,6 @@
 
         public virtual Supplier Supplier { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
     }
 }
