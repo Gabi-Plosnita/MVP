@@ -17,11 +17,13 @@ namespace SupermarketApp.StartupHelper
 
         public static void AddBusinessServices(this IServiceCollection services)
         {
+            // Configure the services //
             services.AddTransient<IRepository, Repository>();
         }
 
         public static void AddDatabaseServices(this IServiceCollection services, string connectionString)
         {
+            // Configure the database services //
             services.AddDbContext<SupermarketDbContext>(options =>
                 options.UseSqlServer(connectionString));
         }
