@@ -10,7 +10,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         void AddCategory(Category category);
 
-        void UpdateCategory(int categoryId, Category category);
+        void UpdateCategory(int id, Category updatedCategory);
 
         void DeleteCategory(int id);
     }
