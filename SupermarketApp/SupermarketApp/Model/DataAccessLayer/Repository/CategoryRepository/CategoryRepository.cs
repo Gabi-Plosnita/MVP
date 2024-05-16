@@ -88,5 +88,16 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             return totalValue;
         }
 
+        public List<Product> GetProductsFromCategory(int id)
+        {
+            var category = _context.Categories.Find(id);
+            if(category == null)
+            {
+                throw new Exception($"Category with id {id} not found");
+            }
+
+            return category.Products.ToList();
+        }
+
     }
 }

@@ -15,5 +15,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         void DeleteCategory(int id);
 
         double GetTotalCategoryValue(int id);
+
+        List<Product> GetProductsFromCategory(int id);
     }
 }
