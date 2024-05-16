@@ -26,7 +26,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void AddCategory(Category category)
         {
-            if(_context.Categories.All(c => c.Name != category.Name))
+            if(_context.Categories.Any(c => c.Name == category.Name))
             {
                 throw new Exception($"Category with name {category.Name} already exists");
             }

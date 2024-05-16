@@ -27,7 +27,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void AddSupplier(Supplier supplier)
         {
-            if(_context.Suppliers.All(s => (s.Name != supplier.Name || s.Country != supplier.Country)))
+            if(_context.Suppliers.Any(s => (s.Name == supplier.Name && s.Country == supplier.Country)))
             {
                 throw new Exception($"Supplier with name {supplier.Name} and country {supplier.Country} already exists");
             }
