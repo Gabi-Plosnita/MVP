@@ -75,7 +75,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Supplier with id {id} not found");
             }
 
-            return supplier.Products;
+            return supplier.Products.ToList();
         }
     }
 }
