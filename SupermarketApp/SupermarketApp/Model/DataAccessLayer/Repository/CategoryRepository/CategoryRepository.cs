@@ -26,6 +26,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void AddCategory(Category category)
         {
+            if(_context.Categories.All(c => c.Name != category.Name))
+            {
+                throw new Exception($"Category with name {category.Name} already exists");
+            }
+
             _context.Categories.Add(category);
             _context.SaveChanges();
         }
@@ -50,6 +55,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             if(category == null)
             {
                 throw new Exception($"Category with id {id} not found");
+            }
+
+            if(category.Products.Count > 0)
+            {
+                throw new Exception($"Category with id {id} has products and can't be deleted");
             }
 
             category.IsActive = false;
