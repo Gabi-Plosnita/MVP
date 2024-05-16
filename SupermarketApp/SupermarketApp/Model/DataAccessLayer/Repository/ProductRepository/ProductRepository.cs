@@ -80,14 +80,26 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             _context.SaveChanges();
         }   
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(int id, Product product)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteProduct(Product product)
+        public void DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Find(id);
+            if(product == null)
+            {
+                throw new Exception($"Product with id {id} not found");
+            }
+
+            if(product.Stocks.Count > 0)
+            {
+                throw new Exception($"Product with id {id} has stocks and can't be deleted");
+            }
+
+            product.IsActive = false;
+            _context.SaveChanges();
         }
 
     }
