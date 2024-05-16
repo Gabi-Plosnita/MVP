@@ -27,6 +27,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void AddSupplier(Supplier supplier)
         {
+            if(_context.Suppliers.All(s => (s.Name != supplier.Name || s.Country != supplier.Country)))
+            {
+                throw new Exception($"Supplier with name {supplier.Name} and country {supplier.Country} already exists");
+            }
+
             _context.Suppliers.Add(supplier);
             _context.SaveChanges();
         }
@@ -51,6 +56,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             if (supplier == null)
             {
                 throw new Exception($"Supplier with id {id} not found");
+            }
+
+            if(supplier.Products.Count > 0)
+            {
+                throw new Exception($"Supplier with id {id} has products and can't be deleted");
             }
 
             supplier.IsActive = false;
