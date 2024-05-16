@@ -14,11 +14,6 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             return _context.Products.ToList();
         }
 
-        public List<Product> GetProductsByExpirationDate(DateTime expirationDate)
-        {
-            //return _context.Products.Where(p => p.ExpirationDate == expirationDate).ToList();
-        }
-
         public Product GetProductById(int id)
         {
             var product = _context.Products.Find(id);

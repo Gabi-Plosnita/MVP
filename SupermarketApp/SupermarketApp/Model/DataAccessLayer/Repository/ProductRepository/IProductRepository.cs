@@ -7,8 +7,6 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
        
         List<Product> GetAllProducts();
 
-        List<Product> GetProductsByExpirationDate(DateTime expirationDate);
-
         Product GetProductById(int id);
 
         Product GetProductByName(string name);
