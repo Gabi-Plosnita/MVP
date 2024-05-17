@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\BusinessLogicLayer\" />
+    <Folder Include="Model\BusinessLogicLayer\Services\CategoryService\" />
     <Folder Include="Model\DataAccessLayer\DataContext\" />
     <Folder Include="Model\EntityLayer\Category\" />
     <Folder Include="Model\EntityLayer\Offers\" />
