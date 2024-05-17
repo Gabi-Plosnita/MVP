@@ -5,6 +5,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public class StockRepository : BaseRepository, IStockRepository
     {
+        private double CommercialMargin = 0.1;
         public StockRepository(SupermarketDbContext context) : base(context)
         {
         }
@@ -47,6 +48,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             {
                 throw new Exception("Supply date must be before expiration date");
             }
+
+            stock.SalePrice = stock.PurchasePrice + stock.PurchasePrice * CommercialMargin;
 
             _context.Stocks.Add(stock);
             _context.SaveChanges();
