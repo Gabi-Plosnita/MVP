@@ -9,6 +9,20 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         {
         }
 
+        public void AddReceipt(Receipt receipt)
+        {
+            var cashier = _context.Users.Find(receipt.CashierId);
+            if (cashier == null)
+            {
+                throw new Exception($"User with id {receipt.CashierId} not found");
+            }
+
+            receipt.DateOfIssue = DateTime.Now;
+
+            _context.Receipts.Add(receipt);
+            _context.SaveChanges();
+        }
+
         public void AddProductReceipt(ProductReceipt productReceipt)
         {
             var receipt = _context.Receipts.Find(productReceipt.ReceiptId);
