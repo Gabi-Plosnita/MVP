@@ -13,7 +13,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void AddUser(User user);
 
-        public void UpdateUser(int id, User user);
+        public void UpdateUser(int id, User updatedUser);
 
         public void DeleteUser(int id);
 
