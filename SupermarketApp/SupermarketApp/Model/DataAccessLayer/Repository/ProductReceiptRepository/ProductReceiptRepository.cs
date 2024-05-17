@@ -48,13 +48,17 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Product with id {productReceipt.ProductId} is expired");
             }
 
-            // compara cu toate stocurile
             if(stock.Quantity < productReceipt.Quantity)
             {
-                throw new Exception($"There are only {stock.Quantity} products in stock. You can't buy {quantity} products");
+                throw new Exception
+                    ($"There are only {stock.Quantity} products in the current stock. You can't buy {productReceipt.Quantity} products");
             }
 
             stock.Quantity -= productReceipt.Quantity;
+            if(stock.Quantity == 0)
+            {
+                stock.IsActive = false;
+            }
 
             productReceipt.UnitType = stock.UnitType;
             productReceipt.Subtotal = productReceipt.Quantity * stock.SalePrice;
