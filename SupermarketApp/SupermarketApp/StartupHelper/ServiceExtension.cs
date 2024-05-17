@@ -19,7 +19,13 @@ namespace SupermarketApp.StartupHelper
         {
             // Configure the services //
             services.AddTransient<IRepository, Repository>(); // delete this
+
+            services.AddTransient<BaseRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IStockRepository, StockRepository>();
+            services.AddTransient<ISupplierRepository, SupplierRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         public static void AddDatabaseServices(this IServiceCollection services, string connectionString)
