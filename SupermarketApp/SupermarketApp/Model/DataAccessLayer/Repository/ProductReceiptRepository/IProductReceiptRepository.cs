@@ -1,9 +1,11 @@
-﻿namespace SupermarketApp.Model.DataAccessLayer.Repository
+﻿using SupermarketApp.Model.EntityLayer;
+
+namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public interface IProductReceiptRepository
     {
 
-        void AddProductReceipt(int receiptId, int productId, int quantity);
+        void AddProductReceipt(ProductReceipt productReceipt);
         
     }
 }
