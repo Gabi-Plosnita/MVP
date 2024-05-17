@@ -4,7 +4,6 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public interface IUserRepository
     {
-        // User Methods //
         public User Login(string username, string password);
 
         public List<User> GetUsers();
@@ -17,11 +16,5 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void DeleteUser(int id);
 
-        // Recipts Methods //
-        void AddReceipt(Receipt receipt);
-
-        void AddProductReceipt(ProductReceipt productReceipt);
-
-        void PayReceipt(int receiptId);
     }
 }
