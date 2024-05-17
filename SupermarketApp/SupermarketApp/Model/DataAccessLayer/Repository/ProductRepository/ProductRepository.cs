@@ -75,9 +75,39 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             _context.SaveChanges();
         }   
 
-        public void UpdateProduct(int id, Product product)
+        public void UpdateProduct(int id, Product updatedProduct)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Find(id);
+            if(product == null)
+            {
+                throw new Exception($"Product with id {id} not found");
+            }
+
+            var category = _context.Categories.Find(updatedProduct.CategoryId);
+            if(category == null)
+            {
+                throw new Exception($"Category with id {updatedProduct.CategoryId} not found");
+            }
+
+            var supplier = _context.Suppliers.Find(updatedProduct.SupplierId);
+            if(supplier == null)
+            {
+                throw new Exception($"Supplier with id {updatedProduct.SupplierId} not found");
+            }
+
+            if (_context.Products.Any(p => p.Name == updatedProduct.Name))
+            {
+                throw new Exception($"Product with name {updatedProduct.Name} already exists");
+            }
+
+            if (_context.Products.Any(p => p.Barcode == updatedProduct.Barcode))
+            {
+                throw new Exception($"Product with barcode {updatedProduct.Barcode} already exists");
+            }
+
+            _context.Entry(product).CurrentValues.SetValues(updatedProduct);
+            product.ProductId = id;
+            _context.SaveChanges();
         }
 
         public void DeleteProduct(int id)

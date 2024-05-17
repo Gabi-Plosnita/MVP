@@ -15,7 +15,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         void AddProduct(Product product);
 
-        void UpdateProduct(int id, Product product);
+        void UpdateProduct(int id, Product updatedProduct);
 
         void DeleteProduct(int id);
     }
