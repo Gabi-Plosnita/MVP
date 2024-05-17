@@ -130,6 +130,10 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
                 .HasDefaultValue(true);
 
             modelBuilder.Entity<Receipt>()
+                .Property(r => r.IsPaid)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Receipt>()
                 .HasQueryFilter(r => r.IsActive == true);
 
             // Offer Configuration //

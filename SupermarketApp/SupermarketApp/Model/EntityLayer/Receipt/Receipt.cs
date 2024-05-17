@@ -14,6 +14,8 @@
 
         public double TotalPrice { get; set; }
 
+        public bool IsPaid { get; set; }
+
         public bool? IsActive { get; set; }
     }
 }
