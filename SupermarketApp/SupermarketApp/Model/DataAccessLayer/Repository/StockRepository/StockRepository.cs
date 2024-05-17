@@ -12,6 +12,15 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Stock> GetStocks()
         {
+            var stocks = _context.Stocks.ToList();
+            foreach(var stock in stocks)
+            {
+                if(stock.ExpirationDate < DateTime.Now)
+                {
+                    stock.IsActive = false;
+                }
+            }
+            _context.SaveChanges();
             return _context.Stocks.ToList();
         }
 
@@ -21,6 +30,12 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             if(stock == null)
             {
                 throw new Exception($"Stock with id {id} not found");
+            }
+
+            if(stock.ExpirationDate < DateTime.Now)
+            {
+                stock.IsActive = false;
+                _context.SaveChanges();
             }
 
             return stock;
