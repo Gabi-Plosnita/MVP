@@ -80,5 +80,28 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             _context.ProductReceipts.Add(productReceipt);
             _context.SaveChanges();
         }
+
+        public void PayReceipt(int receiptId)
+        {
+            var receipt = _context.Receipts.Find(receiptId);
+
+            if (receipt == null)
+            {
+                throw new Exception($"Receipt with id {receiptId} not found");
+            }
+
+            if (receipt.IsPaid)
+            {
+                throw new Exception($"Receipt with id {receiptId} is already paid");
+            }
+
+            foreach(var productReceipt in receipt.ProductReceipts)
+            {
+                receipt.TotalPrice += productReceipt.Subtotal;
+            }
+
+            receipt.IsPaid = true;
+            _context.SaveChanges();
+        }
     }
 }
