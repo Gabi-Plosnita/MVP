@@ -97,7 +97,7 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
 
             // ProductReceipt Configuration //
             modelBuilder.Entity<ProductReceipt>()
-                .HasKey(pr => new { pr.ReceiptId, pr.ProductId });
+                .HasKey(pr => pr.ProductReceiptId);
 
             modelBuilder.Entity<ProductReceipt>()
                 .HasOne(pr => pr.Product)
