@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
 
         CategoryResponseDto GetCategory(int id);
 
-        void AddCategory(CategoryRequestDto category);
+        void AddCategory(CategoryRequestDto categoryDto);
 
-        void UpdateCategory(int id, CategoryRequestDto updatedCategory);
+        void UpdateCategory(int id, CategoryRequestDto categoryDto);
 
         void DeleteCategory(int id);
 
