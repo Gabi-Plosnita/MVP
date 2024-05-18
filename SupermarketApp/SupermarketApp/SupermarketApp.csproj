@@ -11,12 +11,13 @@
   <ItemGroup>
     <Folder Include="Model\BusinessLogicLayer\Services\CategoryService\" />
     <Folder Include="Model\DataAccessLayer\DataContext\" />
-    <Folder Include="Model\EntityLayer\Category\" />
-    <Folder Include="Model\EntityLayer\Offers\" />
-    <Folder Include="Model\EntityLayer\Stock\" />
-    <Folder Include="Model\EntityLayer\User\" />
-    <Folder Include="Model\EntityLayer\Supplier\" />
-    <Folder Include="Model\EntityLayer\Product\" />
+    <Folder Include="Model\EntityLayer\Dtos\" />
+    <Folder Include="Model\EntityLayer\Entities\Category\" />
+    <Folder Include="Model\EntityLayer\Entities\Offers\" />
+    <Folder Include="Model\EntityLayer\Entities\Stock\" />
+    <Folder Include="Model\EntityLayer\Entities\User\" />
+    <Folder Include="Model\EntityLayer\Entities\Supplier\" />
+    <Folder Include="Model\EntityLayer\Entities\Product\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
