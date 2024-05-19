@@ -2,15 +2,25 @@
 
 namespace SupermarketApp.Model.EntityLayer
 {
-    public class UserRequestDto
+    public class UserRequestDto : IValidatableObject
     {
-        [Required(ErrorMessage = "Username is required and can't be empty")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Password is required and can't be empty")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "UserType is required and can't be empty")]
         public EUserType UserType { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if(string.IsNullOrEmpty(Username))
+            {
+                yield return new ValidationResult("Username is required", new[] { nameof(Username) });
+            }
+
+            if(string.IsNullOrEmpty(Password))
+            {
+                yield return new ValidationResult("Password is required", new[] { nameof(Password) });
+            }
+        }
     }
 }
