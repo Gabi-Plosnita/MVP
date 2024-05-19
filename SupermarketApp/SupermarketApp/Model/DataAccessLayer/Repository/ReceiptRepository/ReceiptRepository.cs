@@ -50,8 +50,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             }
 
             var stock = _context.Stocks.Where(s => s.ProductId == productReceipt.ProductId)
-                                      .OrderBy(s => s.SupplyDate)
-                                      .FirstOrDefault();
+                                       .OrderBy(s => s.SupplyDate)
+                                       .FirstOrDefault();
 
             if (stock == null)
             {
