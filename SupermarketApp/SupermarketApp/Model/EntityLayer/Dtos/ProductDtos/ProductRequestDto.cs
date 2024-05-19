@@ -13,12 +13,12 @@ namespace SupermarketApp.Model.EntityLayer
 
 
         [Required(ErrorMessage = "CategoryId is required and can't be empty")]
-        [Range(0, int.MaxValue, ErrorMessage = "Category Id must be at least 0")]
+        [Range(0, int.MaxValue, ErrorMessage = "CategoryId must be at least 0")]
         public int CategoryId { get; set; }
 
 
         [Required(ErrorMessage = "SupplierId is required and can't be empty")]
-        [Range(0, int.MaxValue, ErrorMessage = "Supplier Id is required and must be at least 0")]
+        [Range(0, int.MaxValue, ErrorMessage = "SupplierId is required and must be at least 0")]
         public int SupplierId { get; set; }
     }
 }
