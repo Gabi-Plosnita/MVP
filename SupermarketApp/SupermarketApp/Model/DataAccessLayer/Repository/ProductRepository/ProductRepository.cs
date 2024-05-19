@@ -1,4 +1,5 @@
-﻿using SupermarketApp.Model.DataAccessLayer.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
@@ -11,13 +12,20 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Product> GetAllProducts()
         {
-            return _context.Products.ToList();
+            var products = _context.Products
+                                   .Include(p => p.Category)
+                                   .Include(p => p.Supplier)
+                                   .ToList();
+            return products;
         }
 
         public Product GetProductById(int id)
         {
-            var product = _context.Products.Find(id);
-            if(product == null)
+            var product = _context.Products
+                                  .Include(p => p.Category)
+                                  .Include(p => p.Supplier)
+                                  .FirstOrDefault(p => p.ProductId == id);
+            if (product == null)
             {
                 throw new Exception($"Product with id {id} not found");
             }
@@ -27,7 +35,10 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public Product GetProductByName(string name)
         {
-            var product = _context.Products.FirstOrDefault(p => p.Name == name);
+            var product = _context.Products
+                                  .Include(p => p.Category)
+                                  .Include(p => p.Supplier)
+                                  .FirstOrDefault(p => p.Name == name);
             if(product == null)
             {
                 throw new Exception($"Product with name {name} not found");
@@ -38,7 +49,10 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public Product GetProductByBarcode(string barcode)
         {
-            var product = _context.Products.FirstOrDefault(p => p.Barcode == barcode);
+            var product = _context.Products
+                                  .Include(p => p.Category)
+                                  .Include(p => p.Supplier)
+                                  .FirstOrDefault(p => p.Barcode == barcode);
             if(product == null)
             {
                 throw new Exception($"Product with barcode {barcode} not found");
