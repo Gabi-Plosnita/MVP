@@ -84,8 +84,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void PayReceipt(int receiptId)
         {
-            var receipt = _context.Receipts.Find(receiptId);
-
+            var receipt = _context.Receipts
+                                  .Include(r => r.ProductReceipts)
+                                  .FirstOrDefault(r => r.ReceiptId == receiptId);
             if (receipt == null)
             {
                 throw new Exception($"Receipt with id {receiptId} not found");
