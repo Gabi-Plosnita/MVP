@@ -1,4 +1,5 @@
-﻿using SupermarketApp.Model.DataAccessLayer.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
@@ -12,7 +13,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Stock> GetStocks()
         {
-            var stocks = _context.Stocks.ToList();
+            var stocks = _context.Stocks
+                                 .Include(s => s.Product)
+                                 .ToList();
             foreach(var stock in stocks)
             {
                 if(stock.ExpirationDate < DateTime.Now)
@@ -26,7 +29,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public Stock GetStock(int id)
         {
-            var stock = _context.Stocks.Find(id);
+            var stock = _context.Stocks
+                                .Include(s => s.Product)
+                                .FirstOrDefault(s => s.StockId == id);
             if(stock == null)
             {
                 throw new Exception($"Stock with id {id} not found");
