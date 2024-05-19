@@ -1,4 +1,5 @@
-﻿using SupermarketApp.Model.DataAccessLayer.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
@@ -69,7 +70,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Product> GetProductsFromSupplier(int id)
         {
-            var supplier = _context.Suppliers.Find(id);
+            var supplier = _context.Suppliers
+                                   .Include(s => s.Products)
+                                   .FirstOrDefault(s => s.SupplierId == id);
             if (supplier == null)
             {
                 throw new Exception($"Supplier with id {id} not found");
