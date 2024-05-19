@@ -2,23 +2,39 @@
 
 namespace SupermarketApp.Model.EntityLayer
 {
-    public class ProductRequestDto
+    public class ProductRequestDto : IValidatableObject
     {
-        [Required(ErrorMessage = "Name is required and can't be empty")]
         public string Name { get; set; }
 
-
-        [Required(ErrorMessage = "Barcode is required and can't be empty")]
         public string Barcode { get; set; }
 
-
-        [Required(ErrorMessage = "CategoryId is required and can't be empty")]
-        [Range(0, int.MaxValue, ErrorMessage = "CategoryId must be at least 0")]
         public int CategoryId { get; set; }
 
-
-        [Required(ErrorMessage = "SupplierId is required and can't be empty")]
-        [Range(0, int.MaxValue, ErrorMessage = "SupplierId is required and must be at least 0")]
         public int SupplierId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if(string.IsNullOrEmpty(Name))
+            {
+                yield return new ValidationResult("Name is required", new[] { nameof(Name) });
+            }
+
+            if(string.IsNullOrEmpty(Barcode))
+            {
+                yield return new ValidationResult("Barcode is required", new[] { nameof(Barcode) });
+            }
+
+            if(CategoryId <= 0)
+            {
+                yield return new ValidationResult
+                    ("CategoryId is required and must be greater than 0", new[] { nameof(CategoryId) });
+            }
+
+            if(SupplierId <= 0)
+            {
+                yield return new ValidationResult
+                    ("SupplierId is required and must be greater than 0", new[] { nameof(SupplierId) });
+            }
+        }
     }
 }
