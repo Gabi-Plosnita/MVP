@@ -15,7 +15,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
 
         public static List<CategoryResponseDto> MapToListOfCategoryResponseDto(this List<Category> categories)
         {
-            return categories.Select(c => c.MapToCategoryResponseDto()).ToList();
+            return categories.Select(category => category.MapToCategoryResponseDto()).ToList();
         }
 
         public static Category MapToCategory(this CategoryRequestDto categoryRequestDto)
