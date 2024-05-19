@@ -23,5 +23,18 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
             return products.Select(product => MapToProductResponseDto(product)).ToList();
         }
 
+        public static Product MapToProduct(this ProductRequestDto productRequestDto)
+        {
+            var product = new Product
+            {
+                Name = productRequestDto.Name,
+                Barcode = productRequestDto.Barcode,
+                CategoryId = productRequestDto.CategoryId,
+                SupplierId = productRequestDto.SupplierId
+            };
+
+            return product;
+        }
+
     }
 }
