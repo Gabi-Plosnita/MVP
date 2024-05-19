@@ -2,9 +2,16 @@
 
 namespace SupermarketApp.Model.EntityLayer
 {
-    public class CategoryRequestDto
+    public class CategoryRequestDto : IValidatableObject
     {
-        [Required(ErrorMessage = "Name is required and can't be empty")]
         public string Name { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if(string.IsNullOrEmpty(Name))
+            {
+                yield return new ValidationResult("Name is required", new[] { nameof(Name) });
+            }
+        }
     }
 }
