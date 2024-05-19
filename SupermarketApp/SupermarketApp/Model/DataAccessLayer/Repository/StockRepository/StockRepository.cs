@@ -78,10 +78,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         public List<Product> GetProducts(DateTime expirationDate)
         {
             var products = _context.Stocks
-                .Where(s => s.ExpirationDate == expirationDate)
-                .Select(s => s.Product)
-                .ToList();
-
+                                   .Where(s => s.ExpirationDate == expirationDate)
+                                   .Select(s => s.Product)
+                                   .Include(p => p.Category)
+                                   .Include(p => p.Supplier)
+                                   .ToList();
             return products;
         }
 
