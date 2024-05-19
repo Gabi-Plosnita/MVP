@@ -6,7 +6,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
     {
         public static ProductResponseDto MapToProductResponseDto(this Product product)
         {
-            var productResponseDto = new ProductResponseDto
+            return new ProductResponseDto
             {
                 ProductId = product.ProductId,
                 Name = product.Name,
@@ -14,26 +14,22 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
                 CategoryName = product.Category.Name,
                 SupplierName = product.Supplier.Name
             };
-
-            return productResponseDto;
         }
 
         public static List<ProductResponseDto> MapToListOfProductResponseDto(this List<Product> products)
         {
-            return products.Select(product => MapToProductResponseDto(product)).ToList();
+            return products.Select(product => product.MapToProductResponseDto()).ToList();
         }
 
         public static Product MapToProduct(this ProductRequestDto productRequestDto)
         {
-            var product = new Product
+            return new Product
             {
                 Name = productRequestDto.Name,
                 Barcode = productRequestDto.Barcode,
                 CategoryId = productRequestDto.CategoryId,
                 SupplierId = productRequestDto.SupplierId
             };
-
-            return product;
         }
 
     }
