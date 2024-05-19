@@ -53,7 +53,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void DeleteSupplier(int id)
         {
-            var supplier = _context.Suppliers.Find(id);
+            var supplier = _context.Suppliers
+                                   .Include(s => s.Products)
+                                   .FirstOrDefault(s => s.SupplierId == id);
             if (supplier == null)
             {
                 throw new Exception($"Supplier with id {id} not found");
