@@ -1,4 +1,5 @@
-﻿using SupermarketApp.Model.DataAccessLayer.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
@@ -102,6 +103,30 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
             receipt.IsPaid = true;
             _context.SaveChanges();
+        }
+
+        public List<Receipt> GetReceipts()
+        {
+            var receipts = _context.Receipts
+                                   .Include(r => r.Cashier)
+                                   .Include(r => r.ProductReceipts)
+                                   .ThenInclude(pr => pr.Product)
+                                   .ToList();
+            return receipts;
+        }
+
+        public Receipt GetReceipt(int receiptId)
+        {
+            var receipt = _context.Receipts
+                                  .Include(r => r.Cashier)
+                                  .Include(r => r.ProductReceipts)
+                                  .ThenInclude(pr => pr.Product)
+                                  .FirstOrDefault(r => r.ReceiptId == receiptId);
+            if(receipt == null)
+            {
+                throw new Exception($"Receipt with id {receiptId} not found");
+            }
+            return receipt;
         }
     }
 }

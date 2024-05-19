@@ -9,5 +9,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         void AddProductReceipt(ProductReceipt productReceipt);
 
         void PayReceipt(int receiptId);
+
+        List<Receipt> GetReceipts();
+
+        Receipt GetReceipt(int receiptId);
     }
 }
