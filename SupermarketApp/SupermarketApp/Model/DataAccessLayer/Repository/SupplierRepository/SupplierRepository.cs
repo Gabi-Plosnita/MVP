@@ -72,6 +72,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         {
             var supplier = _context.Suppliers
                                    .Include(s => s.Products)
+                                   .ThenInclude(p => p.Category)
+                                   .Include(s => s.Products)
+                                   .ThenInclude(p => p.Supplier)
                                    .FirstOrDefault(s => s.SupplierId == id);
             if (supplier == null)
             {
