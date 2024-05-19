@@ -52,7 +52,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void DeleteCategory(int id)
         {
-            var category = _context.Categories.Find(id);
+            var category = _context.Categories
+                                   .Include(c => c.Products)
+                                   .FirstOrDefault(c => c.CategoryId == id);
             if(category == null)
             {
                 throw new Exception($"Category with id {id} not found");
@@ -69,7 +71,10 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public double GetTotalCategoryValue(int id)
         {
-            var category = _context.Categories.Find(id);
+            var category = _context.Categories
+                                   .Include(c => c.Products)
+                                   .ThenInclude(p => p.Stocks)
+                                   .FirstOrDefault(c => c.CategoryId == id);
             if(category == null)
             {
                 throw new Exception($"Category with id {id} not found");
@@ -93,6 +98,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         {
             var category = _context.Categories
                            .Include(c => c.Products)
+                           .ThenInclude(p => p.Category)
+                           .Include(c => c.Products)
+                           .ThenInclude(p => p.Supplier)
                            .FirstOrDefault(c => c.CategoryId == id);
             if (category == null)
             {
