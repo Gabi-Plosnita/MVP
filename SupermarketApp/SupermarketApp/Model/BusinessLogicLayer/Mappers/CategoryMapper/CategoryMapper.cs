@@ -6,34 +6,24 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
     {
         public static CategoryResponseDto MapToCategoryResponseDto(this Category category)
         {
-           var categoryResponseDto = new CategoryResponseDto
-           {
-               CategoryId = category.CategoryId,
-               Name = category.Name,
-           };
-           
-           return categoryResponseDto;
+          return new CategoryResponseDto
+          {
+              CategoryId = category.CategoryId,
+              Name = category.Name,
+          };
         }
 
         public static List<CategoryResponseDto> MapToListOfCategoryResponseDto(this List<Category> categories)
         {
-            var categoryResponseDtos = new List<CategoryResponseDto>();
-            foreach (var category in categories)
-            {
-                categoryResponseDtos.Add(category.MapToCategoryResponseDto());
-            }
-
-            return categoryResponseDtos;
+            return categories.Select(c => c.MapToCategoryResponseDto()).ToList();
         }
 
         public static Category MapToCategory(this CategoryRequestDto categoryRequestDto)
         {
-            var category = new Category
+            return new Category
             {
                 Name = categoryRequestDto.Name,
             };
-
-            return category;
         }
     }
 }
