@@ -12,7 +12,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
 
         public void AddUser(UserRequestDto userDto);
 
-        public void UpdateUser(int id, UserRequestDto updatedUser);
+        public void UpdateUser(int id, UserRequestDto updatedUserDto);
 
         public void DeleteUser(int id);
     }
