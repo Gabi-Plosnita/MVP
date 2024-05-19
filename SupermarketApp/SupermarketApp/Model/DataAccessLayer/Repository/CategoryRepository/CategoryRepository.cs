@@ -1,4 +1,5 @@
-﻿using SupermarketApp.Model.DataAccessLayer.DataContext;
+﻿using Microsoft.EntityFrameworkCore;
+using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
@@ -90,8 +91,10 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public List<Product> GetProductsFromCategory(int id)
         {
-            var category = _context.Categories.Find(id);
-            if(category == null)
+            var category = _context.Categories
+                           .Include(c => c.Products)
+                           .FirstOrDefault(c => c.CategoryId == id);
+            if (category == null)
             {
                 throw new Exception($"Category with id {id} not found");
             }
