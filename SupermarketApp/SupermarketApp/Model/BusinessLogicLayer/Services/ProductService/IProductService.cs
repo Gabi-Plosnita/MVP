@@ -12,7 +12,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
 
         ProductResponseDto GetProductByBarcode(string barcode);
 
-        void AddProduct(ProductResponseDto productDto);
+        void AddProduct(ProductRequestDto productDto);
 
         void UpdateProduct(int id, ProductRequestDto updatedProductDto);
 
