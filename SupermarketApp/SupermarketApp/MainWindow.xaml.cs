@@ -1,4 +1,5 @@
 ﻿using SupermarketApp.Model.DataAccessLayer.Repository;
+using SupermarketApp.Model.EntityLayer;
 using SupermarketApp.StartupHelper;
 using SupermarketApp.View;
 using SupermarketApp.ViewModel;
@@ -26,7 +27,17 @@ namespace SupermarketApp
             {
                 return;
             }
-            _adminWindowFactory.Create().Show();
+            
+            if(userResponseDto.UserType == EUserType.Admin)
+            {
+                _adminWindowFactory.Create().Show();
+            }
+
+            if (userResponseDto.UserType == EUserType.Cashier)
+            {
+                // show cashier window
+            }
+
         }
     }
 }
