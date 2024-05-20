@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace SupermarketApp.BaseNotification
+namespace SupermarketApp.Notification
 {
     public class BaseNotification : INotifyPropertyChanged
     {
