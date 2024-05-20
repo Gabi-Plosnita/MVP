@@ -88,6 +88,7 @@ namespace SupermarketApp.ViewModel
             {
                 Name = NewCategoryName
             };
+            NewCategoryName = string.Empty;
 
             string errorMessage = newCategory.GetValidationErrorMessage();
             if (!string.IsNullOrEmpty(errorMessage))
@@ -100,7 +101,6 @@ namespace SupermarketApp.ViewModel
             {
                 _categoryService.AddCategory(newCategory);
                 Categories = new ObservableCollection<CategoryResponseDto>(_categoryService.GetCategories());
-                NewCategoryName = string.Empty;
             }
             catch (Exception e)
             {
@@ -113,6 +113,7 @@ namespace SupermarketApp.ViewModel
             if(SelectedCategoryToUpdate == null)
             {
                 MessageBox.Show("Please select a category to update.");
+                UpdatedCategoryName = string.Empty;
                 return;
             }
 
@@ -121,7 +122,8 @@ namespace SupermarketApp.ViewModel
             {
                 Name = UpdatedCategoryName
             };
-            
+            UpdatedCategoryName = string.Empty;
+
             string errorMessage = updatedCategory.GetValidationErrorMessage();
             if (!string.IsNullOrEmpty(errorMessage))
             {
@@ -133,7 +135,6 @@ namespace SupermarketApp.ViewModel
             {
                 _categoryService.UpdateCategory(id, updatedCategory);
                 Categories = new ObservableCollection<CategoryResponseDto>(_categoryService.GetCategories());
-                UpdatedCategoryName = string.Empty;
             }
             catch (Exception e)
             {
