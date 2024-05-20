@@ -2,7 +2,7 @@
 
 namespace SupermarketApp.Model.EntityLayer
 {
-    public class CategoryRequestDto : IValidatableObject
+    public class CategoryRequestDto : BaseValidator, IValidatableObject
     {
         public string Name { get; set; }
 
