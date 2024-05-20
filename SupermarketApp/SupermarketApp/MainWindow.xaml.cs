@@ -1,5 +1,6 @@
 ﻿using SupermarketApp.Model.DataAccessLayer.Repository;
 using SupermarketApp.StartupHelper;
+using SupermarketApp.ViewModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
@@ -12,6 +13,7 @@ namespace SupermarketApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel(); 
             //_childWindowFactory = childWindowFactory;
         }
     }
