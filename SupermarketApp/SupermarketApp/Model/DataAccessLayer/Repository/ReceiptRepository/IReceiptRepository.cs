@@ -4,7 +4,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public interface IReceiptRepository
     {
-        void AddReceipt(Receipt receipt);
+        int AddReceipt(Receipt receipt);
 
         void AddProductReceipt(ProductReceipt productReceipt);
 

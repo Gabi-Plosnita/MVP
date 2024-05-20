@@ -10,7 +10,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         {
         }
 
-        public void AddReceipt(Receipt receipt)
+        public int AddReceipt(Receipt receipt)
         {
             var cashier = _context.Users.Find(receipt.CashierId);
             if (cashier == null)
@@ -22,6 +22,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
             _context.Receipts.Add(receipt);
             _context.SaveChanges();
+
+            return receipt.ReceiptId;
         }
 
         public void AddProductReceipt(ProductReceipt productReceipt)
