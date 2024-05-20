@@ -119,8 +119,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Product with barcode {updatedProduct.Barcode} already exists");
             }
 
-            _context.Entry(product).CurrentValues.SetValues(updatedProduct);
-            product.ProductId = id;
+            product.Update(updatedProduct);
             _context.SaveChanges();
         }
 
