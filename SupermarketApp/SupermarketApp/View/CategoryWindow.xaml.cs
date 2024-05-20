@@ -13,5 +13,10 @@ namespace SupermarketApp.View
             _categoryViewModel = categoryViewModel;
             DataContext = _categoryViewModel;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
