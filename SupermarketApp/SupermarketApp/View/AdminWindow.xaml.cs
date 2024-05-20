@@ -6,7 +6,7 @@ namespace SupermarketApp.View
 {
     public partial class AdminWindow : Window
     {
-        public AdminViewModel _adminViewModel;
+        private readonly AdminViewModel _adminViewModel;
         public AdminWindow(AdminViewModel adminViewModel)
         {
             InitializeComponent();
