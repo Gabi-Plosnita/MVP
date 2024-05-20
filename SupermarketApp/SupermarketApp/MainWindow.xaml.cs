@@ -8,17 +8,11 @@ namespace SupermarketApp
 
     public partial class MainWindow : Window
     {
-        private readonly IAbstractFactory<ChildWindow> _childWindowFactory;
-        public MainWindow(IAbstractFactory<ChildWindow> childWindowFactory)
+        //private readonly IAbstractFactory<ChildWindow> _childWindowFactory;
+        public MainWindow()
         {
             InitializeComponent();
-            OpenFormButton.Click += OpenFormButton_Click;
-            _childWindowFactory = childWindowFactory;
-        }
-
-        private void OpenFormButton_Click(object sender, RoutedEventArgs e)
-        {
-            _childWindowFactory.Create().Show();
+            //_childWindowFactory = childWindowFactory;
         }
     }
 }

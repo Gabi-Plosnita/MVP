@@ -25,7 +25,7 @@ namespace SupermarketApp
 
                     // Configure forms //
                     services.AddSingleton<MainWindow>();
-                    services.AddFormFactory<ChildWindow>(); // need to delete this 
+                    //services.AddFormFactory<ChildWindow>(); 
                 })
                 .Build();
         }
