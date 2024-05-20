@@ -46,7 +46,6 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             }
 
             category.Update(updatedCategory);
-
             _context.SaveChanges();
         }
 
