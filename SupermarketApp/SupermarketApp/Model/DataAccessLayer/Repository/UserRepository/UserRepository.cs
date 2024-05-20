@@ -76,9 +76,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception("Username and password can't be empty");
             }
 
-            _context.Entry(user).CurrentValues.SetValues(updatedUser);
+            user.Update(updatedUser);
             _context.SaveChanges();
-
         }
 
         public void DeleteUser(int id)
