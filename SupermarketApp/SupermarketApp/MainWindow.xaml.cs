@@ -1,7 +1,7 @@
 ﻿using SupermarketApp.Model.DataAccessLayer.Repository;
 using SupermarketApp.StartupHelper;
+using SupermarketApp.View;
 using SupermarketApp.ViewModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace SupermarketApp
@@ -9,14 +9,24 @@ namespace SupermarketApp
 
     public partial class MainWindow : Window
     {
-        //private readonly IAbstractFactory<ChildWindow> _childWindowFactory;
+        private readonly IAbstractFactory<AdminWindow> _adminWindowFactory;
         private readonly MainViewModel _mainViewModel;
-        public MainWindow(MainViewModel mainViewModel)
+        public MainWindow(IAbstractFactory<AdminWindow> adminWindowFactory, MainViewModel mainViewModel)
         {
             InitializeComponent();
             _mainViewModel = mainViewModel;
             DataContext = _mainViewModel;
-            //_childWindowFactory = childWindowFactory;
+            _adminWindowFactory = adminWindowFactory;
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var userResponseDto = _mainViewModel.LoginClick();
+            if (userResponseDto == null)
+            {
+                return;
+            }
+            _adminWindowFactory.Create().Show();
         }
     }
 }

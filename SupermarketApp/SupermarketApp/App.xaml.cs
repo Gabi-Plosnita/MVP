@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using SupermarketApp.StartupHelper;
 using System.Configuration;
+using SupermarketApp.View;
 
 namespace SupermarketApp
 {
@@ -25,7 +26,7 @@ namespace SupermarketApp
 
                     // Configure forms //
                     services.AddSingleton<MainWindow>();
-                    //services.AddFormFactory<ChildWindow>(); 
+                    services.AddFormFactory<AdminWindow>(); 
                 })
                 .Build();
         }

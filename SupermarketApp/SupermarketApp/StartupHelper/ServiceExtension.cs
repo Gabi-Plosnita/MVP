@@ -38,6 +38,7 @@ namespace SupermarketApp.StartupHelper
 
             // Configure ViewModel //
             services.AddTransient<MainViewModel>();
+            services.AddTransient<AdminViewModel>();
         }
 
         public static void AddDatabaseServices(this IServiceCollection services, string connectionString)

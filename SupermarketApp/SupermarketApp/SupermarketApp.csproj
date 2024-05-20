@@ -18,8 +18,6 @@
     <Folder Include="Model\EntityLayer\Entities\User\" />
     <Folder Include="Model\EntityLayer\Entities\Supplier\" />
     <Folder Include="Model\EntityLayer\Entities\Product\" />
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using SupermarketApp.Notification;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
+using SupermarketApp.Model.EntityLayer;
 
 namespace SupermarketApp.ViewModel
 {
@@ -32,19 +33,17 @@ namespace SupermarketApp.ViewModel
             }
         }
 
-        public ICommand LoginClickCommand { get; private set; }
-
         public MainViewModel(IUserService userService)
         {
             _userService = userService;
-            LoginClickCommand = new RelayCommand<Object>(LoginClick);
         }
 
-        private void LoginClick(object parameter)
+        public UserResponseDto LoginClick()
         {
             if(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
                 System.Windows.MessageBox.Show("Please enter username and password");
+                return null;
             }
             
             try
@@ -52,10 +51,12 @@ namespace SupermarketApp.ViewModel
                 var userResponseDto= _userService.Login(Username, Password);
                 _username = string.Empty;
                 _password = string.Empty;
+                return userResponseDto;
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.Message);
+                return null;
             }
         }
     }

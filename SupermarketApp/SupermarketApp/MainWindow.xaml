@@ -39,7 +39,8 @@
             <TextBox x:Name="PasswordTextBox" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"
                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Button Content="Login" Grid.Row="2" Grid.Column="1" Margin="10" Width="75" HorizontalAlignment="Right" Command="{Binding LoginClickCommand}"/>
+            <Button Content="Login" Grid.Row="2" Grid.Column="1" Margin="10" Width="75" HorizontalAlignment="Right"
+                    Click="LoginButton_Click"/>
         </Grid>
     </Grid>
 </Window>
