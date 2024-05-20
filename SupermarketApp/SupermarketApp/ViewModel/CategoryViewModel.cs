@@ -100,6 +100,7 @@ namespace SupermarketApp.ViewModel
             {
                 _categoryService.AddCategory(newCategory);
                 Categories = new ObservableCollection<CategoryResponseDto>(_categoryService.GetCategories());
+                NewCategoryName = string.Empty;
             }
             catch (Exception e)
             {
@@ -132,6 +133,7 @@ namespace SupermarketApp.ViewModel
             {
                 _categoryService.UpdateCategory(id, updatedCategory);
                 Categories = new ObservableCollection<CategoryResponseDto>(_categoryService.GetCategories());
+                UpdatedCategoryName = string.Empty;
             }
             catch (Exception e)
             {
