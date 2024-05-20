@@ -49,8 +49,8 @@ namespace SupermarketApp.ViewModel
             try
             {
                 var userResponseDto= _userService.Login(Username, Password);
-                _username = string.Empty;
-                _password = string.Empty;
+                Username = string.Empty;
+                Password = string.Empty;
                 return userResponseDto;
             }
             catch (Exception ex)
