@@ -88,7 +88,13 @@ namespace SupermarketApp.ViewModel
             {
                 Name = NewCategoryName
             };
-            // Validate Dto
+
+            string errorMessage = newCategory.GetValidationErrorMessage();
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                MessageBox.Show(errorMessage);
+                return;
+            }
 
             try
             {
@@ -108,7 +114,13 @@ namespace SupermarketApp.ViewModel
             {
                 Name = UpdatedCategoryName
             };
-            // Validate Dto
+            
+            string errorMessage = updatedCategory.GetValidationErrorMessage();
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                MessageBox.Show(errorMessage);
+                return;
+            }
 
             try
             {
