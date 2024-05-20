@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.EntityLayer;
+using SupermarketApp.Model.EntityLayer.Entities;
 
 namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
@@ -44,8 +45,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Category with id {id} not found");
             }
 
-            _context.Entry(category).CurrentValues.SetValues(updatedCategory); // set properties by hand if this line make trouble
-            category.CategoryId = id;
+            category.UpdateCategory(updatedCategory);
 
             _context.SaveChanges();
         }
