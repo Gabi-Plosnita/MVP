@@ -17,7 +17,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
 
         public static List<ProductReceiptResponseDto> MapToListOfProductReceiptResponseDto(this List<ProductReceipt> productReceipts)
         {
-            return productReceipts.Select(pr => pr.MapToProductReceiptResponseDto()).ToList();
+            return productReceipts.Select(productReceipt => productReceipt.MapToProductReceiptResponseDto()).ToList();
         }
 
         public static ReceiptResponseDto MapToReceiptResponseDto(this Receipt receipt)
@@ -31,6 +31,11 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
                 IsPaid = receipt.IsPaid,
                 ProductReceipts = receipt.ProductReceipts.MapToListOfProductReceiptResponseDto()
             };
+        }
+
+        public static List<ReceiptResponseDto> MapToListOfReceiptResponseDto(this List<Receipt> receipts)
+        {
+            return receipts.Select(receipt => receipt.MapToReceiptResponseDto()).ToList();
         }
 
         public static ProductReceipt MapToProductReceipt(this ProductReceiptRequestDto productReceiptRequestDto)
