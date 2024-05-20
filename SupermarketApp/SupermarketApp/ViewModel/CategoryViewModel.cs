@@ -109,6 +109,12 @@ namespace SupermarketApp.ViewModel
 
         private void UpdateCategory(object param)
         {
+            if(SelectedCategoryToUpdate == null)
+            {
+                MessageBox.Show("Please select a category to update.");
+                return;
+            }
+
             int id = SelectedCategoryToUpdate.CategoryId;
             var updatedCategory = new CategoryRequestDto
             {
@@ -135,6 +141,12 @@ namespace SupermarketApp.ViewModel
 
         private void DeleteCategory(object param)
         {
+            if(SelectedCategoryToDelete == null)
+            {
+                MessageBox.Show("Please select a category to delete.");
+                return;
+            }
+
             int id = SelectedCategoryToDelete.CategoryId;
             try
             {
