@@ -9,6 +9,7 @@ namespace SupermarketApp.View
         public CategoryWindow(CategoryViewModel categoryViewModel)
         {
             InitializeComponent();
+
             _categoryViewModel = categoryViewModel;
             DataContext = _categoryViewModel;
         }

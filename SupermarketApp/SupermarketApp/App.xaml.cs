@@ -27,6 +27,7 @@ namespace SupermarketApp
                     // Configure forms //
                     services.AddSingleton<MainWindow>();
                     services.AddFormFactory<AdminWindow>(); 
+                    services.AddFormFactory<CategoryWindow>();
                 })
                 .Build();
         }
