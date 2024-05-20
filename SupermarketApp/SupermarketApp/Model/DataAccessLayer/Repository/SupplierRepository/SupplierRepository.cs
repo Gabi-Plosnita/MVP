@@ -45,9 +45,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Supplier with id {id} not found");
             }
 
-            _context.Entry(supplier).CurrentValues.SetValues(updatedSupplier);
-            supplier.SupplierId = id;
-
+            supplier.Update(updatedSupplier);
             _context.SaveChanges();
         }
 
