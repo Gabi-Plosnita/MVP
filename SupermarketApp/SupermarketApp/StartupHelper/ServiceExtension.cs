@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.DataAccessLayer.DataContext;
 using SupermarketApp.Model.DataAccessLayer.Repository;
+using SupermarketApp.ViewModel;
 
 namespace SupermarketApp.StartupHelper
 {
@@ -34,6 +35,9 @@ namespace SupermarketApp.StartupHelper
             services.AddTransient<IStockService, StockService>();
             services.AddTransient<ISupplierService, SupplierService>();
             services.AddTransient<IUserService, UserService>();
+
+            // Configure ViewModel //
+            services.AddTransient<MainViewModel>();
         }
 
         public static void AddDatabaseServices(this IServiceCollection services, string connectionString)

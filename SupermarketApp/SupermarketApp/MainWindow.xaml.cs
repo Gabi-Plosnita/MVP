@@ -10,10 +10,12 @@ namespace SupermarketApp
     public partial class MainWindow : Window
     {
         //private readonly IAbstractFactory<ChildWindow> _childWindowFactory;
-        public MainWindow()
+        private readonly MainViewModel _mainViewModel;
+        public MainWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
-            DataContext = new MainViewModel(); 
+            _mainViewModel = mainViewModel;
+            DataContext = _mainViewModel;
             //_childWindowFactory = childWindowFactory;
         }
     }

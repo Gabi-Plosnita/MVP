@@ -1,11 +1,14 @@
 ﻿using SupermarketApp.Commands;
 using System.Windows.Input;
 using SupermarketApp.Notification;
+using SupermarketApp.Model.BusinessLogicLayer.Services;
 
 namespace SupermarketApp.ViewModel
 {
     public class MainViewModel : BaseNotification
     {
+        private readonly IUserService _userService;
+
         private string _username;
         private string _password;
 
@@ -31,8 +34,9 @@ namespace SupermarketApp.ViewModel
 
         public ICommand LoginClickCommand { get; private set; }
 
-        public MainViewModel()
+        public MainViewModel(IUserService userService)
         {
+            _userService = userService;
             LoginClickCommand = new RelayCommand<Object>(LoginClick);
         }
 
@@ -42,9 +46,16 @@ namespace SupermarketApp.ViewModel
             {
                 System.Windows.MessageBox.Show("Please enter username and password");
             }
-            else
+            
+            try
             {
-                System.Windows.MessageBox.Show("Login successful");
+                var userResponseDto= _userService.Login(Username, Password);
+                _username = string.Empty;
+                _password = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
             }
         }
     }
