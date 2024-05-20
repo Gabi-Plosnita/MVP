@@ -45,7 +45,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Category with id {id} not found");
             }
 
-            category.UpdateCategory(updatedCategory);
+            category.Update(updatedCategory);
 
             _context.SaveChanges();
         }
