@@ -44,7 +44,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             {
                 throw new Exception($"Supplier with id {id} not found");
             }
-            if(_context.Suppliers.Any(s => (s.Name == updatedSupplier.Name && s.Country == updatedSupplier.Country)))
+            if(_context.Suppliers.Any(s => (s.Name == updatedSupplier.Name && s.Country == updatedSupplier.Country
+                                            && s.Name != supplier.Name && s.Country != supplier.Country)))
             {
                 throw new Exception($"Supplier with name {updatedSupplier.Name} and country {updatedSupplier.Country} already exists");
             }
