@@ -1,13 +1,12 @@
 ﻿using SupermarketApp.Commands;
 using System.Windows.Input;
-using SupermarketApp.Notification;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
 using SupermarketApp.View;
 
 namespace SupermarketApp.ViewModel
 {
-    public class MainViewModel : BaseNotification
+    public class MainViewModel : BaseViewModel
     {
         private readonly IUserService _userService;
 

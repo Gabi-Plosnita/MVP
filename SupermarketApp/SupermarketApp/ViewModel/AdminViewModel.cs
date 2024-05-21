@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace SupermarketApp.ViewModel
 {
-    public class AdminViewModel
+    public class AdminViewModel : BaseViewModel
     {
         private readonly IUserService _userService = new UserService();
         private readonly IProductService _productService = new ProductService();

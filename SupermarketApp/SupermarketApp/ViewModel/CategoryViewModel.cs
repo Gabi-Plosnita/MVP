@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace SupermarketApp.ViewModel
 {
-    public class CategoryViewModel
+    public class CategoryViewModel : BaseViewModel
     {
         private readonly ICategoryService _categoryService = new CategoryService();
         private bool _isEditMode;
