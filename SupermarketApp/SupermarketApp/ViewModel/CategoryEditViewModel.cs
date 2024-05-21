@@ -51,7 +51,7 @@ namespace SupermarketApp.ViewModel
             };
 
             string validationMessage = categoryRequestDto.GetValidationErrorMessage();
-            if (validationMessage != null)
+            if (!string.IsNullOrEmpty(validationMessage))
             {
                 MessageBox.Show(validationMessage);
                 return;
