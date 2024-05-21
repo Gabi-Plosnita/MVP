@@ -77,42 +77,41 @@ namespace SupermarketApp.ViewModel
 
         private void AddUser(object? obj)
         {
-            /*if (obj is not AdminPage currentPage)
-            {
-                Console.WriteLine("Current page is not AdminPage");
-                return;
-
-            }
-
-            currentPage.NavigationService?.Navigate(new EditUserPage());*/
-
-        }
-
-        private void EditUser(object? obj)
-        {
-           /* if (SelectedUser == null)
-            {
-                return;
-            }
-            User user = SelectedUser;
             if (obj is not AdminPage currentPage)
             {
                 Console.WriteLine("Current page is not AdminPage");
                 return;
 
             }
+            UserEditPage userEditPage = new UserEditPage();
+            currentPage.NavigationService?.Navigate(userEditPage);
+        }
 
-            currentPage.NavigationService?.Navigate(new EditUserPage(user));*/
+        private void EditUser(object? obj)
+        {
+           if(SelectedUser == null)
+            {
+                MessageBox.Show("Please select a user to edit!");
+                return;
+            }
+            if (obj is not AdminPage currentPage)
+            {
+                Console.WriteLine("Current page is not AdminPage");
+                return;
+
+            }
+            UserEditPage userEditPage = new UserEditPage(SelectedUser);
+            currentPage.NavigationService?.Navigate(userEditPage);
         }
         private void DeleteUser(object? obj)
         {
-            /*if (SelectedUser == null)
+            if(SelectedUser == null)
             {
+                MessageBox.Show("Please select a user to delete!");
                 return;
             }
-            User user = SelectedUser;
-            _userBLL.DeleteUser(user);
-            Users.Remove(user);*/
+            _userService.DeleteUser(SelectedUser.UserId);
+            Users.Remove(SelectedUser);
         }
 
         private void AddCategory(object? obj)
