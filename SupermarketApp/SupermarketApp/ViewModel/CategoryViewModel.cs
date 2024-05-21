@@ -2,7 +2,9 @@
 using SupermarketApp.Model.BusinessLogicLayer.Mappers;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
+using SupermarketApp.View;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SupermarketApp.ViewModel
@@ -38,6 +40,10 @@ namespace SupermarketApp.ViewModel
                 try
                 {
                     _categoryService.UpdateCategory(id, categoryRequestDto);
+
+                    var currentPage = obj as Page;
+                    var adminPage = new AdminPage();
+                    currentPage?.NavigationService?.Navigate(adminPage);
                     MessageBox.Show("Category updated successfully");
                 }
                 catch (Exception ex)
@@ -54,6 +60,10 @@ namespace SupermarketApp.ViewModel
                 try
                 {
                     _categoryService.AddCategory(newCategory);
+
+                    var currentPage = obj as Page;
+                    var adminPage = new AdminPage();
+                    currentPage?.NavigationService?.Navigate(adminPage);
                     MessageBox.Show("Category added successfully");
                 }
                 catch (Exception ex)
