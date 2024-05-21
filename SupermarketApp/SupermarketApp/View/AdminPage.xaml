@@ -72,7 +72,7 @@
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                 <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"/>
                                 <DataGridTextColumn Header="Category" Binding="{Binding CategoryName}" />
-                                <DataGridTextColumn Header="Supplier" Binding="{Binding ProducerSupplier}" />
+                                <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}" />
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
@@ -144,14 +144,14 @@
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Producers">
+                <TabItem Header="Suppliers">
                     <StackPanel>
-                        <DataGrid x:Name="dgProducers"
+                        <DataGrid x:Name="dgSuppliers"
                                   AutoGenerateColumns="False"
                                   IsReadOnly="True"
                                   CanUserAddRows="False"
                                   Height="250"
-                                  SelectedItem="{Binding SelectedProducer}"
+                                  SelectedItem="{Binding SelectedSupplier}"
                                   ItemsSource="{Binding Suppliers}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -161,24 +161,24 @@
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center">
                             <Button 
-                                Content="Add Producer" 
-                                Command="{Binding AddProducerCommand}" 
+                                Content="Add Supplier" 
+                                Command="{Binding AddSupplierCommand}" 
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                                 Margin="5" 
                                 Padding="5" 
                                 Width="100" 
                                 Height="30" />
                             <Button
-                                Content="Edit Producer"
-                                Command="{Binding EditProducerCommand}"
+                                Content="Edit Supplier"
+                                Command="{Binding EditSupplierCommand}"
                                 CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                                 Margin="5"
                                 Padding="5"
                                 Width="100"
                                 Height="30" />
                             <Button
-                                Content="Delete Producer"
-                                Command="{Binding DeleteProducerCommand}"
+                                Content="Delete Supplier"
+                                Command="{Binding DeleteSupplierCommand}"
                                 Margin="5"
                                 Padding="5"
                                 Width="100"

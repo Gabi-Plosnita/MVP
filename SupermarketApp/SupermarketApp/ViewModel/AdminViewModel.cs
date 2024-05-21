@@ -38,9 +38,9 @@ namespace SupermarketApp.ViewModel
         public ICommand AddCategoryCommand { get; set; }
         public ICommand EditCategoryCommand { get; set; }
         public ICommand DeleteCategoryCommand { get; set; }
-        public ICommand AddProducerCommand { get; set; }
-        public ICommand EditProducerCommand { get; set; }
-        public ICommand DeleteProducerCommand { get; set; }
+        public ICommand AddSupplierCommand { get; set; }
+        public ICommand EditSupplierCommand { get; set; }
+        public ICommand DeleteSupplierCommand { get; set; }
         public ICommand AddStockCommand { get; set; }
         public ICommand EditStockCommand { get; set; }
         public ICommand DeleteStockCommand { get; set; }
@@ -66,9 +66,9 @@ namespace SupermarketApp.ViewModel
             EditProductCommand = new RelayCommand<object>(EditProduct);
             DeleteProductCommand = new RelayCommand<object>(DeleteProduct);
 
-            AddProducerCommand = new RelayCommand<object>(AddProducer);
-            EditProducerCommand = new RelayCommand<object>(EditProducer);
-            DeleteProducerCommand = new RelayCommand<object>(DeleteProducer);
+            AddSupplierCommand = new RelayCommand<object>(AddSupplier);
+            EditSupplierCommand = new RelayCommand<object>(EditSupplier);
+            DeleteSupplierCommand = new RelayCommand<object>(DeleteSupplier);
 
             AddStockCommand = new RelayCommand<object>(AddStock);
             EditStockCommand = new RelayCommand<object>(EditStock);
@@ -192,7 +192,7 @@ namespace SupermarketApp.ViewModel
             _productBLL.DeleteProduct(product);
             Products.Remove(product);*/
         }
-        private void AddProducer(object? obj)
+        private void AddSupplier(object? obj)
         {
             /*if (obj is not AdminPage currentPage)
             {
@@ -203,7 +203,7 @@ namespace SupermarketApp.ViewModel
 
             currentPage.NavigationService?.Navigate(new EditProducerPage());*/
         }
-        private void EditProducer(object? obj)
+        private void EditSupplier(object? obj)
         {
             /*if (SelectedProducer == null)
             {
@@ -219,7 +219,7 @@ namespace SupermarketApp.ViewModel
 
             currentPage.NavigationService?.Navigate(new EditProducerPage(producer));*/
         }
-        private void DeleteProducer(object? obj)
+        private void DeleteSupplier(object? obj)
         {
             /*if (SelectedProducer == null)
             {
