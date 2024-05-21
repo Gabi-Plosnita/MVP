@@ -60,12 +60,26 @@ namespace SupermarketApp.ViewModel
 
         private void SaveUser(object? obj)
         { 
+            if(SelectedRole == null)
+            {
+                MessageBox.Show("Please select a role");
+                return;
+            }
+
             var userRequestDto = new UserRequestDto()
             {
                 Username = Username,
                 Password = Password,
                 UserType = SelectedRole == "Admin" ? EUserType.Admin : EUserType.Cashier
             };
+
+            string validationMessage = userRequestDto.GetValidationErrorMessage();
+            if (!string.IsNullOrEmpty(validationMessage))
+            {
+                MessageBox.Show(validationMessage);
+                return;
+            }
+
             if (_isEditMode)
             {      
                 try
