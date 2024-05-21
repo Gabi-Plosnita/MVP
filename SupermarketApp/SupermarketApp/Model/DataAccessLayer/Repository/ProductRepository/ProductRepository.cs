@@ -109,12 +109,12 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"Supplier with id {updatedProduct.SupplierId} not found");
             }
 
-            if (_context.Products.Any(p => p.Name == updatedProduct.Name))
+            if (_context.Products.Any(p => p.Name == updatedProduct.Name && p.Name != product.Name))
             {
                 throw new Exception($"Product with name {updatedProduct.Name} already exists");
             }
 
-            if (_context.Products.Any(p => p.Barcode == updatedProduct.Barcode))
+            if (_context.Products.Any(p => p.Barcode == updatedProduct.Barcode && p.Barcode != product.Barcode))
             {
                 throw new Exception($"Product with barcode {updatedProduct.Barcode} already exists");
             }
