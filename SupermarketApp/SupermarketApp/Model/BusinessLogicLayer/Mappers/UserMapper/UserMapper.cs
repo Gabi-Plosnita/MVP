@@ -10,6 +10,7 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
             {
                 UserId = user.UserId,
                 Username = user.Username,
+                Password = user.Password,
                 UserType = user.UserType
             };
         }
