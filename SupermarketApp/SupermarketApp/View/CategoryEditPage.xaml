@@ -10,13 +10,12 @@
 
     <Grid>
         <StackPanel>
-            <Label Content= "Edit Category" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
+            <Label Content="Edit Category" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
             <Label Content="Name"/>
             <TextBox x:Name="CategoryNameTextBox" Width="800" Text="{Binding NewName, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-
             <Button Content="Save" Width="100" Height="30" Margin="0,20,0,0" HorizontalAlignment="Center" 
-    Command="{Binding SaveCategoryCommand}"
-    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
+                    Command="{Binding SaveCategoryCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
         </StackPanel>
     </Grid>
 </Page>
