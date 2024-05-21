@@ -1,5 +1,4 @@
 ﻿using SupermarketApp.Commands;
-using SupermarketApp.Model.BusinessLogicLayer.Mappers;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
 using SupermarketApp.View;
@@ -22,7 +21,7 @@ namespace SupermarketApp.ViewModel
         public ObservableCollection<string> Roles { get; } = new ObservableCollection<string>()
         {
             "Admin",
-            "User"
+            "Cashier"
         };
         public string SelectedRole { get; set; }
         public ICommand SaveUserCommand { get; set; }
@@ -53,7 +52,7 @@ namespace SupermarketApp.ViewModel
         {
             Username = user.Username;
             Password = user.Password;
-            SelectedRole = user.UserType == EUserType.Admin ? "Admin" : "User";
+            SelectedRole = user.UserType == EUserType.Admin ? "Admin" : "Cashier";
             _isEditMode = true;
             EditingUser = user;
         }
