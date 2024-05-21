@@ -44,7 +44,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             {
                 throw new Exception($"Category with id {id} not found");
             }
-            if(_context.Categories.Any(c => c.Name == updatedCategory.Name))
+            if(_context.Categories.Any(c => c.Name == updatedCategory.Name && c.Name != category.Name))
             {
                 throw new Exception($"Category with name {updatedCategory.Name} already exists");
             }
