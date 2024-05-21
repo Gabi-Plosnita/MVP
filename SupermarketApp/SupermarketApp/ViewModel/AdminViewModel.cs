@@ -182,6 +182,7 @@ namespace SupermarketApp.ViewModel
 
             currentPage.NavigationService?.Navigate(new EditProductPage(product));*/
         }
+
         private void DeleteProduct(object? obj)
         {
            /* if (SelectedProduct == null)
@@ -192,44 +193,45 @@ namespace SupermarketApp.ViewModel
             _productBLL.DeleteProduct(product);
             Products.Remove(product);*/
         }
+
         private void AddSupplier(object? obj)
         {
-            /*if (obj is not AdminPage currentPage)
-            {
-                Console.WriteLine("Current page is not AdminPage");
-                return;
-
-            }
-
-            currentPage.NavigationService?.Navigate(new EditProducerPage());*/
-        }
-        private void EditSupplier(object? obj)
-        {
-            /*if (SelectedProducer == null)
-            {
-                return;
-            }
-            Producer producer = SelectedProducer;
             if (obj is not AdminPage currentPage)
             {
                 Console.WriteLine("Current page is not AdminPage");
                 return;
-
             }
-
-            currentPage.NavigationService?.Navigate(new EditProducerPage(producer));*/
+            var supplierEditPage = new SupplierEditPage();
+            currentPage.NavigationService?.Navigate(supplierEditPage);
         }
-        private void DeleteSupplier(object? obj)
+
+        private void EditSupplier(object? obj)
         {
-            /*if (SelectedProducer == null)
+            if(SelectedSupplier == null)
             {
+                MessageBox.Show("Please select a supplier to edit!");
                 return;
             }
-            Producer producer = SelectedProducer;
-            _producerBLL.DeleteProducer(producer);
-            Producers.Remove(producer);*/
-
+            if (obj is not AdminPage currentPage)
+            {
+                Console.WriteLine("Current page is not AdminPage");
+                return;
+            }
+            var supplierEditPage = new SupplierEditPage(SelectedSupplier);
+            currentPage.NavigationService?.Navigate(supplierEditPage);
         }
+
+        private void DeleteSupplier(object? obj)
+        {
+            if(SelectedSupplier == null)
+            {
+                MessageBox.Show("Please select a supplier to delete!");
+                return;
+            }
+            _supplierService.DeleteSupplier(SelectedSupplier.SupplierId);
+            Suppliers.Remove(SelectedSupplier);
+        }
+
         private void AddStock(object? obj)
         {
             /*if (obj is not AdminPage currentPage)
@@ -241,6 +243,7 @@ namespace SupermarketApp.ViewModel
 
             currentPage.NavigationService?.Navigate(new EditStockPage());*/
         }
+
         private void EditStock(object? obj)
         {
             /*if (SelectedStock == null)
@@ -257,6 +260,7 @@ namespace SupermarketApp.ViewModel
 
             currentPage.NavigationService?.Navigate(new EditStockPage(stock));*/
         }
+
         private void DeleteStock(object? obj)
         {
             /*if (SelectedStock == null)
