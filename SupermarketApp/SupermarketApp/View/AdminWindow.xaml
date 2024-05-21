@@ -7,6 +7,260 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800">
     <Grid>
-        
+        <Border 
+    BorderBrush="Black" 
+    BorderThickness="1" 
+    CornerRadius="10" 
+    Margin="10" 
+    Padding="10">
+            <TabControl>
+                <TabItem Header="Users">
+                    <StackPanel>
+                        <DataGrid x:Name="dgUsers"
+                          AutoGenerateColumns="False"
+                           IsReadOnly="True"
+                          CanUserAddRows="False"
+                              Height="250"
+                              SelectedItem="{Binding SelectedUser}"
+                              ItemsSource="{Binding Users}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
+                                <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
+                                <DataGridTextColumn Header="IsAdmin" Binding="{Binding IsAdmin}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                            <Button 
+                        Content="Add User" 
+                        Command="{Binding AddUserCommand}" 
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+                        Margin="5" 
+                        Padding="5" 
+                        Width="100" 
+                        Height="30" />
+                            <Button
+                        Content="Edit User"
+                        Command="{Binding EditUserCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+                        Margin="5"
+                        Padding="5"
+                        Width="100"
+                        Height="30" />
+                            <Button
+                        Content="Delete User"
+                        Command="{Binding DeleteUserCommand}"
+                        Margin="5"
+                        Padding="5"
+                        Width="100"
+                        Height="30" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Products">
+                    <StackPanel>
+                        <DataGrid x:Name="dgProducts"
+      AutoGenerateColumns="False"
+       IsReadOnly="True"
+      CanUserAddRows="False"
+          Height="250"
+          SelectedItem="{Binding SelectedProduct}"
+          ItemsSource="{Binding Products}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"/>
+                                <DataGridTextColumn Header="Category" Binding="{Binding CategoryId}" />
+                                <DataGridTextColumn Header="Producer" Binding="{Binding ProducerId}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+        HorizontalAlignment="Center">
+                            <Button 
+    Content="Add Product" 
+    Command="{Binding AddProductCommand}"
+    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+    Margin="5" 
+    Padding="5" 
+    Width="100" 
+    Height="30" />
+                            <Button
+    Content="Edit Product"
+    Command="{Binding EditProductCommand}"
+    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
+                            <Button
+    Content="Delete Product"
+    Command="{Binding DeleteProductCommand}"
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+
+
+                <TabItem Header="Categories">
+                    <StackPanel>
+                        <DataGrid x:Name="dgCategories"
+          AutoGenerateColumns="False"
+           IsReadOnly="True"
+          CanUserAddRows="False"
+              Height="250"
+              SelectedItem="{Binding SelectedCategory}"
+              ItemsSource="{Binding Categories}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Category Name" Binding="{Binding Name}" />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                            <Button 
+        Content="Add Category" 
+        Command="{Binding AddCategoryCommand}" 
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+        Margin="5" 
+        Padding="5" 
+        Width="100" 
+        Height="30" />
+                            <Button
+        Content="Edit Category"
+        Command="{Binding EditCategoryCommand}"
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+        Margin="5"
+        Padding="5"
+        Width="100"
+        Height="30" />
+                            <Button
+        Content="Delete Category"
+        Command="{Binding DeleteCategoryCommand}"
+        Margin="5"
+        Padding="5"
+        Width="100"
+        Height="30" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Producers">
+                    <StackPanel>
+                        <DataGrid x:Name="dgProducers"
+          AutoGenerateColumns="False"
+           IsReadOnly="True"
+          CanUserAddRows="False"
+              Height="250"
+              SelectedItem="{Binding SelectedProducer}"
+              ItemsSource="{Binding Producers}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                <DataGridTextColumn Header="Origin Country" Binding="{Binding OriginCountry}" />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                            <Button 
+        Content="Add Producer" 
+        Command="{Binding AddProducerCommand}" 
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+        Margin="5" 
+        Padding="5" 
+        Width="100" 
+        Height="30" />
+                            <Button
+        Content="Edit Producer"
+        Command="{Binding EditProducerCommand}"
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+        Margin="5"
+        Padding="5"
+        Width="100"
+        Height="30" />
+                            <Button
+        Content="Delete Producer"
+        Command="{Binding DeleteProducerCommand}"
+        Margin="5"
+        Padding="5"
+        Width="100"
+        Height="30" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Receipts">
+                    <StackPanel>
+                        <DataGrid x:Name="dgReceipts"
+          AutoGenerateColumns="False"
+           IsReadOnly="True"
+          CanUserAddRows="False"
+              Height="250"
+              ItemsSource="{Binding Receipts}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="User" Binding="{Binding UserId}" />
+                                <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate}" />
+                                <DataGridTextColumn Header="Amount Received" Binding="{Binding AmountReceived}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center">
+
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Stocks">
+                    <StackPanel>
+                        <DataGrid x:Name="dgStocks"
+          AutoGenerateColumns="False"
+           IsReadOnly="True"
+          CanUserAddRows="False"
+              Height="250"
+              SelectedItem="{Binding SelectedStock}"
+              ItemsSource="{Binding Stocks}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Product" Binding="{Binding ProductId}" />
+                                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" />
+                                <DataGridTextColumn Header="Supply Date" Binding="{Binding SupplyDate}" />
+                                <DataGridTextColumn Header="Expiry Date" Binding="{Binding ExpiryDate}" />
+                                <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}" />
+                                <DataGridTextColumn Header="Selling Price" Binding="{Binding SellingPrice}" />
+
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Center">
+                            <Button 
+        Content="Add Stock" 
+        Command="{Binding AddStockCommand}" 
+        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+
+        Margin="5" 
+        Padding="5" 
+        Width="100" 
+        Height="30" />
+
+                            <Button
+        Content="Delete Stock"
+        Command="{Binding DeleteStockCommand}"
+        Margin="5"
+        Padding="5"
+        Width="100"
+        Height="30" />
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Border>
     </Grid>
 </Window>
