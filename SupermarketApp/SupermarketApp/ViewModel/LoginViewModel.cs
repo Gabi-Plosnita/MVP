@@ -11,8 +11,33 @@ namespace SupermarketApp.ViewModel
     {
         private readonly IUserService _userService;
 
-        public string Username { get; set; } = "";
-        public string Password { get; set; } = "";
+        private string _username = "";
+        public string Username
+        {
+            get => _username;
+            set
+            {
+                if (_username != value)
+                {
+                    _username = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+        private string _password = "";
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                if (_password != value)
+                {
+                    _password = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
         public ICommand LoginCommand { get; private set; }
         public LoginViewModel()
         {
