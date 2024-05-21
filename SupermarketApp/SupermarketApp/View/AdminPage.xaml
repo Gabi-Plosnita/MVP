@@ -1,28 +1,30 @@
-﻿<Window x:Class="SupermarketApp.View.AdminWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SupermarketApp.View"
-        mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+﻿<Page x:Class="SupermarketApp.View.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SupermarketApp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
     <Grid>
         <Border 
-    BorderBrush="Black" 
-    BorderThickness="1" 
-    CornerRadius="10" 
-    Margin="10" 
-    Padding="10">
+BorderBrush="Black" 
+BorderThickness="1" 
+CornerRadius="10" 
+Margin="10" 
+Padding="10">
             <TabControl>
                 <TabItem Header="Users">
                     <StackPanel>
                         <DataGrid x:Name="dgUsers"
-                          AutoGenerateColumns="False"
-                           IsReadOnly="True"
-                          CanUserAddRows="False"
-                              Height="250"
-                              SelectedItem="{Binding SelectedUser}"
-                              ItemsSource="{Binding Users}">
+                      AutoGenerateColumns="False"
+                       IsReadOnly="True"
+                      CanUserAddRows="False"
+                          Height="250"
+                          SelectedItem="{Binding SelectedUser}"
+                          ItemsSource="{Binding Users}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
                                 <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
@@ -30,42 +32,42 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center">
+                        HorizontalAlignment="Center">
                             <Button 
-                        Content="Add User" 
-                        Command="{Binding AddUserCommand}" 
+                    Content="Add User" 
+                    Command="{Binding AddUserCommand}" 
 
-                        Margin="5" 
-                        Padding="5" 
-                        Width="100" 
-                        Height="30" />
+                    Margin="5" 
+                    Padding="5" 
+                    Width="100" 
+                    Height="30" />
                             <Button
-                        Content="Edit User"
-                        Command="{Binding EditUserCommand}"
+                    Content="Edit User"
+                    Command="{Binding EditUserCommand}"
 
-                        Margin="5"
-                        Padding="5"
-                        Width="100"
-                        Height="30" />
+                    Margin="5"
+                    Padding="5"
+                    Width="100"
+                    Height="30" />
                             <Button
-                        Content="Delete User"
-                        Command="{Binding DeleteUserCommand}"
-                        Margin="5"
-                        Padding="5"
-                        Width="100"
-                        Height="30" />
+                    Content="Delete User"
+                    Command="{Binding DeleteUserCommand}"
+                    Margin="5"
+                    Padding="5"
+                    Width="100"
+                    Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Products">
                     <StackPanel>
                         <DataGrid x:Name="dgProducts"
-      AutoGenerateColumns="False"
-       IsReadOnly="True"
-      CanUserAddRows="False"
-          Height="250"
-          SelectedItem="{Binding SelectedProduct}"
-          ItemsSource="{Binding Products}">
+  AutoGenerateColumns="False"
+   IsReadOnly="True"
+  CanUserAddRows="False"
+      Height="250"
+      SelectedItem="{Binding SelectedProduct}"
+      ItemsSource="{Binding Products}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                 <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"/>
@@ -74,30 +76,30 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-        HorizontalAlignment="Center">
+    HorizontalAlignment="Center">
                             <Button 
-    Content="Add Product" 
-    Command="{Binding AddProductCommand}"
+Content="Add Product" 
+Command="{Binding AddProductCommand}"
 
-    Margin="5" 
-    Padding="5" 
-    Width="100" 
-    Height="30" />
+Margin="5" 
+Padding="5" 
+Width="100" 
+Height="30" />
                             <Button
-    Content="Edit Product"
-    Command="{Binding EditProductCommand}"
+Content="Edit Product"
+Command="{Binding EditProductCommand}"
 
-    Margin="5"
-    Padding="5"
-    Width="100"
-    Height="30" />
+Margin="5"
+Padding="5"
+Width="100"
+Height="30" />
                             <Button
-    Content="Delete Product"
-    Command="{Binding DeleteProductCommand}"
-    Margin="5"
-    Padding="5"
-    Width="100"
-    Height="30" />
+Content="Delete Product"
+Command="{Binding DeleteProductCommand}"
+Margin="5"
+Padding="5"
+Width="100"
+Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
@@ -106,54 +108,54 @@
                 <TabItem Header="Categories">
                     <StackPanel>
                         <DataGrid x:Name="dgCategories"
-          AutoGenerateColumns="False"
-           IsReadOnly="True"
-          CanUserAddRows="False"
-              Height="250"
-              SelectedItem="{Binding SelectedCategory}"
-              ItemsSource="{Binding Categories}">
+      AutoGenerateColumns="False"
+       IsReadOnly="True"
+      CanUserAddRows="False"
+          Height="250"
+          SelectedItem="{Binding SelectedCategory}"
+          ItemsSource="{Binding Categories}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Category Name" Binding="{Binding Name}" />
 
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-            HorizontalAlignment="Center">
+        HorizontalAlignment="Center">
                             <Button 
-        Content="Add Category" 
-        Command="{Binding AddCategoryCommand}" 
+    Content="Add Category" 
+    Command="{Binding AddCategoryCommand}" 
 
-        Margin="5" 
-        Padding="5" 
-        Width="100" 
-        Height="30" />
+    Margin="5" 
+    Padding="5" 
+    Width="100" 
+    Height="30" />
                             <Button
-        Content="Edit Category"
-        Command="{Binding EditCategoryCommand}"
+    Content="Edit Category"
+    Command="{Binding EditCategoryCommand}"
 
-        Margin="5"
-        Padding="5"
-        Width="100"
-        Height="30" />
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
                             <Button
-        Content="Delete Category"
-        Command="{Binding DeleteCategoryCommand}"
-        Margin="5"
-        Padding="5"
-        Width="100"
-        Height="30" />
+    Content="Delete Category"
+    Command="{Binding DeleteCategoryCommand}"
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Producers">
                     <StackPanel>
                         <DataGrid x:Name="dgProducers"
-          AutoGenerateColumns="False"
-           IsReadOnly="True"
-          CanUserAddRows="False"
-              Height="250"
-              SelectedItem="{Binding SelectedProducer}"
-              ItemsSource="{Binding Suppliers}">
+      AutoGenerateColumns="False"
+       IsReadOnly="True"
+      CanUserAddRows="False"
+          Height="250"
+          SelectedItem="{Binding SelectedProducer}"
+          ItemsSource="{Binding Suppliers}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                 <DataGridTextColumn Header="Country" Binding="{Binding Country}" />
@@ -161,30 +163,30 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-            HorizontalAlignment="Center">
+        HorizontalAlignment="Center">
                             <Button 
-        Content="Add Producer" 
-        Command="{Binding AddProducerCommand}" 
+    Content="Add Producer" 
+    Command="{Binding AddProducerCommand}" 
 
-        Margin="5" 
-        Padding="5" 
-        Width="100" 
-        Height="30" />
+    Margin="5" 
+    Padding="5" 
+    Width="100" 
+    Height="30" />
                             <Button
-        Content="Edit Producer"
-        Command="{Binding EditProducerCommand}"
+    Content="Edit Producer"
+    Command="{Binding EditProducerCommand}"
 
-        Margin="5"
-        Padding="5"
-        Width="100"
-        Height="30" />
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
                             <Button
-        Content="Delete Producer"
-        Command="{Binding DeleteProducerCommand}"
-        Margin="5"
-        Padding="5"
-        Width="100"
-        Height="30" />
+    Content="Delete Producer"
+    Command="{Binding DeleteProducerCommand}"
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
@@ -192,11 +194,11 @@
                 <TabItem Header="Receipts">
                     <StackPanel>
                         <DataGrid x:Name="dgReceipts"
-          AutoGenerateColumns="False"
-           IsReadOnly="True"
-          CanUserAddRows="False"
-              Height="250"
-              ItemsSource="{Binding Receipts}">
+      AutoGenerateColumns="False"
+       IsReadOnly="True"
+      CanUserAddRows="False"
+          Height="250"
+          ItemsSource="{Binding Receipts}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Cashier" Binding="{Binding CashierName}" />
                                 <DataGridTextColumn Header="Issue Date" Binding="{Binding DateOfIssue}" />
@@ -204,7 +206,7 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-            HorizontalAlignment="Center">
+        HorizontalAlignment="Center">
 
                         </StackPanel>
                     </StackPanel>
@@ -212,12 +214,12 @@
                 <TabItem Header="Stocks">
                     <StackPanel>
                         <DataGrid x:Name="dgStocks"
-          AutoGenerateColumns="False"
-           IsReadOnly="True"
-          CanUserAddRows="False"
-              Height="250"
-              SelectedItem="{Binding SelectedStock}"
-              ItemsSource="{Binding Stocks}">
+      AutoGenerateColumns="False"
+       IsReadOnly="True"
+      CanUserAddRows="False"
+          Height="250"
+          SelectedItem="{Binding SelectedStock}"
+          ItemsSource="{Binding Stocks}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" />
                                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
@@ -231,27 +233,27 @@
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
-            HorizontalAlignment="Center">
+        HorizontalAlignment="Center">
                             <Button 
-        Content="Add Stock" 
-        Command="{Binding AddStockCommand}" 
+    Content="Add Stock" 
+    Command="{Binding AddStockCommand}" 
 
-        Margin="5" 
-        Padding="5" 
-        Width="100" 
-        Height="30" />
+    Margin="5" 
+    Padding="5" 
+    Width="100" 
+    Height="30" />
 
                             <Button
-        Content="Delete Stock"
-        Command="{Binding DeleteStockCommand}"
-        Margin="5"
-        Padding="5"
-        Width="100"
-        Height="30" />
+    Content="Delete Stock"
+    Command="{Binding DeleteStockCommand}"
+    Margin="5"
+    Padding="5"
+    Width="100"
+    Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
             </TabControl>
         </Border>
     </Grid>
-</Window>
+</Page>
