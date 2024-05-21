@@ -1,5 +1,4 @@
 ﻿using SupermarketApp.Commands;
-using SupermarketApp.Model.BusinessLogicLayer.Mappers;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
 using SupermarketApp.View;
@@ -9,7 +8,7 @@ using System.Windows.Input;
 
 namespace SupermarketApp.ViewModel
 {
-    public class CategoryViewModel : BaseViewModel
+    public class CategoryEditViewModel : BaseViewModel
     {
         private readonly ICategoryService _categoryService = new CategoryService();
         private bool _isEditMode;
@@ -32,12 +31,12 @@ namespace SupermarketApp.ViewModel
 
         public ICommand SaveCategoryCommand { get; set; }
 
-        public CategoryViewModel()
+        public CategoryEditViewModel()
         {
             SaveCategoryCommand = new RelayCommand<object>(SaveCategory);
             _isEditMode = false;
         }
-        public CategoryViewModel(CategoryResponseDto category) : this()
+        public CategoryEditViewModel(CategoryResponseDto category) : this()
         {
             NewName = category.Name;
             _isEditMode = true;
@@ -46,45 +45,40 @@ namespace SupermarketApp.ViewModel
 
         public void SaveCategory(object? obj)
         {
-            if(_isEditMode)
+            var categoryRequestDto = new CategoryRequestDto()
             {
-                int id = EditingCategory.CategoryId;
-                EditingCategory.Name = NewName;
-                CategoryRequestDto categoryRequestDto = EditingCategory.MapToCategoryRequestDto();
+                Name = NewName
+            };
+            if (_isEditMode)
+            {        
                 try
                 {
+                    int id = EditingCategory.CategoryId;
                     _categoryService.UpdateCategory(id, categoryRequestDto);
-
-                    var currentPage = obj as Page;
-                    var adminPage = new AdminPage();
-                    currentPage?.NavigationService?.Navigate(adminPage);
                     MessageBox.Show("Category updated successfully");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    return;
                 }
             }
             else
             {
-                CategoryRequestDto newCategory = new CategoryRequestDto()
-                {
-                    Name = NewName
-                };
                 try
                 {
-                    _categoryService.AddCategory(newCategory);
-
-                    var currentPage = obj as Page;
-                    var adminPage = new AdminPage();
-                    currentPage?.NavigationService?.Navigate(adminPage);
+                    _categoryService.AddCategory(categoryRequestDto);
                     MessageBox.Show("Category added successfully");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    return;
                 }
             }
+            var currentPage = obj as Page;
+            var adminPage = new AdminPage();
+            currentPage?.NavigationService?.Navigate(adminPage);
         }
     }
 }

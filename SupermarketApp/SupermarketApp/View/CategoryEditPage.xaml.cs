@@ -9,13 +9,13 @@ namespace SupermarketApp.View
         public CategoryEditPage()
         {
             InitializeComponent();
-            DataContext = new CategoryViewModel();
+            DataContext = new CategoryEditViewModel();
         }
 
         public CategoryEditPage(CategoryResponseDto category)
         {
             InitializeComponent();
-            DataContext = new CategoryViewModel(category);
+            DataContext = new CategoryEditViewModel(category);
         }
     }
 }
