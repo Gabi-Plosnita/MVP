@@ -117,8 +117,14 @@ namespace SupermarketApp.ViewModel
 
         private void AddCategory(object? obj)
         {
-            CategoryEditWindow categoryEditWindow = new CategoryEditWindow();
-            categoryEditWindow.Show();
+            if (obj is not AdminPage currentPage)
+            {
+                Console.WriteLine("Current page is not AdminPage");
+                return;
+
+            }
+            CategoryEditPage categoryEditPage = new CategoryEditPage();
+            currentPage.NavigationService?.Navigate(categoryEditPage);
         }
 
         private void EditCategory(object? obj)
@@ -128,8 +134,14 @@ namespace SupermarketApp.ViewModel
                 MessageBox.Show("Please select a category to edit!");
                 return;
             }
-            CategoryEditWindow categoryEditWindow = new CategoryEditWindow(SelectedCategory);
-            categoryEditWindow.Show();
+            if (obj is not AdminPage currentPage)
+            {
+                Console.WriteLine("Current page is not AdminPage");
+                return;
+
+            }
+            CategoryEditPage categoryEditWindow = new CategoryEditPage(SelectedCategory);
+            currentPage.NavigationService?.Navigate(categoryEditWindow);
         }
 
         private void DeleteCategory(object? obj)

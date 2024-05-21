@@ -1,18 +1,18 @@
 ﻿using SupermarketApp.Model.EntityLayer;
 using SupermarketApp.ViewModel;
-using System.Windows;
+using System.Windows.Controls;
 
 namespace SupermarketApp.View
 {
-    public partial class CategoryEditWindow : Window
+    public partial class CategoryEditPage : Page
     {
-        public CategoryEditWindow()
+        public CategoryEditPage()
         {
             InitializeComponent();
             DataContext = new CategoryViewModel();
         }
 
-        public CategoryEditWindow(CategoryResponseDto category)
+        public CategoryEditPage(CategoryResponseDto category)
         {
             InitializeComponent();
             DataContext = new CategoryViewModel(category);
