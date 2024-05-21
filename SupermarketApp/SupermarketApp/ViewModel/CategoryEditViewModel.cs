@@ -49,6 +49,14 @@ namespace SupermarketApp.ViewModel
             {
                 Name = NewName
             };
+
+            string validationMessage = categoryRequestDto.GetValidationErrorMessage();
+            if (validationMessage != null)
+            {
+                MessageBox.Show(validationMessage);
+                return;
+            }
+
             if (_isEditMode)
             {        
                 try
