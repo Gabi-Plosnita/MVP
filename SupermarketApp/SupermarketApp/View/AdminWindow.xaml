@@ -26,7 +26,7 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Username" Binding="{Binding Username}" />
                                 <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                                <DataGridTextColumn Header="IsAdmin" Binding="{Binding IsAdmin}" />
+                                <DataGridTextColumn Header="UserType" Binding="{Binding UserType}" />
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
