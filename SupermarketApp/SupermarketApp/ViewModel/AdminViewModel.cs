@@ -140,6 +140,7 @@ namespace SupermarketApp.ViewModel
                 return;
             }
             _categoryService.DeleteCategory(SelectedCategory.CategoryId);
+            Categories.Remove(SelectedCategory);
         }
 
         private void AddProduct(object? obj)
