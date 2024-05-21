@@ -25,5 +25,13 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
                 Name = categoryRequestDto.Name,
             };
         }
+
+        public static CategoryRequestDto MapToCategoryRequestDto(this CategoryResponseDto categoryResponseDto)
+        {
+            return new CategoryRequestDto
+            {
+                Name = categoryResponseDto.Name,
+            };
+        }
     }
 }

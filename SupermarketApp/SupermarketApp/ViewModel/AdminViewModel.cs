@@ -1,7 +1,9 @@
 ﻿using SupermarketApp.Commands;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
+using SupermarketApp.View;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace SupermarketApp.ViewModel
@@ -115,42 +117,31 @@ namespace SupermarketApp.ViewModel
 
         private void AddCategory(object? obj)
         {
-            /*if (obj is not AdminPage currentPage)
-            {
-                Console.WriteLine("Current page is not AdminPage");
-                return;
-
-            }
-
-            currentPage.NavigationService?.Navigate(new EditCategoryPage());*/
+            CategoryEditWindow categoryEditWindow = new CategoryEditWindow();
+            categoryEditWindow.Show();
         }
+
         private void EditCategory(object? obj)
         {
-            /*if (SelectedCategory == null)
+            if(SelectedCategory == null)
             {
+                MessageBox.Show("Please select a category to edit!");
                 return;
             }
-            Category category = SelectedCategory;
-            if (obj is not AdminPage currentPage)
-            {
-                Console.WriteLine("Current page is not AdminPage");
-                return;
-
-            }
-
-            currentPage.NavigationService?.Navigate(new EditCategoryPage(category));*/
+            CategoryEditWindow categoryEditWindow = new CategoryEditWindow(SelectedCategory);
+            categoryEditWindow.Show();
         }
+
         private void DeleteCategory(object? obj)
         {
-            /*if (SelectedCategory == null)
+            if(SelectedCategory == null)
             {
+                MessageBox.Show("Please select a category to delete!");
                 return;
             }
-            Category category = SelectedCategory;
-            _categoryBLL.DeleteCategory(category);
-            Categories.Remove(category);*/
-
+            _categoryService.DeleteCategory(SelectedCategory.CategoryId);
         }
+
         private void AddProduct(object? obj)
         {
            /* if (obj is not AdminPage currentPage)
