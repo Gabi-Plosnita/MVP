@@ -66,7 +66,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception($"User with id {id} not found");
             }
 
-            if (_context.Users.Any(u => u.Username == updatedUser.Username))
+            if (_context.Users.Any(u => u.Username == updatedUser.Username && u.Username != user.Username))
             {
                 throw new Exception($"User with name {updatedUser.Username} already exists");
             }
