@@ -15,6 +15,20 @@ namespace SupermarketApp.ViewModel
         private bool _isEditMode;
         public CategoryResponseDto EditingCategory { get; set; }
         public string NewName { get; set; } = "";
+        public string PageTitle
+        {
+            get
+            {
+                if (_isEditMode)
+                {
+                    return "Edit Category";
+                }
+                else
+                {
+                    return "Add Category";
+                }
+            }
+        }
 
         public ICommand SaveCategoryCommand { get; set; }
 
