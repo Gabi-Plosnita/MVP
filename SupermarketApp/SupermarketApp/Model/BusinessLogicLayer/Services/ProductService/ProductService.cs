@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly IProductRepository _productRepository;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService()
         {
-            _productRepository = productRepository;
+            _productRepository = new ProductRepository();
         }
 
         public List<ProductResponseDto> GetAllProducts()

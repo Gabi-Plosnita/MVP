@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly IReceiptRepository _receiptRepository;
 
-        public ReceiptService(IReceiptRepository receiptRepository)
+        public ReceiptService()
         {
-            _receiptRepository = receiptRepository;
+            _receiptRepository = new ReceiptRepository();
         }
 
         public int AddReceipt(int cashierId)

@@ -41,7 +41,7 @@
                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button Content="Login" Grid.Row="2" Grid.Column="1" Margin="10" Width="75" HorizontalAlignment="Right"
-                    Click="LoginButton_Click"/>
+                    Command="{Binding LoginCommand}"/>
         </Grid>
     </Grid>
 </Window>

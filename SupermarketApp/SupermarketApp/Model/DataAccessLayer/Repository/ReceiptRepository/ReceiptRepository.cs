@@ -6,7 +6,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public class ReceiptRepository : BaseRepository, IReceiptRepository
     {
-        public ReceiptRepository(SupermarketDbContext context) : base(context)
+        public ReceiptRepository()
         {
         }
 

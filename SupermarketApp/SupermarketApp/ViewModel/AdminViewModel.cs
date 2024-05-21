@@ -7,9 +7,10 @@ namespace SupermarketApp.ViewModel
     {
         private readonly IUserService _userService;
 
-        public AdminViewModel(IUserService userService)
+        public AdminViewModel()
         {
-            _userService = userService;
+            // Initialize services //
+            _userService = new UserService();
         }
     }
 }

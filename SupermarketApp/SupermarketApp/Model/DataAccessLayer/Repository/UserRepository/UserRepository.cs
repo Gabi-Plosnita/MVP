@@ -5,7 +5,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
-        public UserRepository(SupermarketDbContext context) : base(context)
+        public UserRepository()
         {
         }
 

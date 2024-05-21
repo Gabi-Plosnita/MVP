@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly ISupplierRepository _supplierRepository;
 
-        public SupplierService(ISupplierRepository supplierRepository)
+        public SupplierService()
         {
-            _supplierRepository = supplierRepository;
+            _supplierRepository = new SupplierRepository();
         }
 
         public List<SupplierResponseDto> GetSuppliers()

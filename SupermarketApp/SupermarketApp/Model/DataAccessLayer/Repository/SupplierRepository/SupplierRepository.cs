@@ -6,7 +6,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public class SupplierRepository : BaseRepository, ISupplierRepository
     {
-        public SupplierRepository(SupermarketDbContext context) : base(context)
+        public SupplierRepository()
         {
         }
 

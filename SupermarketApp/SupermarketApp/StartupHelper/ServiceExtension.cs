@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.DataAccessLayer.DataContext;
@@ -51,3 +51,4 @@ namespace SupermarketApp.StartupHelper
 
     }
 }
+*/

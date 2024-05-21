@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly IStockRepository _stockRepository;
 
-        public StockService(IStockRepository stockRepository)
+        public StockService()
         {
-            _stockRepository = stockRepository;
+            _stockRepository = new StockRepository();
         }
 
         public List<StockResponseDto> GetStocks()

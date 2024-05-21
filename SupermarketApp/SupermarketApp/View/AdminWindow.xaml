@@ -7,16 +7,6 @@
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Admin Page" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Content="Products" Width="100" Margin="5" Click="ProductsButton_Click"/>
-                <Button Content="Categories" Width="100" Margin="5" Click="CategoriesButton_Click"/>
-                <Button Content="Suppliers" Width="100" Margin="5" Click="SuppliersButton_Click"/>
-                <Button Content="Stocks" Width="100" Margin="5" Click="StocksButton_Click"/>
-                <Button Content="Receipts" Width="100" Margin="5" Click="ReceiptsButton_Click"/>
-                <Button Content="Users" Width="100" Margin="5" Click="UsersButton_Click"/>
-            </StackPanel>
-        </StackPanel>
+        
     </Grid>
 </Window>

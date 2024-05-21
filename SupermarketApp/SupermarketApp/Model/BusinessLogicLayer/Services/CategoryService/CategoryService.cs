@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService()
         {
-            _categoryRepository = categoryRepository;
+            _categoryRepository = new CategoryRepository();
         }
 
         public List<CategoryResponseDto> GetCategories()

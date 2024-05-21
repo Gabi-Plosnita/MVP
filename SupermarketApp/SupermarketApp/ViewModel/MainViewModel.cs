@@ -3,6 +3,7 @@ using System.Windows.Input;
 using SupermarketApp.Notification;
 using SupermarketApp.Model.BusinessLogicLayer.Services;
 using SupermarketApp.Model.EntityLayer;
+using SupermarketApp.View;
 
 namespace SupermarketApp.ViewModel
 {
@@ -33,17 +34,23 @@ namespace SupermarketApp.ViewModel
             }
         }
 
-        public MainViewModel(IUserService userService)
+        public ICommand LoginCommand { get; set; }
+
+        public MainViewModel()
         {
-            _userService = userService;
+            // Initialize Services //
+            _userService = new UserService();
+
+            // Initialize Commands //
+            LoginCommand = new RelayCommand<object>(LoginClick);
         }
 
-        public UserResponseDto LoginClick()
+        public void LoginClick(object param)
         {
             if(string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
                 System.Windows.MessageBox.Show("Please enter username and password");
-                return null;
+                return;
             }
             
             try
@@ -51,12 +58,26 @@ namespace SupermarketApp.ViewModel
                 var userResponseDto= _userService.Login(Username, Password);
                 Username = string.Empty;
                 Password = string.Empty;
-                return userResponseDto;
+                if (userResponseDto == null)
+                {
+                    return;
+                }
+
+                if (userResponseDto.UserType == EUserType.Admin)
+                {
+                    AdminWindow adminView = new AdminWindow();
+                    adminView.Show();
+                }
+
+                if (userResponseDto.UserType == EUserType.Cashier)
+                {
+                    // show cashier window
+                }
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.Message);
-                return null;
+                return;
             }
         }
     }

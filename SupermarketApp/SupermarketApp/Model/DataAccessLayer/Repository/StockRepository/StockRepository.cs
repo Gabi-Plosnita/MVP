@@ -7,7 +7,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
     public class StockRepository : BaseRepository, IStockRepository
     {
         private double CommercialMargin = 0.1;
-        public StockRepository(SupermarketDbContext context) : base(context)
+        public StockRepository()
         {
         }
 

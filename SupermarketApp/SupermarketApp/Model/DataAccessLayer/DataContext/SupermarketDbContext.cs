@@ -21,7 +21,15 @@ namespace SupermarketApp.Model.DataAccessLayer.DataContext
 
         public DbSet<Offer> Offers { get; set; }
 
-        public SupermarketDbContext(DbContextOptions<SupermarketDbContext> options) : base(options) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-I8RR7UP;Database=SupermarketDB;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true");
+        }
+
+        public SupermarketDbContext()
+        {
+            OnConfiguring(new DbContextOptionsBuilder());
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

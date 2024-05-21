@@ -7,7 +7,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 {
     public class CategoryRepository : BaseRepository, ICategoryRepository
     {
-        public CategoryRepository(SupermarketDbContext context) : base(context)
+        public CategoryRepository()
         {
         }
 

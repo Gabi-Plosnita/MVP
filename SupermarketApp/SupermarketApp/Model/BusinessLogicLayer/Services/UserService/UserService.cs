@@ -8,9 +8,9 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
     {
         private readonly IUserRepository _userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService()
         {
-            _userRepository = userRepository;
+            _userRepository = new UserRepository();
         }
 
         public UserResponseDto Login(string username, string password)

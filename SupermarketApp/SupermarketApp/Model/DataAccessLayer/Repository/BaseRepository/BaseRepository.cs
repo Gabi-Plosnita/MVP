@@ -6,9 +6,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
     {
         protected readonly SupermarketDbContext _context;
 
-        public BaseRepository(SupermarketDbContext context)
+        public BaseRepository()
         {
-            _context = context;
+            _context = new SupermarketDbContext();
         }
     }
 }
