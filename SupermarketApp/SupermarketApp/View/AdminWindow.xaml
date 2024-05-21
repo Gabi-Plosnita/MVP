@@ -71,8 +71,8 @@
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                 <DataGridTextColumn Header="Barcode" Binding="{Binding Barcode}"/>
-                                <DataGridTextColumn Header="Category" Binding="{Binding CategoryId}" />
-                                <DataGridTextColumn Header="Producer" Binding="{Binding ProducerId}" />
+                                <DataGridTextColumn Header="Category" Binding="{Binding CategoryName}" />
+                                <DataGridTextColumn Header="Supplier" Binding="{Binding ProducerSupplier}" />
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
@@ -159,10 +159,10 @@
           CanUserAddRows="False"
               Height="250"
               SelectedItem="{Binding SelectedProducer}"
-              ItemsSource="{Binding Producers}">
+              ItemsSource="{Binding Suppliers}">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                <DataGridTextColumn Header="Origin Country" Binding="{Binding OriginCountry}" />
+                                <DataGridTextColumn Header="Country" Binding="{Binding Country}" />
 
                             </DataGrid.Columns>
                         </DataGrid>
@@ -206,9 +206,9 @@
               Height="250"
               ItemsSource="{Binding Receipts}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="User" Binding="{Binding UserId}" />
-                                <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate}" />
-                                <DataGridTextColumn Header="Amount Received" Binding="{Binding AmountReceived}" />
+                                <DataGridTextColumn Header="Cashier" Binding="{Binding CashierName}" />
+                                <DataGridTextColumn Header="Issue Date" Binding="{Binding DateOfIssue}" />
+                                <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}" />
                             </DataGrid.Columns>
                         </DataGrid>
                         <StackPanel Orientation="Horizontal"
@@ -227,13 +227,13 @@
               SelectedItem="{Binding SelectedStock}"
               ItemsSource="{Binding Stocks}">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Product" Binding="{Binding ProductId}" />
+                                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" />
                                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
-                                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" />
+                                <DataGridTextColumn Header="Unit" Binding="{Binding UnitType}" />
                                 <DataGridTextColumn Header="Supply Date" Binding="{Binding SupplyDate}" />
-                                <DataGridTextColumn Header="Expiry Date" Binding="{Binding ExpiryDate}" />
+                                <DataGridTextColumn Header="Expiration Date" Binding="{Binding ExpirationDate}" />
                                 <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}" />
-                                <DataGridTextColumn Header="Selling Price" Binding="{Binding SellingPrice}" />
+                                <DataGridTextColumn Header="Sale Price" Binding="{Binding SalePrice}" />
 
 
                             </DataGrid.Columns>
