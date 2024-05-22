@@ -47,6 +47,18 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
             }
         }
 
+        public void DeleteStock(int id)
+        {
+            try
+            {
+                _stockRepository.DeleteStock(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public List<ProductResponseDto> GetProducts(DateTime expirationDate)
         {
             var products = _stockRepository.GetProducts(expirationDate);

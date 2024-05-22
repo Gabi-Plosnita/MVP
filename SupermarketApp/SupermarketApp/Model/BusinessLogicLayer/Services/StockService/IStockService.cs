@@ -10,6 +10,8 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Services
 
         void AddStock(StockRequestDto stockDto);
 
+        void DeleteStock(int id);
+
         List<ProductResponseDto> GetProducts(DateTime expirationDate);
     }
 }
