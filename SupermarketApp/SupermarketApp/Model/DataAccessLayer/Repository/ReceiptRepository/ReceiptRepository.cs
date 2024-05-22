@@ -79,6 +79,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
             productReceipt.UnitType = stock.UnitType;
             productReceipt.Subtotal = productReceipt.Quantity * stock.SalePrice;
+            receipt.TotalPrice += productReceipt.Subtotal;
 
             _context.ProductReceipts.Add(productReceipt);
             _context.SaveChanges();
@@ -97,11 +98,6 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             if (receipt.IsPaid)
             {
                 throw new Exception($"Receipt with id {receiptId} is already paid");
-            }
-
-            foreach (var productReceipt in receipt.ProductReceipts)
-            {
-                receipt.TotalPrice += productReceipt.Subtotal;
             }
 
             receipt.IsPaid = true;
