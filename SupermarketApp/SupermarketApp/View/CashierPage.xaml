@@ -17,16 +17,24 @@
             <RowDefinition Height="Auto" />
             <!-- Buttons Row -->
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <!-- Input Fields Column -->
+            <ColumnDefinition Width="1*" />
+            <!-- Receipt Display Column -->
+        </Grid.ColumnDefinitions>
 
         <!-- Page Title -->
         <TextBlock Text="Cashier Page" 
                    FontSize="24" 
                    FontWeight="Bold" 
                    HorizontalAlignment="Center" 
+                   Grid.ColumnSpan="2"
                    Margin="10" />
 
         <!-- Input Fields Block -->
         <StackPanel Grid.Row="1" 
+                    Grid.Column="0"
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center" 
                     Margin="10">
@@ -45,14 +53,14 @@
                            VerticalAlignment="Center" 
                            Margin="5" 
                            Grid.Row="0" />
-                
+
                 <!-- Product ComboBox -->
                 <ComboBox Name="ProductComboBox" 
                           Grid.Column="1" 
                           Margin="5" 
                           Grid.Row="0" 
-                          Width="120" 
-                          Height="20" 
+                          Width="200" 
+                          Height="30" 
                           ItemsSource="{Binding Products}"
                           DisplayMemberPath="Name" 
                           SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" />
@@ -62,20 +70,64 @@
                            VerticalAlignment="Center" 
                            Margin="5" 
                            Grid.Row="1" />
-                
+
                 <!-- Quantity TextBox -->
                 <TextBox Name="QuantityTextBox" 
                          Grid.Column="1" 
                          Margin="5" 
                          Grid.Row="1" 
-                         Width="120" 
-                         Height="20" 
+                         Width="200" 
+                         Height="30" 
                          Text="{Binding Quantity, Mode=TwoWay}"/>
             </Grid>
         </StackPanel>
 
+        <!-- Receipt Display Block -->
+        <StackPanel Grid.Row="1" 
+                    Grid.Column="1"
+                    Margin="10">
+            <TextBlock Text="Current Receipt" 
+                       FontSize="18" 
+                       FontWeight="Bold" 
+                       Margin="10" 
+                       HorizontalAlignment="Center" />
+
+            <TextBlock Text="Date of Issue: " />
+            <TextBlock Text="{Binding CurrentReceipt.DateOfIssue}" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,10" />
+
+            <TextBlock Text="Cashier Name: " />
+            <TextBlock Text="{Binding CurrentReceipt.CashierName}" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,10" />
+
+            <TextBlock Text="Total Price: " />
+            <TextBlock Text="{Binding CurrentReceipt.TotalPrice}" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,10" />
+
+            <TextBlock Text="Is Paid: " />
+            <TextBlock Text="{Binding CurrentReceipt.IsPaid}" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,10" />
+
+            <!-- Display Product Receipts -->
+            <DataGrid ItemsSource="{Binding CurrentReceipt.ProductReceipts}" 
+                      AutoGenerateColumns="False" 
+                      Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" />
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                    <DataGridTextColumn Header="Unit Type" Binding="{Binding UnitType}" />
+                    <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
         <!-- Buttons -->
         <StackPanel Grid.Row="2" 
+                    Grid.ColumnSpan="2"
                     Orientation="Horizontal" 
                     HorizontalAlignment="Center" 
                     Margin="10">

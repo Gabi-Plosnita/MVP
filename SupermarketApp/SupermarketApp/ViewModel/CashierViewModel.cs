@@ -15,7 +15,20 @@ namespace SupermarketApp.ViewModel
         public UserResponseDto Cashier { get; set; }
         public ObservableCollection<ProductResponseDto> Products { get; set; }
         public ProductResponseDto SelectedProduct { get; set; }
-        public ReceiptResponseDto Receipt { get; set; }
+
+        private ReceiptResponseDto _currentReceipt;
+        public ReceiptResponseDto CurrentReceipt
+        {
+            get
+            {
+                return _currentReceipt;
+            }
+            set
+            {
+                _currentReceipt = value;
+                NotifyPropertyChanged();
+            }
+        }
         private int CurrentReceiptId { get; set; }
         public int Quantity { get; set; }
         public ICommand CreateReceiptCommand { get; set; }
@@ -46,6 +59,7 @@ namespace SupermarketApp.ViewModel
             {
                 int id = Cashier.UserId;
                 CurrentReceiptId = _receiptService.AddReceipt(id);
+                CurrentReceipt = _receiptService.GetReceipt(CurrentReceiptId);
                 MessageBox.Show("Receipt created successfully");
             }
             else
@@ -86,6 +100,7 @@ namespace SupermarketApp.ViewModel
             try
             {
                 _receiptService.AddProductReceipt(productReceiptDto);
+                CurrentReceipt = _receiptService.GetReceipt(CurrentReceiptId);
                 MessageBox.Show("Product added to receipt successfully");
             }
             catch(Exception ex)
@@ -105,6 +120,7 @@ namespace SupermarketApp.ViewModel
             try
             {
                 _receiptService.PayReceipt(CurrentReceiptId);
+                CurrentReceipt = _receiptService.GetReceipt(CurrentReceiptId);
                 MessageBox.Show("Receipt paid successfully");
                 CurrentReceiptId = 0;
             }
