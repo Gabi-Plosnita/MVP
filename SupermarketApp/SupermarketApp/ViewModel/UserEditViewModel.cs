@@ -18,12 +18,9 @@ namespace SupermarketApp.ViewModel
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
 
-        public ObservableCollection<string> Roles { get; } = new ObservableCollection<string>()
-        {
-            "Admin",
-            "Cashier"
-        };
-        public string SelectedRole { get; set; }
+        public ObservableCollection<EUserType> Roles { get; } 
+
+        public EUserType SelectedRole { get; set; }
         public ICommand SaveUserCommand { get; set; }
 
         public string PageTitle
@@ -43,8 +40,9 @@ namespace SupermarketApp.ViewModel
 
         public UserEditViewModel()
         {
-
             SaveUserCommand = new RelayCommand<object>(SaveUser);
+            Roles = new ObservableCollection<EUserType>(Enum.GetValues(typeof(EUserType)).Cast<EUserType>());
+            SelectedRole = Roles.FirstOrDefault();
             _isEditMode = false;
         }
 
@@ -52,7 +50,7 @@ namespace SupermarketApp.ViewModel
         {
             Username = user.Username;
             Password = user.Password;
-            SelectedRole = user.UserType == EUserType.Admin ? "Admin" : "Cashier";
+            SelectedRole = user.UserType;
             _isEditMode = true;
             EditingUser = user;
         }
@@ -69,7 +67,7 @@ namespace SupermarketApp.ViewModel
             {
                 Username = Username,
                 Password = Password,
-                UserType = SelectedRole == "Admin" ? EUserType.Admin : EUserType.Cashier
+                UserType = SelectedRole
             };
 
             string validationMessage = userRequestDto.GetValidationErrorMessage();
