@@ -262,15 +262,15 @@ namespace SupermarketApp.ViewModel
 
         private void AddStock(object? obj)
         {
-            /*if (obj is not AdminPage currentPage)
+            if (obj is not AdminPage currentPage)
             {
                 Console.WriteLine("Current page is not AdminPage");
                 return;
 
             }
 
-            currentPage.NavigationService?.Navigate(new EditStockPage());*/
+            var stockAddPage = new StockAddPage();
+            currentPage.NavigationService?.Navigate(stockAddPage);
         }
-
     }
 }
