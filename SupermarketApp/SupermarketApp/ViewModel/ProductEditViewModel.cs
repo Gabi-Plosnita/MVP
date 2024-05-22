@@ -45,6 +45,9 @@ namespace SupermarketApp.ViewModel
             Categories = new ObservableCollection<CategoryResponseDto>(_categoryService.GetCategories());
             Suppliers = new ObservableCollection<SupplierResponseDto>(_supplierService.GetSuppliers());
 
+            SelectedCategory = Categories.FirstOrDefault();
+            SelectedSupplier = Suppliers.FirstOrDefault();
+
             SaveProductCommand = new RelayCommand<object>(SaveProduct);
 
             _isEditMode = false;
