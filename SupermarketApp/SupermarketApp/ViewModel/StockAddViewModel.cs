@@ -30,6 +30,7 @@ namespace SupermarketApp.ViewModel
         {
             Products = new ObservableCollection<ProductResponseDto>(_productService.GetAllProducts());
             UnitTypes = new ObservableCollection<EUnitType>(Enum.GetValues(typeof(EUnitType)).Cast<EUnitType>());
+            SelectedProduct = Products.FirstOrDefault();
             SaveStockCommand = new RelayCommand<object>(SaveStock);
         }
 
