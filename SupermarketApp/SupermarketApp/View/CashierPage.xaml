@@ -35,7 +35,7 @@
         <!-- Input Fields Block with Border and Title -->
         <Border Grid.Row="1" Grid.Column="0" Margin="10" BorderBrush="Black" BorderThickness="2" Padding="10">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Add Product" FontSize="18" FontWeight="Bold" Margin="10" HorizontalAlignment="Center" />
+                <TextBlock Text="Add Product" FontSize="18" FontWeight="Bold" Margin="0 0 0 80" HorizontalAlignment="Center" />
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
