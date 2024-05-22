@@ -106,8 +106,16 @@ namespace SupermarketApp.ViewModel
                 MessageBox.Show("Please select a user to delete!");
                 return;
             }
-            _userService.DeleteUser(SelectedUser.UserId);
-            Users.Remove(SelectedUser);
+
+            try
+            {
+                _userService.DeleteUser(SelectedUser.UserId);
+                Users.Remove(SelectedUser);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } 
         }
 
         private void AddCategory(object? obj)
@@ -146,8 +154,16 @@ namespace SupermarketApp.ViewModel
                 MessageBox.Show("Please select a category to delete!");
                 return;
             }
-            _categoryService.DeleteCategory(SelectedCategory.CategoryId);
-            Categories.Remove(SelectedCategory);
+
+            try
+            {
+                _categoryService.DeleteCategory(SelectedCategory.CategoryId);
+                Categories.Remove(SelectedCategory);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddProduct(object? obj)
@@ -181,13 +197,21 @@ namespace SupermarketApp.ViewModel
 
         private void DeleteProduct(object? obj)
         {
-           if(SelectedProduct == null)
+            if(SelectedProduct == null)
             {
-                MessageBox.Show("Please select a product to delete!");
-                return;
+               MessageBox.Show("Please select a product to delete!");
+               return;
             }
-            _productService.DeleteProduct(SelectedProduct.ProductId);
-            Products.Remove(SelectedProduct);
+
+            try
+            {
+                _productService.DeleteProduct(SelectedProduct.ProductId);
+                Products.Remove(SelectedProduct);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }       
         }
 
         private void AddSupplier(object? obj)
@@ -224,8 +248,16 @@ namespace SupermarketApp.ViewModel
                 MessageBox.Show("Please select a supplier to delete!");
                 return;
             }
-            _supplierService.DeleteSupplier(SelectedSupplier.SupplierId);
-            Suppliers.Remove(SelectedSupplier);
+
+            try
+            {
+                _supplierService.DeleteSupplier(SelectedSupplier.SupplierId);
+                Suppliers.Remove(SelectedSupplier);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddStock(object? obj)
