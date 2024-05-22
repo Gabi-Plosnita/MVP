@@ -43,6 +43,8 @@ namespace SupermarketApp.ViewModel
         public ICommand DeleteSupplierCommand { get; set; }
         public ICommand AddStockCommand { get; set; }
 
+        public ICommand DeleteStockCommand { get; set; }
+
         public AdminViewModel()
         {
             Users = new ObservableCollection<UserResponseDto>(_userService.GetUsers());
@@ -69,6 +71,7 @@ namespace SupermarketApp.ViewModel
             DeleteSupplierCommand = new RelayCommand<object>(DeleteSupplier);
 
             AddStockCommand = new RelayCommand<object>(AddStock);
+            DeleteStockCommand = new RelayCommand<object>(DeleteStock);
         }
 
         private void AddUser(object? obj)
@@ -272,5 +275,24 @@ namespace SupermarketApp.ViewModel
             var stockAddPage = new StockAddPage();
             currentPage.NavigationService?.Navigate(stockAddPage);
         }
+
+        private void DeleteStock(object? obj)
+        {
+            if(SelectedStock == null)
+            {
+                MessageBox.Show("Please select a stock to delete!");
+                return;
+            }
+
+            try
+            {
+                _stockService.DeleteStock(SelectedStock.StockId);
+                Stocks.Remove(SelectedStock);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }   
     }
 }
