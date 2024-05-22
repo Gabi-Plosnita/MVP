@@ -9,12 +9,21 @@
       Title="AdminPage">
 
     <Grid>
+        <!-- Title -->
+        <TextBlock Text="Admin Page"
+                   FontSize="36"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,50,0,0"/>
+
+        <!-- Content -->
         <Border 
             BorderBrush="Black" 
             BorderThickness="1" 
             CornerRadius="10" 
             Margin="10" 
-            Padding="10">
+            Padding="10"
+            VerticalAlignment="Center">
             <TabControl>
                 <TabItem Header="Users">
                     <StackPanel>
