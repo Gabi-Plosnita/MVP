@@ -16,7 +16,7 @@
             <Label Content="Quantity"/>
             <TextBox x:Name="QuantityTxtBox" Width="800" Text="{Binding Quantity, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
             <Label Content="Unit Type"/>
-            <ComboBox x:Name="UnitTypeComboBox" Width="500" ItemsSource="{Binding UnitTypes}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedUnitType, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="UnitTypeComboBox" Width="500" ItemsSource="{Binding UnitTypes}" SelectedItem="{Binding SelectedUnitType, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
             <Label Content="Supply Date"/>
             <DatePicker x:Name="SupplyDatePicker" Width="800" SelectedDate="{Binding SupplyDate, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
             <Label Content="Expiry Date"/>

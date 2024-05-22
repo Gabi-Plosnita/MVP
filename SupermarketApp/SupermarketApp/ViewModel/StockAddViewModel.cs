@@ -16,17 +16,8 @@ namespace SupermarketApp.ViewModel
 
         public StockResponseDto EditingStock { get; set; }
         public int Quantity { get; set; }
-        private ObservableCollection<string> _unitTypes { get; set; }
-        public ObservableCollection<string> UnitTypes
-        {
-            get { return _unitTypes; }
-            set
-            {
-                _unitTypes = value;
-                NotifyPropertyChanged();
-            }
-        }
-        public string SelectedUnitType { get; set; }
+        public ObservableCollection<EUnitType> UnitTypes { get; set; }
+        public EUnitType SelectedUnitType { get; set; }
         public DateTime SupplyDate { get; set; }
         public DateTime ExpiryDate { get; set; }
         public double PurchasePrice { get; set; }
@@ -38,12 +29,7 @@ namespace SupermarketApp.ViewModel
         public StockAddViewModel()
         {
             Products = new ObservableCollection<ProductResponseDto>(_productService.GetAllProducts());
-            UnitTypes = new ObservableCollection<string>
-            {
-                EUnitType.Piece.ToString(),
-                EUnitType.Kilogram.ToString(),
-                EUnitType.Liter.ToString()
-            };
+            UnitTypes = new ObservableCollection<EUnitType>(Enum.GetValues(typeof(EUnitType)).Cast<EUnitType>());
             SaveStockCommand = new RelayCommand<object>(SaveStock);
         }
 
@@ -74,7 +60,7 @@ namespace SupermarketApp.ViewModel
             {
                 ProductId = SelectedProduct.ProductId,
                 Quantity = Quantity,
-                //UnitType = (EUnitType)Enum.Parse(typeof(EUnitType), SelectedUnitType),
+                UnitType = SelectedUnitType,
                 SupplyDate = SupplyDate,
                 ExpirationDate = ExpiryDate,
                 PurchasePrice = PurchasePrice,
