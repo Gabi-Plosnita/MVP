@@ -38,6 +38,11 @@ namespace SupermarketApp.Model.EntityLayer
                 yield return new ValidationResult
                     ("Supply date must be less than expiration date", new[] { nameof(SupplyDate), nameof(ExpirationDate) });
             }
+
+            if(ExpirationDate <= DateTime.Now)
+            {
+                yield return new ValidationResult("Expiration date must be greater than today", new[] { nameof(ExpirationDate) });
+            }
         }
     }
 }

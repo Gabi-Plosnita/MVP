@@ -69,6 +69,11 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
                 throw new Exception("Supply date must be before expiration date");
             }
 
+            if(stock.ExpirationDate < DateTime.Now)
+            {
+                throw new Exception("Expiration date must be in the future");
+            }
+
             stock.SalePrice = stock.PurchasePrice + stock.PurchasePrice * CommercialMargin;
 
             _context.Stocks.Add(stock);
