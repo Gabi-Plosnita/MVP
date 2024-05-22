@@ -8,18 +8,86 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserEditPage">
 
-    <Grid>
-        <StackPanel>
-            <Label Content="{Binding PageTitle}" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
-            <Label Content="Username"/>
-            <TextBox x:Name="UsernameTextBox" Width="800" Text="{Binding Username, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Password"/>
-            <TextBox x:Name="PasswordTextBox" Width="800" Text="{Binding Password, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Role"/>
-            <ComboBox x:Name="RoleComboBox" Width="500" ItemsSource="{Binding Roles}" SelectedItem="{Binding SelectedRole, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Button Content="Save" Width="100" Height="30" Margin="0,20,0,0" HorizontalAlignment="Center" 
-                    Command="{Binding SaveUserCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
-        </StackPanel>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="User Edit"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,10"/>
+
+        <!-- Content -->
+        <Border Grid.Row="1" 
+                Background="White"
+                Margin="20"
+                HorizontalAlignment="Center"
+                Padding="20"
+                CornerRadius="10"
+                BorderThickness="1"
+                BorderBrush="DarkGray">
+            <StackPanel>
+                <!-- Username -->
+                <Label Content="Username" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="UsernameTextBox" 
+                         Width="300" 
+                         Text="{Binding Username, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Password -->
+                <Label Content="Password" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="PasswordTextBox" 
+                         Width="300" 
+                         Text="{Binding Password, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Role -->
+                <Label Content="Role" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <ComboBox x:Name="RoleComboBox" 
+                          Width="300" 
+                          ItemsSource="{Binding Roles}" 
+                          SelectedItem="{Binding SelectedRole, Mode=TwoWay}" 
+                          Margin="0,0,0,10" 
+                          HorizontalAlignment="Left"
+                          FontSize="14"
+                          BorderThickness="1"
+                          Padding="5"/>
+
+                <!-- Save Button -->
+                <Button Content="Save" 
+                        Width="100" 
+                        Height="30" 
+                        Margin="0,20,0,20" 
+                        HorizontalAlignment="Center" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        Background="DodgerBlue" 
+                        Foreground="White"
+                        Command="{Binding SaveUserCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
