@@ -77,7 +77,8 @@ namespace SupermarketApp.ViewModel
 
                 if (userResponseDto.UserType == EUserType.Cashier)
                 {
-                    // show cashier window
+                    CashierPage cashierPage = new CashierPage(userResponseDto);
+                    currentPage.NavigationService?.Navigate(cashierPage);
                 }
             }
             catch (Exception ex)
