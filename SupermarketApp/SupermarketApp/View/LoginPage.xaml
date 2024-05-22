@@ -8,16 +8,66 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LoginPage">
 
-    <Grid>
-        <StackPanel>
-            <Label Content="Username" FontSize="20" HorizontalAlignment="Center" Margin="0,0,120,10" />
-            <TextBox x:Name="Username" Text="{Binding Username, Mode=TwoWay}" FontSize="20" HorizontalAlignment="Center" Width="200" Margin="0,0,0,10"/>
-            <Label Content="Password" FontSize="20" HorizontalAlignment="Center" Margin="0,0,120,10"/>
-            <TextBox x:Name="Password" Text="{Binding Password, Mode=TwoWay}" FontSize="20" HorizontalAlignment="Center" Width="200" Margin="0,0,0,10"/>
+    <Grid Background="#F0F0F0">
+        <Border Background="White" 
+                BorderBrush="#D3D3D3" 
+                BorderThickness="2" 
+                CornerRadius="10" 
+                Padding="20" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="300">
+            <StackPanel>
+                <TextBlock Text="Login" 
+                           FontSize="26" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20" 
+                           Foreground="#333"/>
 
-            <Button x:Name="LoginButton" Content="Login" FontSize="20" HorizontalAlignment="Center" Width="100" Margin="0,50,0,10" 
-            Command="{Binding LoginCommand}" 
-            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
-        </StackPanel>
+                <Label Content="Username" 
+                       FontSize="18" 
+                       Margin="0,0,0,5" 
+                       Foreground="#666"/>
+                <TextBox x:Name="Username" 
+                         Text="{Binding Username, Mode=TwoWay}" 
+                         FontSize="18" 
+                         Width="250" 
+                         Padding="8" 
+                         Margin="0,0,0,20" 
+                         BorderBrush="#D3D3D3" 
+                         BorderThickness="1" 
+                         Background="#FAFAFA" 
+                         HorizontalAlignment="Center"/>
+
+                <Label Content="Password" 
+                       FontSize="18" 
+                       Margin="0,0,0,5" 
+                       Foreground="#666"/>
+                <TextBox x:Name="Password" 
+                         Text="{Binding Password, Mode=TwoWay}" 
+                         FontSize="18" 
+                         Width="250" 
+                         Padding="8" 
+                         Margin="0,0,0,20" 
+                         BorderBrush="#D3D3D3" 
+                         BorderThickness="1" 
+                         Background="#FAFAFA" 
+                         HorizontalAlignment="Center"/>
+
+                <Button x:Name="LoginButton" 
+                        Content="Login" 
+                        FontSize="18" 
+                        Width="250" 
+                        Padding="10" 
+                        Background="#4CAF50" 
+                        Foreground="White" 
+                        BorderBrush="#4CAF50" 
+                        BorderThickness="1" 
+                        HorizontalAlignment="Center" 
+                        Command="{Binding LoginCommand}" 
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
