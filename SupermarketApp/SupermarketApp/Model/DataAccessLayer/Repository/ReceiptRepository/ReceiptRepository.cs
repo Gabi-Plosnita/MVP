@@ -111,6 +111,7 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
         public List<Receipt> GetReceipts()
         {
             var receipts = _context.Receipts
+                                   .Where(r => r.IsPaid == true)
                                    .Include(r => r.Cashier)
                                    .Include(r => r.ProductReceipts)
                                    .ThenInclude(pr => pr.Product)
