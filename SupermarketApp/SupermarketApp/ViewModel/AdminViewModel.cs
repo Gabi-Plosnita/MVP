@@ -152,42 +152,42 @@ namespace SupermarketApp.ViewModel
 
         private void AddProduct(object? obj)
         {
-           /* if (obj is not AdminPage currentPage)
+            if(obj is not AdminPage currentPage)
             {
                 Console.WriteLine("Current page is not AdminPage");
                 return;
-
             }
 
-            currentPage.NavigationService?.Navigate(new EditProductPage());*/
+            var productEditPage = new ProductEditPage();
+            currentPage.NavigationService?.Navigate(productEditPage);
         }
 
         private void EditProduct(object? obj)
         {
-           /* if (SelectedProduct == null)
+            if(SelectedProduct == null)
             {
+                MessageBox.Show("Please select a product to edit!");
                 return;
             }
-            Product product = SelectedProduct;
             if (obj is not AdminPage currentPage)
             {
                 Console.WriteLine("Current page is not AdminPage");
                 return;
-
             }
 
-            currentPage.NavigationService?.Navigate(new EditProductPage(product));*/
+            var productEditPage = new ProductEditPage(SelectedProduct);
+            currentPage.NavigationService?.Navigate(productEditPage);
         }
 
         private void DeleteProduct(object? obj)
         {
-           /* if (SelectedProduct == null)
+           if(SelectedProduct == null)
             {
+                MessageBox.Show("Please select a product to delete!");
                 return;
             }
-            Product product = SelectedProduct;
-            _productBLL.DeleteProduct(product);
-            Products.Remove(product);*/
+            _productService.DeleteProduct(SelectedProduct.ProductId);
+            Products.Remove(SelectedProduct);
         }
 
         private void AddSupplier(object? obj)
