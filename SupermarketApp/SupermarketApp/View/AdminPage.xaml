@@ -234,13 +234,6 @@
                                 Padding="5" 
                                 Width="100" 
                                 Height="30" />
-                            <Button
-                                Content="Delete Stock"
-                                Command="{Binding DeleteStockCommand}"
-                                Margin="5"
-                                Padding="5"
-                                Width="100"
-                                Height="30" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>

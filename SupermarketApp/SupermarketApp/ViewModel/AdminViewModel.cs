@@ -42,8 +42,6 @@ namespace SupermarketApp.ViewModel
         public ICommand EditSupplierCommand { get; set; }
         public ICommand DeleteSupplierCommand { get; set; }
         public ICommand AddStockCommand { get; set; }
-        public ICommand EditStockCommand { get; set; }
-        public ICommand DeleteStockCommand { get; set; }
 
         public AdminViewModel()
         {
@@ -71,8 +69,6 @@ namespace SupermarketApp.ViewModel
             DeleteSupplierCommand = new RelayCommand<object>(DeleteSupplier);
 
             AddStockCommand = new RelayCommand<object>(AddStock);
-            EditStockCommand = new RelayCommand<object>(EditStock);
-            DeleteStockCommand = new RelayCommand<object>(DeleteStock);
         }
 
         private void AddUser(object? obj)
@@ -244,33 +240,5 @@ namespace SupermarketApp.ViewModel
             currentPage.NavigationService?.Navigate(new EditStockPage());*/
         }
 
-        private void EditStock(object? obj)
-        {
-            /*if (SelectedStock == null)
-            {
-                return;
-            }
-            Stock stock = SelectedStock;
-            if (obj is not AdminPage currentPage)
-            {
-                Console.WriteLine("Current page is not AdminPage");
-                return;
-
-            }
-
-            currentPage.NavigationService?.Navigate(new EditStockPage(stock));*/
-        }
-
-        private void DeleteStock(object? obj)
-        {
-            /*if (SelectedStock == null)
-            {
-                return;
-            }
-            Stock stock = SelectedStock;
-            _stockBLL.DeleteStock(stock);
-            Stocks.Remove(stock);*/
-        }
     }
-
 }
