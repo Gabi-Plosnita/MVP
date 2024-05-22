@@ -8,24 +8,130 @@
       d:DesignHeight="800" d:DesignWidth="1000"
       Title="StockAddPage">
 
-    <Grid>
-        <StackPanel>
-            <Label Content="Add Stock" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
-            <Label Content="Product"/>
-            <ComboBox x:Name="ProductComboBox" Width="500" ItemsSource="{Binding Products}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Quantity"/>
-            <TextBox x:Name="QuantityTxtBox" Width="800" Text="{Binding Quantity, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Unit Type"/>
-            <ComboBox x:Name="UnitTypeComboBox" Width="500" ItemsSource="{Binding UnitTypes}" SelectedItem="{Binding SelectedUnitType, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Supply Date"/>
-            <DatePicker x:Name="SupplyDatePicker" Width="800" SelectedDate="{Binding SupplyDate, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Expiry Date"/>
-            <DatePicker x:Name="ExpiryDatePicker" Width="800" SelectedDate="{Binding ExpiryDate, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Purchase Price"/>
-            <TextBox x:Name="PurchaseTextBox" Width="800" Text="{Binding PurchasePrice, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Button Content="Save" Width="100" Height="30" Margin="0,20,0,0" HorizontalAlignment="Center" 
-                    Command="{Binding SaveStockCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
-        </StackPanel>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="Add Stock" 
+                   FontSize="28" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,20,0,10"/>
+
+        <!-- Content -->
+        <Border Grid.Row="1" 
+                Background="White"
+                Margin="20"
+                HorizontalAlignment="Center"
+                Padding="20"
+                CornerRadius="10"
+                BorderThickness="1"
+                BorderBrush="DarkGray">
+            <StackPanel>
+                <!-- Product -->
+                <Label Content="Product" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <ComboBox x:Name="ProductComboBox" 
+                          Width="500" 
+                          ItemsSource="{Binding Products}" 
+                          DisplayMemberPath="Name" 
+                          SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" 
+                          Margin="0,0,0,10" 
+                          HorizontalAlignment="Left"
+                          FontSize="14"
+                          BorderThickness="1"
+                          Padding="5"/>
+
+                <!-- Quantity -->
+                <Label Content="Quantity" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="QuantityTxtBox" 
+                         Width="800" 
+                         Text="{Binding Quantity, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Unit Type -->
+                <Label Content="Unit Type" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <ComboBox x:Name="UnitTypeComboBox" 
+                          Width="500" 
+                          ItemsSource="{Binding UnitTypes}" 
+                          SelectedItem="{Binding SelectedUnitType, Mode=TwoWay}" 
+                          Margin="0,0,0,10" 
+                          HorizontalAlignment="Left"
+                          FontSize="14"
+                          BorderThickness="1"
+                          Padding="5"/>
+
+                <!-- Supply Date -->
+                <Label Content="Supply Date" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <DatePicker x:Name="SupplyDatePicker" 
+                            Width="800" 
+                            SelectedDate="{Binding SupplyDate, Mode=TwoWay}" 
+                            Margin="0,0,0,10" 
+                            HorizontalAlignment="Left"
+                            FontSize="14"
+                            BorderThickness="1"
+                            Padding="5"/>
+
+                <!-- Expiry Date -->
+                <Label Content="Expiry Date" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <DatePicker x:Name="ExpiryDatePicker" 
+                            Width="800" 
+                            SelectedDate="{Binding ExpiryDate, Mode=TwoWay}" 
+                            Margin="0,0,0,10" 
+                            HorizontalAlignment="Left"
+                            FontSize="14"
+                            BorderThickness="1"
+                            Padding="5"/>
+
+                <!-- Purchase Price -->
+                <Label Content="Purchase Price" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="PurchaseTextBox" 
+                         Width="800" 
+                         Text="{Binding PurchasePrice, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Save Button -->
+                <Button Content="Save" 
+                        Width="100" 
+                        Height="30" 
+                        Margin="0,20,0,0" 
+                        HorizontalAlignment="Center" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        Background="DodgerBlue" 
+                        Foreground="White"
+                        Command="{Binding SaveStockCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
