@@ -45,7 +45,6 @@ namespace SupermarketApp.Model.BusinessLogicLayer.Mappers
                 ReceiptId = productReceiptRequestDto.ReceiptId,
                 ProductId = productReceiptRequestDto.ProductId,
                 Quantity = productReceiptRequestDto.Quantity,
-                UnitType = productReceiptRequestDto.UnitType
             };
         }
     }

@@ -45,26 +45,32 @@
                            VerticalAlignment="Center" 
                            Margin="5" 
                            Grid.Row="0" />
+                
                 <!-- Product ComboBox -->
                 <ComboBox Name="ProductComboBox" 
                           Grid.Column="1" 
                           Margin="5" 
                           Grid.Row="0" 
                           Width="120" 
-                          Height="20" />
+                          Height="20" 
+                          ItemsSource="{Binding Products}"
+                          DisplayMemberPath="Name" 
+                          SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" />
 
                 <!-- Quantity Label -->
                 <TextBlock Text="Quantity:" 
                            VerticalAlignment="Center" 
                            Margin="5" 
                            Grid.Row="1" />
+                
                 <!-- Quantity TextBox -->
                 <TextBox Name="QuantityTextBox" 
                          Grid.Column="1" 
                          Margin="5" 
                          Grid.Row="1" 
                          Width="120" 
-                         Height="20" />
+                         Height="20" 
+                         Text="{Binding Quantity, Mode=TwoWay}"/>
             </Grid>
         </StackPanel>
 
@@ -74,9 +80,9 @@
                     HorizontalAlignment="Center" 
                     Margin="10">
             <Button Content="Create Receipt" Margin="5" Padding="10,5" Command="{Binding CreateReceiptCommand}"/>
-            <Button Content="Add Product" Margin="5" Padding="10,5" />
-            <Button Content="Pay Receipt" Margin="5" Padding="10,5" />
-            <Button Content="Search Product" Margin="5" Padding="10,5" />
+            <Button Content="Add Product" Margin="5" Padding="10,5" Command="{Binding AddProductCommand}"/>
+            <Button Content="Pay Receipt" Margin="5" Padding="10,5" Command="{Binding PayReceiptCommand}"/>
+            <Button Content="Search Product" Margin="5" Padding="10,5" Command="{Binding SearchProductCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

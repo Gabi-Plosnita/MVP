@@ -10,8 +10,6 @@ namespace SupermarketApp.Model.EntityLayer
 
         public int Quantity { get; set; }
 
-        public EUnitType UnitType { get; set; }
-
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if(ReceiptId <= 0)
