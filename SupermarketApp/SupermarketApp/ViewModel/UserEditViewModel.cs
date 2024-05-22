@@ -32,11 +32,11 @@ namespace SupermarketApp.ViewModel
             {
                 if (_isEditMode)
                 {
-                    return "Edit Category";
+                    return "Edit User";
                 }
                 else
                 {
-                    return "Add Category";
+                    return "Add User";
                 }
             }
         }

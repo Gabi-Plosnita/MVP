@@ -24,11 +24,11 @@ namespace SupermarketApp.ViewModel
             {
                 if (_isEditMode)
                 {
-                    return "Edit Category";
+                    return "Edit Supplier";
                 }
                 else
                 {
-                    return "Add Category";
+                    return "Add Supplier";
                 }
             }
         }
