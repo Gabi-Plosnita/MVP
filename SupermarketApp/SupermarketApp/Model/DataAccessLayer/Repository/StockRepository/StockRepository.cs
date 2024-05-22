@@ -75,6 +75,18 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
             _context.SaveChanges();
         }
 
+        public void DeleteStock(int id)
+        {
+            var stock = _context.Stocks.Find(id);
+            if(stock == null)
+            {
+                throw new Exception($"Stock with id {id} not found");
+            }
+
+            stock.IsActive = false;
+            _context.SaveChanges();
+        }
+
         public List<Product> GetProducts(DateTime expirationDate)
         {
             var stocks = _context.Stocks

@@ -10,6 +10,8 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         void AddStock(Stock stock);
 
+        void DeleteStock(int id);
+
         List<Product> GetProducts(DateTime expirationDate);
 
     }
