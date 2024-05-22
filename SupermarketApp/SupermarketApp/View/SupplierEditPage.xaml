@@ -8,16 +8,72 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SupplierEditPage">
 
-    <Grid>
-        <StackPanel>
-            <Label Content="{Binding PageTitle}" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,0,0,20"/>
-            <Label Content="Name"/>
-            <TextBox x:Name="NameTxtBox" Width="800" Text="{Binding Name, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Label Content="Country"/>
-            <TextBox x:Name="CountryTxtBox" Width="800" Text="{Binding Country, Mode=TwoWay}" Margin="0,0,0,0" HorizontalAlignment="Left"/>
-            <Button Content="Save" Width="100" Height="30" Margin="0,20,0,0" HorizontalAlignment="Center" 
-                    Command="{Binding SaveSupplierCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
-        </StackPanel>
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Text="{Binding PageTitle}" 
+                   FontSize="28" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,20,0,10"/>
+
+        <!-- Content -->
+        <Border Grid.Row="1" 
+                Background="White"
+                Margin="20"
+                HorizontalAlignment="Center"
+                Padding="20"
+                CornerRadius="10"
+                BorderThickness="1"
+                BorderBrush="DarkGray">
+            <StackPanel>
+                <!-- Name -->
+                <Label Content="Name" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="NameTxtBox" 
+                         Width="300" 
+                         Text="{Binding Name, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Country -->
+                <Label Content="Country" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Margin="0,0,0,5"/>
+                <TextBox x:Name="CountryTxtBox" 
+                         Width="300" 
+                         Text="{Binding Country, Mode=TwoWay}" 
+                         Margin="0,0,0,10" 
+                         HorizontalAlignment="Left" 
+                         FontSize="14"
+                         BorderThickness="1"
+                         Padding="5"/>
+
+                <!-- Save Button -->
+                <Button Content="Save" 
+                        Grid.Row="2"
+                        Width="100" 
+                        Height="30" 
+                        Margin="0,20,0,20" 
+                        HorizontalAlignment="Center" 
+                        FontSize="16" 
+                        FontWeight="Bold" 
+                        Background="DodgerBlue" 
+                        Foreground="White"
+                        Command="{Binding SaveSupplierCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type Page}}}"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
