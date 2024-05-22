@@ -125,7 +125,9 @@ namespace SupermarketApp.Model.DataAccessLayer.Repository
 
         public void DeleteProduct(int id)
         {
-            var product = _context.Products.Find(id);
+            var product = _context.Products
+                                  .Include(p => p.Stocks)
+                                  .FirstOrDefault(p => p.ProductId == id);
             if(product == null)
             {
                 throw new Exception($"Product with id {id} not found");
